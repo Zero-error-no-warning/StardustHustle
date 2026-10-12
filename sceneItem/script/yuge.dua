@@ -1,0 +1,10 @@
+// Per-scene state: instance int count = 0;
+// Private dependency: instance import shared.movement as movement;
+// Use self / scene inside functions, after the instance has been attached.
+import random;
+
+export void run(){
+    self.everyNsecs(random.choice([1.0,1.4,2.3]),
+        () :> self.emit(10)
+    );
+}

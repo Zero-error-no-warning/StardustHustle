@@ -1,0 +1,98 @@
+{
+    "name": "playerStanding",
+    "nodes": [
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "..\\res\\character\\player.zsc",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "8bd2b31b-c4d2-4751-9c4e-d9b1b1d1386d",
+            "kind": "character",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "character",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                }
+            ],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 35.0493899481392077,
+            "y": 12.9682742808115137,
+            "z": 0.0
+        }
+    ],
+    "previewEnvironment": {
+        "ambientPower": 1.0,
+        "camera": {
+            "angle": 0.0,
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "x": -73.6276449332658274,
+            "y": -74.004004603753188,
+            "zoom": 2.8531167061100029
+        },
+        "canvas": {
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "enabled": true,
+            "name": "Preview environment",
+            "pers": 0.0,
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "x": -7.0,
+            "y": 6.0,
+            "z": 0.0
+        },
+        "enabled": true
+    },
+    "version": 1,
+    "windowSize": {
+        "height": 480,
+        "width": 640
+    }
+}

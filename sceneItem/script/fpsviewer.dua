@@ -1,0 +1,8 @@
+// Per-scene state: instance int count = 0;
+// Private dependency: instance import shared.movement as movement;
+// Use self / scene inside functions, after the instance has been attached.
+
+export void run(){
+    // Behavior implementation
+    self.contents =  i"$(Timer.fps)";
+}

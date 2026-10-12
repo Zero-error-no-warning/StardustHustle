@@ -1,0 +1,332 @@
+{
+    "name": "untitled",
+    "nodes": [
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "..\\res\\map\\base_small.zsm",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "565f41f1-687a-4184-a351-dbe24966f661",
+            "kind": "map",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "map",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "z",
+                    "value": "-30"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "scale",
+                    "value": "1"
+                },
+                {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                }
+            ],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -30.0
+        },
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "57f28d44-2525-4cbe-acdc-dc70c4a874bb",
+            "kind": "particleEffect",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "yuge",
+            "parentId": "565f41f1-687a-4184-a351-dbe24966f661",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "color\/v_r",
+                    "value": "100"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "100"
+                },
+                {
+                    "path": "velocityRandom\/x",
+                    "value": "5"
+                },
+                {
+                    "path": "velocityRandom\/y",
+                    "value": "5"
+                },
+                {
+                    "path": "endSize",
+                    "value": "16"
+                },
+                {
+                    "path": "velocityRandom\/z",
+                    "value": "3"
+                },
+                {
+                    "path": "autoPlayMode",
+                    "value": "Manual"
+                },
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Circle"
+                },
+                {
+                    "path": "spawnShape\/radius",
+                    "value": "5"
+                },
+                {
+                    "path": "sizeMultiplier\/min",
+                    "value": "16"
+                },
+                {
+                    "path": "sizeMultiplier\/max",
+                    "value": "16"
+                },
+                {
+                    "path": "sizeMultiplier\/min",
+                    "value": "8"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "2"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "2"
+                },
+                {
+                    "path": "sizeMultiplier\/max",
+                    "value": "8"
+                },
+                {
+                    "path": "sizeMultiplier\/min",
+                    "value": "1"
+                },
+                {
+                    "path": "sizeMultiplier\/max",
+                    "value": "1"
+                },
+                {
+                    "path": "lz",
+                    "value": "120"
+                },
+                {
+                    "path": "startSize",
+                    "value": "2"
+                },
+                {
+                    "path": "endSize",
+                    "value": "4"
+                },
+                {
+                    "path": "p\/x",
+                    "value": "645.413"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "420.827"
+                }
+            ],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 489.185044729027595,
+            "y": 413.150603979027096,
+            "z": 120.0
+        },
+        {
+            "action": {
+                "function": "run",
+                "module": "script.yuge"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "c5aaf1ea-b792-4c5e-9469-6852c5fbbddd",
+            "kind": "doAlways",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doAlways",
+            "parentId": "57f28d44-2525-4cbe-acdc-dc70c4a874bb",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        }
+    ],
+    "previewEnvironment": {
+        "ambientPower": 1.0,
+        "camera": {
+            "angle": 0.0,
+            "centerX": 0.5,
+            "centerY": 0.5,
+            "x": 1188.88545789452087,
+            "y": 909.794861183950616,
+            "zoom": 0.564473930053779993
+        },
+        "canvas": {
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "enabled": true,
+            "name": "Preview environment",
+            "pers": 0.0494122000000000242,
+            "projection": "OnePoint",
+            "properties": [
+                {
+                    "path": "perspectionMode",
+                    "value": "CameraY"
+                },
+                {
+                    "path": "pers",
+                    "value": "0.274512"
+                },
+                {
+                    "path": "perspectionMode",
+                    "value": "OnePoint"
+                },
+                {
+                    "path": "persDivMax",
+                    "value": "2"
+                },
+                {
+                    "path": "pers",
+                    "value": "0.0494122"
+                },
+                {
+                    "path": "aspectZ",
+                    "value": "1"
+                }
+            ],
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "enabled": true
+    },
+    "version": 1,
+    "windowSize": {
+        "height": 480,
+        "width": 640
+    }
+}

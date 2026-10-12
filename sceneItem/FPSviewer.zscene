@@ -1,0 +1,143 @@
+{
+    "name": "untitled",
+    "nodes": [
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "a693ddc9-41be-4fa9-8546-452d5d449292",
+            "kind": "text",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "text",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "run",
+                "module": "script.fpsviewer"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "30e40978-8c50-4581-b256-5e188ea40094",
+            "kind": "doAlways",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doAlways",
+            "parentId": "a693ddc9-41be-4fa9-8546-452d5d449292",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        }
+    ],
+    "previewEnvironment": {
+        "ambientPower": 1.0,
+        "camera": {
+            "angle": 0.0,
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "x": 0.0,
+            "y": 0.0,
+            "zoom": 1.0
+        },
+        "canvas": {
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "enabled": true,
+            "name": "",
+            "pers": 0.0,
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "enabled": true
+    },
+    "version": 1,
+    "windowSize": {
+        "height": 480,
+        "width": 640
+    }
+}

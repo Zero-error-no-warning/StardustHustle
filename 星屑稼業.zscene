@@ -1,0 +1,292 @@
+{
+    "name": "星屑稼業",
+    "nodes": [
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 960.0,
+            "id": "f133041b-1212-4a35-8235-1a4b33d463f8",
+            "kind": "lightCanvas",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "MainCanvas",
+            "parentId": "",
+            "pers": 0.100000000000000006,
+            "phase": "normal",
+            "projection": "OnePoint",
+            "properties": [
+                {
+                    "path": "camera\/a\/value",
+                    "value": "0"
+                },
+                {
+                    "path": "perspectionMode",
+                    "value": "OnePoint"
+                },
+                {
+                    "path": "pers",
+                    "value": "0.1"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "320"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "240"
+                },
+                {
+                    "path": "camera\/zoom",
+                    "value": "1"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "1280"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "960"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "240"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "180"
+                }
+            ],
+            "scale": 1.0,
+            "width": 1280.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "init",
+                "module": "script.MainCanvas"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "1d7dd81a-2399-4f1d-8452-3f1555977d67",
+            "kind": "doOnce",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doOnce",
+            "parentId": "f133041b-1212-4a35-8235-1a4b33d463f8",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "sceneItem\\base_small.zscene",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "a13c7765-ef6e-4460-8986-575fc5042de7",
+            "kind": "externalScene",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "map_small",
+            "parentId": "f133041b-1212-4a35-8235-1a4b33d463f8",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": -661.728443230589164,
+            "y": -471.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "",
+                "module": ""
+            },
+            "assetPath": "sceneItem\\FPSviewer.zscene",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": "",
+                "module": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "317ae5f8-df10-4783-b235-e44153ba38c9",
+            "kind": "externalScene",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "FPSviewer",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "width": 640.0,
+            "x": 1227.25555989075292,
+            "y": 932.943425673039428,
+            "z": 0.0
+        }
+    ],
+    "previewEnvironment": {
+        "ambientPower": 1.0,
+        "camera": {
+            "angle": 0.0,
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "x": 0.0,
+            "y": 0.0,
+            "zoom": 1.0
+        },
+        "canvas": {
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "enabled": true,
+            "name": "",
+            "pers": 0.0,
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "enabled": false
+    },
+    "version": 1,
+    "windowSize": {
+        "height": 960,
+        "width": 1280
+    }
+}
