@@ -3,90 +3,13 @@
     "nodes": [
         {
             "action": {
-                "function": "",
-                "module": ""
-            },
-            "assetPath": "..\\res\\map\\base_small.zsm",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": "",
-                "module": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "565f41f1-687a-4184-a351-dbe24966f661",
-            "kind": "map",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "map",
-            "parentId": "",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "z",
-                    "value": "-30"
-                },
-                {
-                    "path": "p\/y",
-                    "value": "0"
-                },
-                {
-                    "path": "scale",
-                    "value": "1"
-                },
-                {
-                    "path": "p\/x",
-                    "value": "0"
-                },
-                {
-                    "path": "p\/y",
-                    "value": "0"
-                }
-            ],
-            "scale": 1.0,
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": -30.0
-        },
-        {
-            "action": {
-                "function": "",
-                "module": ""
+                "function": ""
             },
             "assetPath": "",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
-                "function": "",
-                "module": ""
+                "function": ""
             },
             "enabled": true,
             "height": 480.0,
@@ -214,22 +137,21 @@
                 }
             ],
             "scale": 1.0,
+            "scriptModule": "script.yuge",
             "width": 640.0,
-            "x": 489.185044729027595,
-            "y": 413.150603979027096,
+            "x": 733.660462729026449,
+            "y": 445.038701979026882,
             "z": 120.0
         },
         {
             "action": {
-                "function": "run",
-                "module": "script.yuge"
+                "function": "run"
             },
             "assetPath": "",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
-                "function": "",
-                "module": ""
+                "function": ""
             },
             "enabled": true,
             "height": 480.0,
@@ -268,6 +190,212 @@
             "projection": "None",
             "properties": [],
             "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "init"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "0de9df42-2513-4549-afc1-4c72bdcbf2d2",
+            "kind": "doOnce",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doOnce",
+            "parentId": "57f28d44-2525-4cbe-acdc-dc70c4a874bb",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "..\\res\\map\\base_small.zsm",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "565f41f1-687a-4184-a351-dbe24966f661",
+            "kind": "map",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "map",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "physicsBody": {
+                "category": 1,
+                "collisionOnly": false,
+                "continuous": true,
+                "density": 1.0,
+                "friction": 0.5,
+                "gravityScale": 1.0,
+                "lockRotation": false,
+                "lockZ": false,
+                "mask": 18446744073709551615,
+                "mode": "staticBody",
+                "restitution": 0.0,
+                "sensor": false,
+                "spaceId": "df67db6b-dd56-43cd-a479-a8a1cd1e46be",
+                "velocityX": 0.0,
+                "velocityY": 0.0,
+                "velocityZ": 0.0
+            },
+            "physicsMap": {
+                "layer": "",
+                "zMax": 200.0,
+                "zMin": 0.0
+            },
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "z",
+                    "value": "-30"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "scale",
+                    "value": "1"
+                },
+                {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -30.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "df67db6b-dd56-43cd-a479-a8a1cd1e46be",
+            "kind": "sceneReference",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "ps",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "referenceRequired": true,
+            "referenceType": "PhysicsSpace",
+            "scale": 1.0,
+            "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
@@ -280,16 +408,16 @@
             "angle": 0.0,
             "centerX": 0.5,
             "centerY": 0.5,
-            "x": 1188.88545789452087,
-            "y": 909.794861183950616,
-            "zoom": 0.564473930053779993
+            "x": 507.119972487334621,
+            "y": 423.367420299203161,
+            "zoom": 6.72749994932564555
         },
         "canvas": {
             "centerX": 0.0,
             "centerY": 0.0,
             "enabled": true,
             "name": "Preview environment",
-            "pers": 0.0494122000000000242,
+            "pers": 0.049412200000000038,
             "projection": "OnePoint",
             "properties": [
                 {
@@ -324,7 +452,8 @@
         },
         "enabled": true
     },
-    "version": 1,
+    "scriptModule": "",
+    "version": 2,
     "windowSize": {
         "height": 480,
         "width": 640

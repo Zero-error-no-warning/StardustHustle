@@ -1,0 +1,168 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+import scenes;
+
+
+instance double speed = 60.0;
+
+double cameraSpan = 8.0;
+double minAimDistance = 30.0;
+double maxAimDistance = 200.0;
+double scopeZoom =1.0;
+double aimDistance = cameraSpan;
+
+auto lerp = (Vec2 a, Vec2 b, double t) => a*(1-t) + b*t;
+
+auto mainCanvas = scenes.MainCanvas;
+    
+auto self_motions = {};
+Vec2 targetPosition = Vec2.Zero;
+
+auto stand_motions = {};
+auto stand = null;
+
+export void init(){
+    auto physics = self.master;
+    auto map = scenes.MainCanvas.findScene("stage").findScene("map");
+    auto eventIndex = map.eventMarkerIndex("SpawnPoint");
+    if(eventIndex >= 0){
+        auto marker = map.events[eventIndex];
+        physics.p = map.toWorld(marker.p);
+    }
+
+
+    targetPosition = Vec2(Keeper.windowSize.x*0.5, Keeper.windowSize.y*0.2);
+    self_motions = {
+        idle = self.motionIndex("idle"),
+        walkFront = self.motionIndex("walkFront"),
+        walkLeft = self.motionIndex("walkFront"),
+        walkRight = self.motionIndex("walkFront"),
+        walkBack = self.motionIndex("walkFront"),
+        run = self.motionIndex("walkFront"),
+        holdLantern = self.motionIndex("holdLantern"),
+        holdHandgun = self.motionIndex("holdHandgun"),
+    };
+    stand = scenes.leftCanvas.stand;
+    stand_motions = {
+        blink = stand.motionIndex("blink"),
+        walk = stand.motionIndex("walk"),
+        idle = stand.motionIndex("idle"),
+        holdLantern = stand.motionIndex("holdLantern"),
+        holdHandgun = stand.motionIndex("holdHandgun"),
+    };
+
+    self.motionSpeed = 1.0;
+    stand.motionSpeed = 1.0;
+    physics.z = 0;
+}
+
+
+void mosueUpdate(){
+    auto physics = self.master;
+    auto dp = Mouse.p - targetPosition;
+    auto len = (targetPosition.toCanvas(mainCanvas)-self.p).norm;
+    auto da = dp.x / len ;
+    auto dr = dp.y / len ;
+    physics.a = physics.a + da;
+    mainCanvas.camera.zoom += dr;
+    import math;
+
+    mainCanvas.camera.zoom = math.clamp(mainCanvas.camera.zoom, 0.5, 2.0);
+    Mouse.p = targetPosition;
+}
+
+auto mainCanvasScript = sceneModule(mainCanvas);
+auto playerMove = KeyConfig.Set("PlayerMove");
+
+export void run(){
+    Vec2 moveInput = Vec2(0, 0);
+    if(playerMove.isPressed("MoveFront"))
+        moveInput.x = moveInput.x + 1;
+    if(playerMove.isPressed("MoveBack"))
+        moveInput.x = moveInput.x - 1;
+    if(playerMove.isPressed("MoveLeft"))
+        moveInput.y = moveInput.y - 1;
+    if(playerMove.isPressed("MoveRight"))
+        moveInput.y = moveInput.y + 1;
+        
+    
+    // Vec3 v = Vec3(0,0,0);
+    // v.xy = moveInput.unit.rot(self.a) * speed;
+    
+    Vec3 v = Vec3( moveInput.unit.rot(self.a) * speed);
+    auto physics = self.master;
+    if(playerMove.isPressed("Dash")){
+        v =v * ((moveInput.x > 0 && moveInput.y == 0) ? 2 : 1.5);
+    }
+    physics.setPhysicsVelocity(v);  
+    // if(!map.blocked(self.p + 10*v*self.dt,"Collision 1")) self.p =  self.p  + v*self.dt;
+
+    if(moveInput.y > 0)
+        self.morph(self_motions.walkLeft,0.3);
+    else if(moveInput.y < 0)
+        self.morph(self_motions.walkRight,0.3);
+    else if(moveInput.x < 0)
+        self.morph(self_motions.walkBack,0.3);
+    else if(moveInput.x > 0){
+        if(v.norm < 100)
+            self.morph(self_motions.walkFront,0.3);
+        else
+            self.morph(self_motions.run,0.3);
+    }
+    else{
+        self.morph(self_motions.idle,0.3);
+        // stand.morph(stand_motions.idle,0.3);
+    }
+
+    if(moveInput.norm > 0){
+        stand.morph(stand_motions.walk,0.3);
+    }
+    else{
+        stand.morph(stand_motions.idle,0.3);
+    }
+    self.everyNsecs(5,(){
+        stand.morphParts("Eye",stand_motions.blink,0.0,1);
+    });
+    
+
+    // if(mainCanvasScript.playerParameter.haveHandgun){
+    //     stand.morphParts("HandR",stand_motions.holdHandgun,0.3);
+    //     stand.morphParts("ArmR",stand_motions.holdHandgun,0.3);
+    //     stand.morphParts("HandL",stand_motions.holdHandgun,0.3);
+    //     stand.morphParts("ArmL",stand_motions.holdHandgun,0.3);
+
+    //     self.morphParts("Hand_R",self_motions.holdHandgun,0.3);
+    //     self.morphParts("Arm_R",self_motions.holdHandgun,0.3);
+    //     self.morphParts("Hand_L",self_motions.holdHandgun,0.3);
+    //     self.morphParts("Arm_L",self_motions.holdHandgun,0.3);
+    // }
+    // else{
+    //     stand.clearMorphParts("HandR",0.3);
+    //     stand.clearMorphParts("ArmR",0.3);
+    //     stand.clearMorphParts("HandL",0.3);
+    //     stand.clearMorphParts("ArmL",0.3);
+        
+    //     self.clearMorphParts("Hand_R",0.3);
+    //     self.clearMorphParts("Arm_R",0.3);
+    //     self.clearMorphParts("Hand_L",0.3);
+    //     self.clearMorphParts("Arm_L",0.3);
+    //     self.morphParts("Hand_L",self_motions.holdLantern,0.0);
+    //     self.morphParts("Arm_L",self_motions.holdLantern,0.0);
+
+    //     stand.morphParts("ArmL",stand_motions.holdLantern,0.0);
+    //     stand.morphParts("HandL",stand_motions.holdLantern,0.0);
+    // }
+
+    
+    // auto footSound = self.sub("sound_foot");
+    // if (self.selectedMotionIndex != self_motions.idle) {
+    //     if (!footSound.isPlaying)
+    //         self.everyNsecs(0.05,(){
+    //             footSound.play(false); // 続きから再開
+    //         });
+    // } else {
+    //     if (footSound.isPlaying)
+    //         footSound.stop();      // 再生位置を保持して停止
+    // }
+    mosueUpdate();
+}

@@ -1,7 +1,35 @@
 // Per-scene state: instance int count = 0;
 // Private dependency: instance import shared.movement as movement;
 // Use self / scene inside functions, after the instance has been attached.
+import scenes;
+auto player = null;
+
 
 export void init(){
+     player = findScene(self,"player");
     // Behavior implementation
+    self.camera.center =Vec2(0.5,0.8);
+    Timer.limitFPS = 120;
+    KeyConfig["PlayerMove"].current = {
+        MoveFront  =  InputStatus("?Shift W"),
+        MoveBack   =  InputStatus("?Shift S"),
+        MoveLeft   =  InputStatus("?Shift A"),
+        MoveRight  =  InputStatus("?Shift D"),
+        Dash       =  InputStatus("Shift *"),
+    };
+}
+
+export table playerParameter = {
+    haveHandgun = false,
+};
+export void run(){
+    
+    self.camera.p = player.p;
+    self.camera.a = player.a + Angle.Deg(90);
+    
+    if(Keyboard.isClicked("F")){
+        playerParameter.haveHandgun = !playerParameter.haveHandgun;
+    }
+    self.snapCameraPixel();
+    self.pixelSize =cast(int)(self.camera.zoom+0.5);
 }

@@ -1,0 +1,5 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+
+export void init(){
+}
