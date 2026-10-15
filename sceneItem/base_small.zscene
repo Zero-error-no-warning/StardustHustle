@@ -139,8 +139,8 @@
             "scale": 1.0,
             "scriptModule": "script.yuge",
             "width": 640.0,
-            "x": 733.660462729026449,
-            "y": 445.038701979026882,
+            "x": 487.66046272902804,
+            "y": 407.03870197902711,
             "z": 120.0
         },
         {
@@ -306,7 +306,7 @@
                 "mode": "staticBody",
                 "restitution": 0.0,
                 "sensor": false,
-                "spaceId": "df67db6b-dd56-43cd-a479-a8a1cd1e46be",
+                "spaceId": "",
                 "velocityX": 0.0,
                 "velocityY": 0.0,
                 "velocityZ": 0.0
@@ -345,72 +345,17 @@
             "x": 0.0,
             "y": 0.0,
             "z": -30.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "df67db6b-dd56-43cd-a479-a8a1cd1e46be",
-            "kind": "sceneReference",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "ps",
-            "parentId": "",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "referenceRequired": true,
-            "referenceType": "PhysicsSpace",
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
         }
     ],
     "previewEnvironment": {
-        "ambientPower": 1.0,
+        "ambientPower": 0.5,
         "camera": {
             "angle": 0.0,
             "centerX": 0.5,
             "centerY": 0.5,
-            "x": 507.119972487334621,
-            "y": 423.367420299203161,
-            "zoom": 6.72749994932564555
+            "x": 705.139206066918177,
+            "y": 435.269866751354868,
+            "zoom": 1.000000000000006
         },
         "canvas": {
             "centerX": 0.0,

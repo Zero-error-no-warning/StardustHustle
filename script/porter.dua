@@ -1,0 +1,56 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+
+auto positionState  = null;
+Vec2 targetP = Vec2(0,0);
+double targetZ = 0.0;
+
+export void init(){
+    positionState = self.stateMachine("position");
+    auto sensor = self.sub("porterSensor");
+    auto text = self.sub("text");
+
+    positionState.doState("default",(){
+        targetP = Vec2(-20,-40);
+        targetZ = 60.;
+        sensor.size = Vec2(16,16);
+        if(sensor.hasPhysicsCollision()) positionState.toState("leftWall");
+    });
+    positionState.doState("leftWall",(){
+        targetP = Vec2(-20,40);
+        targetZ = 60.;
+        sensor.size = Vec2(16,16);
+        if(sensor.hasPhysicsCollision()) positionState.toState("sideWall");
+
+    });
+    positionState.doState("sideWall",(){
+        targetP = Vec2(-30,0);
+        targetZ = 120.;
+        sensor.size = Vec2(16,16);
+        if(sensor.hasPhysicsCollision()) positionState.toState("allWall");
+    });
+    positionState.doState("allWall",(){
+        targetP = Vec2(0,0);
+        targetZ = 180.0;
+        sensor.size = Vec2(16,60);
+        if(!sensor.hasPhysicsCollision()) positionState.toState("default");
+    });
+    positionState.changeState("default");
+    
+}
+
+import scenes;
+
+export void run(){
+    auto sensor = self.master;
+    self.lp += (targetP-self.lp)*self.dt;
+    self.z += (targetZ-self.z)*self.dt;
+    auto mainCanvas = scenes.MainCanvas;
+    auto targetRate = sceneModule(mainCanvas).targetRate;
+    auto lightTarget = (targetRate*Keeper.windowSize).ofUI(mainCanvas);
+    auto light = self.sub("light");
+    auto lightGrip = self.part("light");
+    light.p = lightGrip.p;
+    light.z = lightGrip.z;
+    light.targetPoint = Vec3(lightTarget);
+}

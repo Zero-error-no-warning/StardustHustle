@@ -118,6 +118,10 @@
                 {
                     "path": "camera\/yflip",
                     "value": "false"
+                },
+                {
+                    "path": "fogDownsample",
+                    "value": "2"
                 }
             ],
             "scale": 1.0,
@@ -412,7 +416,7 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 1228.97839487701231,
+            "x": 1178.34182080293999,
             "y": 695.433598659405106,
             "z": 1.07000000000000006
         },
@@ -509,6 +513,30 @@
                 {
                     "path": "camera\/p\/x",
                     "value": "-65.0068"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "180"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "360"
+                },
+                {
+                    "path": "pixelSize",
+                    "value": "1"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "270"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "540"
+                },
+                {
+                    "path": "pixelSize",
+                    "value": "2"
                 }
             ],
             "scale": 1.0,
@@ -522,7 +550,7 @@
             "action": {
                 "function": ""
             },
-            "assetPath": "res\\character\\player.zsc",
+            "assetPath": "res\\character\\stand\\player.zsc",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
@@ -558,7 +586,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "stand",
+            "name": "stand_player",
             "parentId": "5b244696-bb07-4716-a5cd-f17a565aeb4b",
             "pers": 0.0,
             "phase": "normal",
@@ -574,14 +602,88 @@
                 },
                 {
                     "path": "scale",
-                    "value": "3"
+                    "value": "2"
+                },
+                {
+                    "path": "lp\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "0"
                 }
             ],
-            "scale": 3.0,
+            "scale": 2.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": -177.892753241263165,
-            "y": 186.896335049580102,
+            "x": -139.146567717996476,
+            "y": 140.942007301454254,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "res\\character\\stand\\porterDrone.zsc",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "8754ff72-162d-43f6-9773-fafcdba84a17",
+            "kind": "character",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "stand_porter",
+            "parentId": "5b244696-bb07-4716-a5cd-f17a565aeb4b",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "scale",
+                    "value": "2"
+                },
+                {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                }
+            ],
+            "scale": 2.0,
+            "scriptModule": "script.stand_porter",
+            "width": 640.0,
+            "x": -59.2495062541145714,
+            "y": 12.5680770842060952,
             "z": 0.0
         },
         {
@@ -600,15 +702,15 @@
             "kind": "light",
             "light": {
                 "alpha": 255.0,
-                "blue": 255.0,
+                "blue": 100.0,
                 "decay": 1.0,
                 "directionX": 0.0,
                 "directionY": 0.0,
                 "directionZ": -1.0,
                 "fog": 0.0,
-                "green": 255.0,
+                "green": 200.0,
                 "pitch": 0.0,
-                "power": 0.320000000000000007,
+                "power": 0.128000000000000003,
                 "quality": 0.900000000000000022,
                 "r": 100.0,
                 "red": 255.0,
@@ -624,7 +726,7 @@
                 "yaw": 0.0
             },
             "lightType": "AmbientLight",
-            "name": "light",
+            "name": "stand_amb",
             "parentId": "5b244696-bb07-4716-a5cd-f17a565aeb4b",
             "pers": 0.0,
             "phase": "normal",
@@ -632,7 +734,15 @@
             "properties": [
                 {
                     "path": "power",
-                    "value": "0.32"
+                    "value": "0.128"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "200"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "100"
                 }
             ],
             "scale": 1.0,
@@ -991,12 +1101,6 @@
             "phase": "normal",
             "projection": "None",
             "properties": [],
-            "referenceBindings": [
-                {
-                    "slotId": "e99a4e76-43d7-4f52-ba7c-1baa100ef70c",
-                    "targetId": "479f3117-dc51-4919-93d0-bace2676193e"
-                }
-            ],
             "referenceRequired": true,
             "referenceType": "ExternalScene",
             "scale": 1.0,
@@ -1051,7 +1155,7 @@
             "pers": 0.0,
             "phase": "normal",
             "physicsBody": {
-                "category": 1,
+                "category": 2,
                 "collisionOnly": true,
                 "continuous": true,
                 "density": 1.0,
@@ -1094,70 +1198,15 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 115.275382347020297,
-            "y": 89.5679519475078081,
+            "x": 141.186839971925991,
+            "y": 83.2431079603261708,
             "z": 0.0
         },
         {
             "action": {
                 "function": ""
             },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "e99a4e76-43d7-4f52-ba7c-1baa100ef70c",
-            "kind": "sceneReference",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "ps",
-            "parentId": "0d53e548-ff6f-4d71-b27b-32ca7b751d16",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "referenceRequired": true,
-            "referenceType": "PhysicsSpace",
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "res\\character\\topviewPlayer.zsc",
+            "assetPath": "res\\character\\topview\\player.zsc",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
@@ -1214,10 +1263,626 @@
                 {
                     "path": "lp\/y",
                     "value": "0"
+                },
+                {
+                    "path": "lp\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "0"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "script.player",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "7ecf8728-64c8-4904-9450-e6ebb50aa5ec",
+            "kind": "light",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 244.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "stand_point",
+            "parentId": "5b244696-bb07-4716-a5cd-f17a565aeb4b",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "r",
+                    "value": "244"
+                },
+                {
+                    "path": "z",
+                    "value": "100"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": -69.1244239631335802,
+            "y": 43.9882697947215462,
+            "z": 100.0
+        },
+        {
+            "action": {
+                "function": "init"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "39b84a89-3858-4ec9-a625-f441f838808d",
+            "kind": "doOnce",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doOnce",
+            "parentId": "8754ff72-162d-43f6-9773-fafcdba84a17",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "res\\character\\topview\\porterDrone.zsc",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "06419d9a-825b-483e-af19-4b62cff619e2",
+            "kind": "character",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "porter",
+            "parentId": "116a72c7-b036-4efd-918f-b5d639b9049d",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "lz",
+                    "value": "60"
+                },
+                {
+                    "path": "lp\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "isVisible",
+                    "value": "true"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "script.porter",
+            "width": 640.0,
+            "x": -34.5249368686868365,
+            "y": -2.71267361111110006,
+            "z": 60.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "res\\image\\circleLight.png",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "5a5ea605-6ef3-4318-8c45-5c15bbf31faf",
+            "kind": "light",
+            "light": {
+                "alpha": 255.0,
+                "blue": 0.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.300000000000000044,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 5.0,
+                "spreadY": 5.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "ProjectLight",
+            "name": "light",
+            "parentId": "06419d9a-825b-483e-af19-4b62cff619e2",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "fog",
+                    "value": "0.5"
+                },
+                {
+                    "path": "spread\/x",
+                    "value": "10"
+                },
+                {
+                    "path": "spread\/y",
+                    "value": "10"
+                },
+                {
+                    "path": "spread\/x",
+                    "value": "5"
+                },
+                {
+                    "path": "spread\/y",
+                    "value": "5"
+                },
+                {
+                    "path": "fog",
+                    "value": "0.5"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "fog",
+                    "value": "0"
+                },
+                {
+                    "path": "quality",
+                    "value": "0"
+                },
+                {
+                    "path": "fog",
+                    "value": "1"
+                },
+                {
+                    "path": "quality",
+                    "value": "0.9"
+                },
+                {
+                    "path": "fog",
+                    "value": "0.3"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "run"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "1c3c4d08-82c1-4048-81e6-ec32e3c0c975",
+            "kind": "doAlways",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doAlways",
+            "parentId": "06419d9a-825b-483e-af19-4b62cff619e2",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "init"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "98cb7055-7dec-4bef-a4a4-204744c297f2",
+            "kind": "doOnce",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doOnce",
+            "parentId": "06419d9a-825b-483e-af19-4b62cff619e2",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.5,
+            "centerY": 0.5,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "e769d872-e351-44c5-b59d-84b909b4b7e3",
+            "kind": "alp",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "porterSensor",
+            "parentId": "06419d9a-825b-483e-af19-4b62cff619e2",
+            "pers": 0.0,
+            "phase": "normal",
+            "physicsBody": {
+                "category": 1,
+                "collisionOnly": true,
+                "continuous": true,
+                "density": 1.0,
+                "friction": 0.5,
+                "gravityScale": 1.0,
+                "lockRotation": true,
+                "lockZ": true,
+                "mask": 1,
+                "mode": "kinematicBody",
+                "restitution": 0.0,
+                "sensor": true,
+                "spaceId": "",
+                "velocityX": 0.0,
+                "velocityY": 0.0,
+                "velocityZ": 0.0
+            },
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "lp\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "center\/x",
+                    "value": "0.5"
+                },
+                {
+                    "path": "center\/y",
+                    "value": "0.5"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "16"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "16"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": -24.1674558080807884,
+            "y": -30.5792297979797567,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "895c061a-afaa-4ebd-acc4-6f5f4bc422d3",
+            "kind": "scene",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "sound",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "res\\sound\\革靴で歩く.mp3",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "8cb39fae-3302-4da3-ba0e-537f1630ae62",
+            "kind": "sound",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "footsteps",
+            "parentId": "895c061a-afaa-4ebd-acc4-6f5f4bc422d3",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "clipStartMS",
+                    "value": "1153.23"
+                },
+                {
+                    "path": "clipEndMS",
+                    "value": "2627.7"
+                },
+                {
+                    "path": "loop",
+                    "value": "true"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,

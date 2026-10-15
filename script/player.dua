@@ -5,7 +5,7 @@ import scenes;
 
 instance double speed = 60.0;
 
-double cameraSpan = 8.0;
+double cameraSpan = 3.0;
 double minAimDistance = 30.0;
 double maxAimDistance = 200.0;
 double scopeZoom =1.0;
@@ -30,8 +30,8 @@ export void init(){
         physics.p = map.toWorld(marker.p);
     }
 
-
-    targetPosition = Vec2(Keeper.windowSize.x*0.5, Keeper.windowSize.y*0.2);
+    auto targetRate = sceneModule(mainCanvas).targetRate;
+    targetPosition = targetRate*Keeper.windowSize;
     self_motions = {
         idle = self.motionIndex("idle"),
         walkFront = self.motionIndex("walkFront"),
@@ -42,7 +42,7 @@ export void init(){
         holdLantern = self.motionIndex("holdLantern"),
         holdHandgun = self.motionIndex("holdHandgun"),
     };
-    stand = scenes.leftCanvas.stand;
+    stand = scenes.leftCanvas.stand_player;
     stand_motions = {
         blink = stand.motionIndex("blink"),
         walk = stand.motionIndex("walk"),
@@ -67,7 +67,7 @@ void mosueUpdate(){
     mainCanvas.camera.zoom += dr;
     import math;
 
-    mainCanvas.camera.zoom = math.clamp(mainCanvas.camera.zoom, 0.5, 2.0);
+    mainCanvas.camera.zoom = math.clamp(mainCanvas.camera.zoom, 0.2, 2.0);
     Mouse.p = targetPosition;
 }
 
@@ -154,15 +154,15 @@ export void run(){
     // }
 
     
-    // auto footSound = self.sub("sound_foot");
-    // if (self.selectedMotionIndex != self_motions.idle) {
-    //     if (!footSound.isPlaying)
-    //         self.everyNsecs(0.05,(){
-    //             footSound.play(false); // 続きから再開
-    //         });
-    // } else {
-    //     if (footSound.isPlaying)
-    //         footSound.stop();      // 再生位置を保持して停止
-    // }
+    auto footSound = scenes.sound.footsteps;
+    if (self.selectedMotionIndex != self_motions.idle) {
+        if (!footSound.isPlaying)
+            self.everyNsecs(0.05,(){
+                footSound.play(false); // 続きから再開
+            });
+    } else {
+        if (footSound.isPlaying)
+            footSound.stop();      // 再生位置を保持して停止
+    }
     mosueUpdate();
 }

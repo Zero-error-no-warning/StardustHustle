@@ -1,17 +1,15 @@
 {
-    "name": "untitled",
+    "name": "fpsViewer",
     "nodes": [
         {
             "action": {
-                "function": "",
-                "module": ""
+                "function": ""
             },
             "assetPath": "",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
-                "function": "",
-                "module": ""
+                "function": ""
             },
             "enabled": true,
             "height": 480.0,
@@ -50,6 +48,7 @@
             "projection": "None",
             "properties": [],
             "scale": 1.0,
+            "scriptModule": "script.fpsviewer",
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
@@ -57,15 +56,13 @@
         },
         {
             "action": {
-                "function": "run",
-                "module": "script.fpsviewer"
+                "function": "run"
             },
             "assetPath": "",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
-                "function": "",
-                "module": ""
+                "function": ""
             },
             "enabled": true,
             "height": 480.0,
@@ -104,6 +101,7 @@
             "projection": "None",
             "properties": [],
             "scale": 1.0,
+            "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
@@ -135,7 +133,8 @@
         },
         "enabled": true
     },
-    "version": 1,
+    "scriptModule": "",
+    "version": 2,
     "windowSize": {
         "height": 480,
         "width": 640

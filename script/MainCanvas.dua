@@ -5,6 +5,8 @@ import scenes;
 auto player = null;
 
 
+export Vec2 targetRate = Vec2(0.5,0.2);
+
 export void init(){
      player = findScene(self,"player");
     // Behavior implementation
