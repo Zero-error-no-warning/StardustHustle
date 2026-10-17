@@ -1,0 +1,41 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+
+export void init(){
+    Timer.limitFPS = 120;
+    KeyConfig["PlayerMove"].current = {
+        MoveFront  =  InputStatus("?Shift W"),
+        MoveBack   =  InputStatus("?Shift S"),
+        MoveLeft   =  InputStatus("?Shift A"),
+        MoveRight  =  InputStatus("?Shift D"),
+        Dash       =  InputStatus("Shift *"),
+    };
+    KeyConfig["Inventory"].current = {
+        OpenCloseInventory = InputStatus("Tab"),
+    };
+}
+import scenes;
+auto mainCanvas = scenes.MainCanvas;
+auto inventory = scenes.inventory;  
+auto sounds = scenes.MainCanvas.sound;
+auto InventoryKey = KeyConfig.Set("Inventory");
+
+export void update(){
+    if(KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
+        mainCanvas.isFreeze = !mainCanvas.isFreeze;
+        inventory.isOFF = !mainCanvas.isFreeze;
+        Mouse.cursorDisplay = !inventory.isOFF;
+        if(inventory.isOFF){
+            Mouse.p = mainCanvas.sceneModule().targetPosition;
+            foreach(sound ; sounds.subs()){
+                sound.play(false);
+            }
+        }
+        else{
+            print(sounds.subs());
+            foreach(sound ; sounds.subs()){
+                sound.stop();
+            }
+        }
+    }
+}

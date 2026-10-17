@@ -1,0 +1,8 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+import ui;
+export void init(){
+    auto base = self.theme.base;
+    base.font = Font("res/font/madoufmg.ttf",25,9,Font.Type.Normal);
+    self.editThemeBase(base);
+}

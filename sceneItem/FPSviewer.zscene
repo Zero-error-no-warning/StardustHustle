@@ -46,7 +46,12 @@
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "fontStyle",
+                    "value": "Normal"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "script.fpsviewer",
             "width": 640.0,
@@ -56,7 +61,7 @@
         },
         {
             "action": {
-                "function": "run"
+                "function": "update"
             },
             "assetPath": "",
             "centerX": 0.0,

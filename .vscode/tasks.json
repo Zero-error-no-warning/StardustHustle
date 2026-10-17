@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "run ZsD-editor",
+            "label": "update ZsD-editor",
             "type": "process",
             "command": "C:\\myProject\\D\\ZsD\\editor\\ZsD-editor.exe",
             "group": "build",

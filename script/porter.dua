@@ -1,53 +1,182 @@
-// Sceneごとの状態: instance int count = 0;
-// selfはこのコードを割り当てたSceneです。
+import scenes;
+import math;
 
-auto positionState  = null;
-Vec2 targetP = Vec2(0,0);
-double targetZ = 0.0;
+auto player = null;
+auto sensor = null;
+auto map = null;
+int collisionLayerCount = 0;
 
-export void init(){
-    positionState = self.stateMachine("position");
-    auto sensor = self.sub("porterSensor");
-    auto text = self.sub("text");
+// XY の壁判定は固定した高さで行い、見た目の浮遊高度は別に制御する。
+double hoverHeight = 60.0;
+double overheadHeight = 180.0;
+double riseGain = 10.0;
+double descendGain = 4.0;
+double followGain = 6.0;
+double maxSpeed = 180.0;       // player のダッシュ (120) にも追いつける速度
+double maxAcceleration = 720.0;
+double traceSpacing = 6.0;
+double bodyHalfSize = 8.0;     // porterSensor の 16 x 16 と合わせる
 
-    positionState.doState("default",(){
-        targetP = Vec2(-20,-40);
-        targetZ = 60.;
-        sensor.size = Vec2(16,16);
-        if(sensor.hasPhysicsCollision()) positionState.toState("leftWall");
-    });
-    positionState.doState("leftWall",(){
-        targetP = Vec2(-20,40);
-        targetZ = 60.;
-        sensor.size = Vec2(16,16);
-        if(sensor.hasPhysicsCollision()) positionState.toState("sideWall");
+Vec2[] followOffsets = [Vec2(-10,-40), Vec2(-10,40), Vec2(-30,0), Vec2(0,0)];
+int followSide = 0;
+double preferredSideClearTime = 0.0;
+Vec2[] playerTrace = [];
+int traceIndex = 0;
+Vec2 followTarget = Vec2(0,0);
+double planningTime = 0.1;
 
-    });
-    positionState.doState("sideWall",(){
-        targetP = Vec2(-30,0);
-        targetZ = 120.;
-        sensor.size = Vec2(16,16);
-        if(sensor.hasPhysicsCollision()) positionState.toState("allWall");
-    });
-    positionState.doState("allWall",(){
-        targetP = Vec2(0,0);
-        targetZ = 180.0;
-        sensor.size = Vec2(16,60);
-        if(!sensor.hasPhysicsCollision()) positionState.toState("default");
-    });
-    positionState.changeState("default");
-    
+bool pointBlocked(Vec2 p){
+    foreach(layer; 0 .. collisionLayerCount){
+        if(map.blocked(p, layer)) return true;
+    }
+    return false;
 }
 
-import scenes;
+bool bodyBlocked(Vec2 p){
+    // 中心だけでなく本体の幅も判定する。物理ボディ自体は回転させない。
+    foreach(x; -1 .. 2){
+        foreach(y; -1 .. 2){
+            if(pointBlocked(p + Vec2(x,y)*bodyHalfSize)) return true;
+        }
+    }
+    return false;
+}
 
-export void run(){
-    auto sensor = self.master;
-    self.lp += (targetP-self.lp)*self.dt;
-    self.z += (targetZ-self.z)*self.dt;
+bool pathClear(Vec2 from, Vec2 to){
+    auto delta = Vec2(to.x-from.x, to.y-from.y);
+    int steps = cast(int)(delta.norm/4.0)+1;
+    foreach(i; 1 .. steps+1){
+        double t = cast(double)(i)/steps;
+        if(bodyBlocked(Vec2(from.x+delta.x*t, from.y+delta.y*t))) return false;
+    }
+    return true;
+}
+
+Vec2 sidePosition(int side){
+    return player.p + followOffsets[side].rot(player.a);
+}
+
+bool sideClear(int side){
+    auto p = sidePosition(side);
+    // 空いている目的地でも、途中に壁があれば直接向かわない。
+    return pathClear(player.p, p) && pathClear(sensor.p, p);
+}
+
+export void init(){
+    player = scenes.MainCanvas.findScene("player");
+    sensor = self.master;
+    map = scenes.MainCanvas.findScene("stage").findScene("map");
+    collisionLayerCount = cast(int)(map.collisionLayerCount);
+
+    sensor.size = Vec2(16,16);
+    sensor.p = player.p;
+    sensor.z = hoverHeight;
+    sensor.a = Angle.Deg(0);
+    sensor.setPhysicsVelocity(Vec3(0,0,0));
+    self.lp = Vec2(0,0);
+    // 初期位置は player と同じ XY なので、最初から頭上に配置する。
+    self.z = player.z + overheadHeight;
+
+    playerTrace = [player.p];
+    traceIndex = 0;
+    followSide = 0;
+    preferredSideClearTime = 0.0;
+    followTarget = player.p;
+    planningTime = 0.1;
+}
+
+void updateTrace(){
+    // フレーム数ではなく移動距離で通過点を残す。
+    if((player.p-playerTrace[$-1]).norm >= traceSpacing){
+        playerTrace ~= player.p;
+    }
+}
+
+void chooseTarget(double elapsed){
+    // 見通せる通過点までは進めるが、曲がり角を壁越しに省略しない。
+    int skipped = 0;
+    while(traceIndex+1 < playerTrace.length && skipped < 16){
+        if(!pathClear(sensor.p, playerTrace[traceIndex+1])) break;
+        traceIndex += 1;
+        skipped += 1;
+    }
+    if(traceIndex >= 64){
+        playerTrace = playerTrace[traceIndex .. $];
+        traceIndex = 0;
+    }
+    if(followSide < 0 || !sideClear(followSide)){
+        followSide = -1;
+        preferredSideClearTime = 0.0;
+        foreach(side; 0 .. followOffsets.length){
+            if(sideClear(cast(int)(side))){
+                followSide = cast(int)(side);
+                break;
+            }
+        }
+    }
+    else if(followSide != 0){
+        // 通路を出た直後に左右へ往復しないよう、復帰には待ち時間を設ける。
+        if(sideClear(0)) preferredSideClearTime += elapsed;
+        else preferredSideClearTime = 0.0;
+        if(preferredSideClearTime >= 0.6){
+            followSide = 0;
+            preferredSideClearTime = 0.0;
+        }
+    }
+
+    followTarget = playerTrace[traceIndex];
+    if(followSide >= 0) followTarget = sidePosition(followSide);
+    else if(pathClear(sensor.p, player.p)) followTarget = player.p;
+    if(!pathClear(sensor.p, followTarget)) followTarget = sensor.p;
+}
+
+void updateFollow(){
+    updateTrace();
+    // 経路の再評価は 10 Hz。物理衝突と速度制御は毎フレーム続ける。
+    planningTime += self.dt;
+    if(planningTime >= 0.1){
+        chooseTarget(planningTime);
+        planningTime = 0.0;
+    }
+    Vec2 target = followTarget;
+    if(followSide >= 0) target = sidePosition(followSide);
+
+    Vec2 velocity = Vec2(0,0);
+    auto delta = target-sensor.p;
+    if(delta.norm > 0.5) velocity = delta*followGain;
+    if(velocity.norm > maxSpeed) velocity = velocity.unit*maxSpeed;
+
+    auto current = sensor.physicsVelocity().xy;
+    auto change = velocity-current;
+    auto maxChange = maxAcceleration*self.dt;
+    if(change.norm > maxChange) change = change.unit*maxChange;
+    sensor.setPhysicsVelocity(Vec3(current+change, 0.0));
+    updateHover();
+}
+
+void updateHover(){
+    double distance = (sensor.p-player.p).norm;
+    if(followSide >= 0){
+        // 頭上へ寄る目標を選んだ時点で、XY が近づくより先に上昇を始める。
+        double targetDistance = followOffsets[followSide].norm;
+        if(targetDistance < distance) distance = targetDistance;
+    }
+    // 距離 40 以上で 60、30 で 120、20 以下で 180。境界は滑らかにつなぐ。
+    double t = math.clamp((40.0-distance)/20.0, 0.0, 1.0);
+    t = t*t*(3.0-2.0*t);
+    double targetZ = player.z + hoverHeight + (overheadHeight-hoverHeight)*t;
+    double gain = targetZ > self.z ? riseGain : descendGain;
+    self.z += (targetZ-self.z)*(1.0-math.exp(-gain*self.dt));
+}
+
+export void update(){
+    updateFollow();
+
     auto mainCanvas = scenes.MainCanvas;
-    auto targetRate = sceneModule(mainCanvas).targetRate;
-    auto lightTarget = (targetRate*Keeper.windowSize).ofUI(mainCanvas);
+    auto targetPosition = sceneModule(mainCanvas).targetPosition;
+    auto lightTarget = targetPosition.ofUI(mainCanvas);
+    // ライト方向への回転は見た目だけに適用し、衝突形状は回さない。
+    self.a = (lightTarget.xy-self.p).angle;
     auto light = self.sub("light");
     auto lightGrip = self.part("light");
     light.p = lightGrip.p;

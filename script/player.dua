@@ -30,15 +30,14 @@ export void init(){
         physics.p = map.toWorld(marker.p);
     }
 
-    auto targetRate = sceneModule(mainCanvas).targetRate;
-    targetPosition = targetRate*Keeper.windowSize;
+    targetPosition = sceneModule(mainCanvas).targetPosition;
     self_motions = {
         idle = self.motionIndex("idle"),
         walkFront = self.motionIndex("walkFront"),
         walkLeft = self.motionIndex("walkFront"),
         walkRight = self.motionIndex("walkFront"),
         walkBack = self.motionIndex("walkFront"),
-        run = self.motionIndex("walkFront"),
+        update = self.motionIndex("walkFront"),
         holdLantern = self.motionIndex("holdLantern"),
         holdHandgun = self.motionIndex("holdHandgun"),
     };
@@ -74,7 +73,7 @@ void mosueUpdate(){
 auto mainCanvasScript = sceneModule(mainCanvas);
 auto playerMove = KeyConfig.Set("PlayerMove");
 
-export void run(){
+export void update(){
     Vec2 moveInput = Vec2(0, 0);
     if(playerMove.isPressed("MoveFront"))
         moveInput.x = moveInput.x + 1;
@@ -107,7 +106,7 @@ export void run(){
         if(v.norm < 100)
             self.morph(self_motions.walkFront,0.3);
         else
-            self.morph(self_motions.run,0.3);
+            self.morph(self_motions.update,0.3);
     }
     else{
         self.morph(self_motions.idle,0.3);
@@ -154,7 +153,7 @@ export void run(){
     // }
 
     
-    auto footSound = scenes.sound.footsteps;
+    auto footSound = scenes.MainCanvas.sound.footsteps;
     if (self.selectedMotionIndex != self_motions.idle) {
         if (!footSound.isPlaying)
             self.everyNsecs(0.05,(){

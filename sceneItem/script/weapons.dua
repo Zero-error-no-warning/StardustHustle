@@ -1,0 +1,34 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+
+alias WeaponType = "OneHandMelee" | "OneHandRanged" | "TwoHandMelee" | "TwoHandRanged" | "Hand";
+
+table WeaponInfo{
+    string name;
+    WeaponType type;
+}
+auto player = null;
+auto rightHand = null;
+auto leftHand = null;
+
+export string current = "knife";
+export void change(string name){
+    current = name;
+    foreach(sub;self.subs){
+        sub.isOFF = current != name;
+    }
+}
+
+
+export void init(){
+    player = scenes.player;
+    rightHand = player.part("右手");
+    leftHand = player.part("左手");
+}
+import scenes;
+
+export void update(){
+    self.p = rightHand.p;
+    self.a = rightHand.a;
+    self.z = rightHand.z;
+}

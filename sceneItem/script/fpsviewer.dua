@@ -3,7 +3,7 @@ instance int[] history = [0,0,0,0,0,0];
 
 auto f = (double t)=>1.*Timer.limitFPS;
 
-export void run(){
+export void update(){
     self.everyNsecs(0.5,(){
         auto len = history.length;
         foreach(idx; 0 .. len-1){

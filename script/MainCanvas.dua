@@ -5,26 +5,19 @@ import scenes;
 auto player = null;
 
 
-export Vec2 targetRate = Vec2(0.5,0.2);
+export Vec2 targetPosition = Vec2(0.5,0.2)*Keeper.windowSize;
 
 export void init(){
      player = findScene(self,"player");
     // Behavior implementation
     self.camera.center =Vec2(0.5,0.8);
-    Timer.limitFPS = 120;
-    KeyConfig["PlayerMove"].current = {
-        MoveFront  =  InputStatus("?Shift W"),
-        MoveBack   =  InputStatus("?Shift S"),
-        MoveLeft   =  InputStatus("?Shift A"),
-        MoveRight  =  InputStatus("?Shift D"),
-        Dash       =  InputStatus("Shift *"),
-    };
 }
+
 
 export table playerParameter = {
     haveHandgun = false,
 };
-export void run(){
+export void update(){
     
     self.camera.p = player.p;
     self.camera.a = player.a + Angle.Deg(90);
