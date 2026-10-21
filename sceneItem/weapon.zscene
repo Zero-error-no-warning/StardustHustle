@@ -41,7 +41,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "alp",
+            "name": "weapon",
             "parentId": "",
             "pers": 0.0,
             "phase": "normal",
@@ -63,7 +63,7 @@
             "scale": 1.0,
             "scriptModule": "script.weapons",
             "width": 640.0,
-            "x": 0.0,
+            "x": 1.02618920363437383,
             "y": 0.0,
             "z": 0.0
         },
@@ -184,13 +184,79 @@
             "action": {
                 "function": ""
             },
+            "assetPath": "..\\res\\character\\weapons\\handgun.zsc",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "71a63faf-4219-4119-b93d-8f62bc672870",
+            "kind": "character",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "handgun",
+            "parentId": "9e4a726e-7643-46ff-9cdc-ad1acddcdc24",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "z",
+                    "value": "40"
+                },
+                {
+                    "path": "scale",
+                    "value": "1.5"
+                },
+                {
+                    "path": "z",
+                    "value": "35"
+                }
+            ],
+            "scale": 1.5,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": -2.0,
+            "y": 0.0,
+            "z": 35.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
             "assetPath": "..\\res\\character\\weapons\\knife.zsc",
             "centerX": 0.5,
             "centerY": 0.5,
             "condition": {
                 "function": ""
             },
-            "enabled": true,
+            "enabled": false,
             "height": 480.0,
             "id": "f3c16f8e-754b-4886-b06a-a6f9b874e9b0",
             "kind": "character",

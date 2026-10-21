@@ -24,11 +24,12 @@ export void init(){
     player = scenes.player;
     rightHand = player.part("右手");
     leftHand = player.part("左手");
+    player.morph("walk",0.1);
 }
 import scenes;
 
 export void update(){
     self.p = rightHand.p;
-    self.a = rightHand.a;
+    self.a = rightHand.a + Angle.Deg(90);
     self.z = rightHand.z;
 }

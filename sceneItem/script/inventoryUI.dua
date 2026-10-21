@@ -1,8 +1,201 @@
 // Sceneごとの状態: instance int count = 0;
 // selfはこのコードを割り当てたSceneです。
 import ui;
+import scenes;
+
+
+alias ItemType = "weapon_melee" | "weapon_ranged" | "bullet" | "food" | "armor" | "medicine" | "misc";
+
+table Modifier{
+    string name;
+    ItemType targetType;
+}
+
+
+table ItemInfo{
+    uint id;        // 固有ID
+    string itemID;   // itemの具体的なデータはitemID先
+    uint count;    // アイテムの個数
+    string name;    // アイテムの名前
+    Modifier[] modifier; // アイテムに付与されている修飾子
+    DateTime datetime;
+}
+
+
+table ItemData {
+    ItemType type; //sort用
+    bool consumable; // 消費可能 かどうか
+    double weight; //kg
+    double size; //m AABBの対角線
+    string description; // アイテムの説明
+    string icon; // アイテムのアイコンファイルパス
+    string model;
+}
+
+export ItemData[string] itemDatabase = [
+    "knife_001" : {type = "weapon_melee", consumable = false, weight = 0.5, size =  0.3, description = "大振りのナイフ", icon = "../res/icons/melee.png",model = "../res/character/weapons/knife.zsc"},
+    "handgun_001" : {type = "weapon_melee", consumable = false, weight = 0.5, size =  0.3, description = "拳銃.", icon = "../res/icons/ranged.png",model = "../res/character/weapons/handgun.zsc"},
+];
+
+
+export ItemInfo[] inventory = [
+    { id = 1, itemID = "knife_001", count = 1, name = "ナイフ", modifier = [] , datetime = Timer.currDateTime()},
+    { id = 2, itemID = "handgun_001", count = 1, name = "拳銃", modifier = [] , datetime = Timer.currDateTime()},
+];
+
+export auto inventoryData = {
+    capacity = 100,
+    tidiable = 0,
+};
+auto canvas =null;
+auto atlas = null;
+
+ListView mainInventoryList = null;
+ListView pocketList = null;
+
+auto previewCanvas = scenes.previewCanvas;
+
+auto itemDataView = (ItemInfo item) => item.count;
+
 export void init(){
+    canvas = self.targetCanvas();
+    atlas = canvas.atlas;
+
     auto base = self.theme.base;
-    base.font = Font("res/font/madoufmg.ttf",25,9,Font.Type.Normal);
+    Font.registerFile(assetPath("../res/font/madoufmg.ttf"));
+    base.font = Font("魔導太丸ゴシック",25,9,Font.Type.Normal);
+    print("font:" ~base.font ~ " " ~ Font.Pixel ~ " " ~ Font.Gui);
     self.editThemeBase(base);
+
+    ComboBox viewDataTypeCombo = scenes.inventoryUI.findScene("viewDataTypeCombo");
+    viewDataTypeCombo.contents = ["数量","重さ","サイズ","入手順"];
+
+    viewDataTypeCombo.onSelected = (long idx){
+        switch(idx){
+            case 0:
+                itemDataView = (ItemInfo item) => item.count;
+                break;
+            case 1:
+                itemDataView = (ItemInfo item) => itemDatabase[item.itemID].weight;
+                break;
+            case 2:
+                itemDataView = (ItemInfo item) => itemDatabase[item.itemID].size;
+                break;
+            case 3:
+                itemDataView = (ItemInfo item){
+                    auto cur = Timer.currDateTime();
+                    bool dY =  item.datetime.year == cur.year;
+                    bool dM =  item.datetime.month == cur.month;
+                    bool dD =  item.datetime.day == cur.day;
+                    bool dh =  item.datetime.hour == cur.hour; 
+                    bool dm =  item.datetime.minute == cur.minute;
+                    bool ds =  item.datetime.second == cur.second;
+                    if(dY && dM && dD && dh && dm && ds) return "たった今";
+                    if(dY && dM && dD && dh && dm) return "数秒前";
+                    if(dY && dM && dD && dh) return "数分前";
+                    if(dY && dM && dD) return "今日";
+                    if(dY && dM) return "今月";
+                    if(dY) return "今年";
+                    return "以前";
+                };
+                break;
+        }
+    };
+
+    mainInventoryList = scenes.inventoryUI.findScene("mainInventoryList");
+    pocketList = scenes.inventoryUI.findScene("pocketList");
+
+    mainInventoryList.onClick = (ListView list, long idx){
+        if(idx >= 0 && idx < inventory.length){
+            foreach(sub;previewCanvas.subs){
+                if(sub.type == "Character")
+                    sub.exit();
+            }
+            Character model = previewCanvas.loadCharacter( itemDatabase[inventory[idx].itemID].model.assetPath());
+            auto LeftTop = model.p;
+            auto RightBot = model.p;
+            model.selectMotion(0,0.0);
+            previewCanvas.camera.p = model.part("modelCenter").p;
+
+            pocketList.unSelect();
+        }
+    };
+    pocketList.onClick = (ListView list, long idx){
+        mainInventoryList.unSelect();
+    };
+}
+
+import math;
+export double calcCapacity(ItemInfo[] items){
+    auto tidyCap = 0.0;
+    auto messyCap = 0.0;
+    auto totalWeight = 0.0;
+    auto totalSize = 0.0;
+    foreach(item ; items){
+        auto itemdata = itemDatabase[item.itemID];
+        auto weight = itemdata.weight;
+        auto count = item.count;
+        auto size = itemdata.size;
+        messyCap += count *  sqrt(weight*weight + size*size);
+        totalWeight += count * weight;
+        totalSize += count * size;
+    }
+    tidyCap = sqrt(totalWeight*totalWeight + totalSize*totalSize);
+    auto t = inventoryData.tidiable;
+    return messyCap*(1.0-t)+tidyCap*t;
+}
+
+
+
+
+export void initialize(){ 
+    auto texts = [];
+    auto height = 20.0; 
+    auto basePosition = Vec2(0,0);
+    foreach(item ; inventory){
+        texts ~= newText();
+        
+        texts[$-1].p = basePosition + height*Vec2(1,texts.length-1);
+        texts[$-1].text = styled(item.name).height(height);
+    }
+}
+
+export void finalize(){
+    
+}
+
+
+export void update(){
+
+    mainInventoryList.richContents = 
+        inventory.map(
+            (any item){
+                return styled(atlas.addTexture(itemDatabase[item.itemID].icon.assetPath()),Vec2(0,0)).height(25) 
+                        ~ styled(" " ~ item.name).height(25).color(Color(150,240,255,255))
+                        ~ styled(" " ~ itemDataView(item)).height(25).color(Color(150,240,255,255));
+            }
+        );
+
+}
+
+export void addItem(ItemInfo item){
+    foreach(existingItem ; inventory){
+        if(existingItem.itemID == item.itemID && existingItem.modifier == item.modifier){
+            existingItem.count += item.count;
+            return;
+        }
+    }
+    inventory ~= item;
+}
+
+export void removeItem(ItemInfo item){
+    foreach(idx,existingItem ; inventory){
+        if(existingItem.itemID == item.itemID && existingItem.modifier == item.modifier){
+            existingItem.count -= item.count;
+            if(existingItem.count <= 0){
+                inventory = inventory[0..idx] ~ inventory[idx+1..$];
+            }
+            return;
+        }
+    }
 }

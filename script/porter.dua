@@ -25,6 +25,8 @@ int traceIndex = 0;
 Vec2 followTarget = Vec2(0,0);
 double planningTime = 0.1;
 
+int switchSide = -1;
+
 bool pointBlocked(Vec2 p){
     foreach(layer; 0 .. collisionLayerCount){
         if(map.blocked(p, layer)) return true;
@@ -104,12 +106,13 @@ void chooseTarget(double elapsed){
         playerTrace = playerTrace[traceIndex .. $];
         traceIndex = 0;
     }
-    if(followSide < 0 || !sideClear(followSide)){
+    if(switchSide == followSide || followSide < 0 || !sideClear(followSide)){
         followSide = -1;
         preferredSideClearTime = 0.0;
         foreach(side; 0 .. followOffsets.length){
-            if(sideClear(cast(int)(side))){
-                followSide = cast(int)(side);
+            auto cside = cast(int)(side);
+            if(sideClear(cside) && switchSide != cside){
+                followSide = cside;
                 break;
             }
         }
@@ -182,4 +185,9 @@ export void update(){
     light.p = lightGrip.p;
     light.z = lightGrip.z;
     light.targetPoint = Vec3(lightTarget);
+
+    if(Keyboard.isClicked("Z")){
+        switchSide = switchSide == 0 ? -1 : 0;
+        print(switchSide);
+    }
 }

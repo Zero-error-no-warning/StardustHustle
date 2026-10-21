@@ -399,70 +399,6 @@
             "action": {
                 "function": ""
             },
-            "assetPath": "sceneItem\\inventory.zscene",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": false,
-            "height": 480.0,
-            "id": "c629ef0c-6fac-44e5-81b7-e6ba52070a1a",
-            "kind": "externalScene",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "inventory",
-            "parentId": "",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "isOFF",
-                    "value": "true"
-                }
-            ],
-            "referenceBindings": [
-                {
-                    "slotId": "7114ca90-acf8-4cd2-aaaf-63ec8721a88d",
-                    "targetId": "c8ba6d47-1e22-4210-9f7c-4bc79dd5e84e"
-                }
-            ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
             "assetPath": "sceneItem\\FPSviewer.zscene",
             "centerX": 0.0,
             "centerY": 0.0,
@@ -1427,7 +1363,7 @@
                 "pitch": 0.0,
                 "power": 1.0,
                 "quality": 0.900000000000000022,
-                "r": 244.0,
+                "r": 112.240000000000038,
                 "red": 255.0,
                 "roll": 0.0,
                 "shadowLength": 10000.0,
@@ -1454,13 +1390,17 @@
                 {
                     "path": "z",
                     "value": "100"
+                },
+                {
+                    "path": "r",
+                    "value": "112.24"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": -69.1244239631335802,
-            "y": 43.9882697947215462,
+            "x": -84.385660422526712,
+            "y": 55.6586270871987523,
             "z": 100.0
         },
         {
@@ -1628,7 +1568,7 @@
             },
             "enabled": true,
             "height": 480.0,
-            "id": "5a5ea605-6ef3-4318-8c45-5c15bbf31faf",
+            "id": "9484a885-c986-49a9-be4d-0b09e2d66c4a",
             "kind": "light",
             "light": {
                 "alpha": 255.0,
@@ -1638,18 +1578,18 @@
                 "directionY": 0.0,
                 "directionZ": -1.0,
                 "fog": 0.3000000000000001,
-                "green": 255.0,
+                "green": 247.0,
                 "pitch": 0.0,
                 "power": 1.0,
-                "quality": 0.900000000000000022,
+                "quality": 1.0,
                 "r": 100.0,
                 "red": 255.0,
                 "roll": 0.0,
                 "shadowLength": 10000.0,
                 "sizeX": 30.0,
                 "sizeY": 30.0,
-                "spreadX": 5.0,
-                "spreadY": 5.0,
+                "spreadX": 3.0,
+                "spreadY": 3.0,
                 "targetX": 0.0,
                 "targetY": 0.0,
                 "targetZ": 0.0,
@@ -1663,56 +1603,44 @@
             "projection": "None",
             "properties": [
                 {
-                    "path": "fog",
-                    "value": "0.5"
+                    "path": "color\/v_r",
+                    "value": "255"
                 },
                 {
-                    "path": "spread\/x",
-                    "value": "10"
-                },
-                {
-                    "path": "spread\/y",
-                    "value": "10"
-                },
-                {
-                    "path": "spread\/x",
-                    "value": "5"
-                },
-                {
-                    "path": "spread\/y",
-                    "value": "5"
-                },
-                {
-                    "path": "fog",
-                    "value": "0.5"
+                    "path": "color\/v_g",
+                    "value": "247"
                 },
                 {
                     "path": "color\/v_b",
                     "value": "0"
                 },
                 {
-                    "path": "fog",
-                    "value": "0"
+                    "path": "color\/v_a",
+                    "value": "255"
                 },
                 {
-                    "path": "quality",
-                    "value": "0"
+                    "path": "spread\/x",
+                    "value": "10"
                 },
                 {
-                    "path": "fog",
-                    "value": "1"
-                },
-                {
-                    "path": "quality",
-                    "value": "0.9"
+                    "path": "spread\/y",
+                    "value": "10"
                 },
                 {
                     "path": "fog",
                     "value": "0.3"
                 },
                 {
-                    "path": "canvasProjection",
-                    "value": "true"
+                    "path": "quality",
+                    "value": "1"
+                },
+                {
+                    "path": "spread\/y",
+                    "value": "3"
+                },
+                {
+                    "path": "spread\/x",
+                    "value": "3"
                 }
             ],
             "scale": 1.0,
@@ -2140,59 +2068,6 @@
                 "function": ""
             },
             "enabled": true,
-            "height": 69.8437500000001137,
-            "id": "c8ba6d47-1e22-4210-9f7c-4bc79dd5e84e",
-            "kind": "marker",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "exportItemPosition",
-            "parentId": "5b244696-bb07-4716-a5cd-f17a565aeb4b",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 79.0190972222223138,
-            "x": -183.376736111111086,
-            "y": -212.673611111111228,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
             "height": 480.0,
             "id": "895c061a-afaa-4ebd-acc4-6f5f4bc422d3",
             "kind": "scene",
@@ -2233,6 +2108,195 @@
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "res\\character\\weapons\\knife_td.zsc",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "3190cf3c-733a-40e9-8f01-9920d37ced27",
+            "kind": "character",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "character",
+            "parentId": "f133041b-1212-4a35-8235-1a4b33d463f8",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "z",
+                    "value": "2.65"
+                },
+                {
+                    "path": "scale",
+                    "value": "0.3"
+                }
+            ],
+            "scale": 0.3000000000000001,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 89.7648358585857551,
+            "y": 82.1200284090908212,
+            "z": 2.65000000000000036
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "sceneItem\\weapon_td.zscene",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "e607c2ab-2241-4206-a9b8-f8062ad35b05",
+            "kind": "externalScene",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "externalScene",
+            "parentId": "f133041b-1212-4a35-8235-1a4b33d463f8",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "referenceBindings": [
+                {
+                    "slotId": "f8e754be-835d-4737-ab67-ac5e9f8ea5c6",
+                    "targetId": "116a72c7-b036-4efd-918f-b5d639b9049d"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "sceneItem\\inventory.zscene",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": false,
+            "height": 480.0,
+            "id": "c629ef0c-6fac-44e5-81b7-e6ba52070a1a",
+            "kind": "externalScene",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "inventory",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "isOFF",
+                    "value": "true"
+                }
+            ],
+            "referenceBindings": [
+                {
+                    "slotId": "7114ca90-acf8-4cd2-aaaf-63ec8721a88d",
+                    "targetId": "84b5e8bd-536d-46d8-a5fc-e25cf74c0bc8"
+                },
+                {
+                    "slotId": "95a44c4d-f37f-4fbb-ac60-d4876dba0f3d",
+                    "targetId": "fb5cb7a0-5dfd-4b0b-983f-1e6558b76bcd"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 13.0208333333333712,
+            "y": -4.34027777777771462,
             "z": 0.0
         }
     ],

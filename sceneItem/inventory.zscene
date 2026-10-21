@@ -416,8 +416,40 @@
                     "value": "20"
                 },
                 {
+                    "path": "themeStyle\/fill\/R",
+                    "value": "24"
+                },
+                {
+                    "path": "themeStyle\/fill\/G",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fill\/B",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fill\/A",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fill\/R",
+                    "value": "24"
+                },
+                {
+                    "path": "themeStyle\/fill\/G",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fill\/B",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fill\/A",
+                    "value": "104"
+                },
+                {
                     "path": "themeData",
-                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":5.0,\"cornerRadius\":3.0,\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":25.0,\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":28.0,\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[20.0,0.0],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":10.0,\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{\"label\":[\"autoStateColors\",\"originalHover\",\"originalPressed\",\"originalSelected\",\"originalAccent\",\"stateColors\",\"stateColorSet\",\"hoverFill\",\"pressedFill\",\"selectedFill\",\"disabledText\",\"text\",\"accent\",\"padding\",\"fontHeight\",\"lineHeight\",\"borderWidth\",\"scrollWidth\",\"cornerRadius\",\"horizontalAlign\",\"verticalAlign\",\"overflow\",\"imageTint\",\"pressedImageTint\",\"disabledImageTint\",\"font\",\"skin\"]},\"roles\":{\"label\":{\"accent\":[245,195,90,255],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":1.0,\"cornerRadius\":0.0,\"disabledImageTint\":[140,140,140,255],\"disabledText\":[130,140,150,255],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":20.0,\"horizontalAlign\":1,\"hoverFill\":[55,42,75,255],\"imageTint\":[255,255,255,255],\"lineHeight\":30.0,\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[10.0,6.0],\"pressedFill\":[85,60,100,255],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":10.0,\"selectedFill\":[65,45,85,255],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[222,229,237,255],\"verticalAlign\":1}},\"version\":1}"
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
                 }
             ],
             "scale": 1.0,
@@ -467,15 +499,99 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiPanel",
+            "name": "mainPanel",
             "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
             "properties": [
                 {
+                    "path": "themeBase\/borderWidth",
+                    "value": "3"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "191"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "192"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "200"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "201"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "201"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "203"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "207"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "208"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "208"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "208"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "205"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "198"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "195"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "195"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "195"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "195"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "195"
+                },
+                {
+                    "path": "themeBase\/text\/R",
+                    "value": "190"
+                },
+                {
+                    "path": "themePreset",
+                    "value": "inherit"
+                },
+                {
+                    "path": "themeData",
+                    "value": ""
+                },
+                {
                     "path": "size\/x",
-                    "value": "880.8"
+                    "value": "440"
                 },
                 {
                     "path": "size\/y",
@@ -485,61 +601,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 242.982823627985283,
-            "y": 47.8783888922141188,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": "init"
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "210abe6a-14ea-4a56-ac15-18210fe24a4b",
-            "kind": "doOnce",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "doOnce",
-            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
+            "x": 642.215474084714174,
+            "y": 46.9312287068627398,
             "z": 0.0
         },
         {
@@ -554,8 +617,8 @@
             },
             "enabled": true,
             "height": 480.0,
-            "id": "7114ca90-acf8-4cd2-aaaf-63ec8721a88d",
-            "kind": "sceneReference",
+            "id": "083a9640-623c-4c7c-9f93-88a7ff405409",
+            "kind": "uiComboBox",
             "light": {
                 "alpha": 255.0,
                 "blue": 255.0,
@@ -582,173 +645,29 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "exportItemPosition",
-            "parentId": "",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "referenceRequired": true,
-            "referenceType": "Marker",
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 144.097222222222342,
-            "id": "3dbca933-8c7e-4aa7-8ebc-3556fc9a1d57",
-            "kind": "marker",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "marker",
-            "parentId": "7114ca90-acf8-4cd2-aaaf-63ec8721a88d",
+            "name": "itemFilterCombo",
+            "parentId": "e63858d6-1234-425f-8d9a-e29740c82aef",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
             "properties": [
                 {
-                    "path": "p\/x",
-                    "value": "200"
+                    "path": "caption",
+                    "value": "アイテムの種類"
+                },
+                {
+                    "path": "caption",
+                    "value": "種類"
                 },
                 {
                     "path": "size\/x",
-                    "value": "880"
+                    "value": "150"
                 },
                 {
                     "path": "size\/y",
-                    "value": "500"
-                },
-                {
-                    "path": "center\/x",
-                    "value": "0.5"
-                },
-                {
-                    "path": "center\/y",
-                    "value": "0.5"
-                },
-                {
-                    "path": "p\/x",
-                    "value": "0"
-                },
-                {
-                    "path": "p\/y",
-                    "value": "0"
-                },
-                {
-                    "path": "center\/x",
-                    "value": "0"
-                },
-                {
-                    "path": "center\/y",
-                    "value": "0"
-                },
-                {
-                    "path": "p\/x",
-                    "value": "200"
-                },
-                {
-                    "path": "p\/y",
-                    "value": "110"
-                },
-                {
-                    "path": "size\/x",
-                    "value": "780"
-                },
-                {
-                    "path": "p\/x",
-                    "value": "250"
+                    "value": "28"
                 }
             ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 146.319444444444343,
-            "x": 30.0925925925926059,
-            "y": 180.891203703703724,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "58bb042c-6292-48a5-ace3-69edf66540d9",
-            "kind": "uiTextField",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "uiTextField",
-            "parentId": "e63858d6-1234-425f-8d9a-e29740c82aef",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
@@ -796,17 +715,46 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiComboBox",
+            "name": "viewDataTypeCombo",
             "parentId": "e63858d6-1234-425f-8d9a-e29740c82aef",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "Choose..."
+                },
+                {
+                    "path": "caption",
+                    "value": "種類"
+                },
+                {
+                    "path": "caption",
+                    "value": "de-ta "
+                },
+                {
+                    "path": "caption",
+                    "value": "データ"
+                },
+                {
+                    "path": "caption",
+                    "value": "データ"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "124"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 150.0,
-            "y": -1.19695972230533698,
+            "x": 160.0,
+            "y": 0.0,
             "z": 0.0
         },
         {
@@ -849,7 +797,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiButton",
+            "name": "sortAsc",
             "parentId": "e63858d6-1234-425f-8d9a-e29740c82aef",
             "pers": 0.0,
             "phase": "normal",
@@ -931,7 +879,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiButton Copy",
+            "name": "sortDesc",
             "parentId": "e63858d6-1234-425f-8d9a-e29740c82aef",
             "pers": 0.0,
             "phase": "normal",
@@ -1021,7 +969,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "inventoryList",
+            "name": "mainInventoryList",
             "parentId": "8c72b584-d6da-456c-a539-5b975d28d266",
             "pers": 0.0,
             "phase": "normal",
@@ -3940,16 +3888,16 @@
                     "value": ""
                 },
                 {
-                    "path": "scrollOffset",
-                    "value": "0"
-                },
-                {
                     "path": "size\/x",
                     "value": "400"
                 },
                 {
                     "path": "size\/y",
                     "value": "200"
+                },
+                {
+                    "path": "scrollOffset",
+                    "value": "0"
                 }
             ],
             "scale": 1.0,
@@ -4010,12 +3958,128 @@
                     "value": "horizontal"
                 },
                 {
+                    "path": "crossAlign",
+                    "value": "center"
+                },
+                {
+                    "path": "crossAlign",
+                    "value": "end"
+                },
+                {
+                    "path": "crossAlign",
+                    "value": "start"
+                },
+                {
+                    "path": "crossAlign",
+                    "value": "center"
+                },
+                {
+                    "path": "fitContent",
+                    "value": "false"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "5"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "5"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "4.9"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "4.75"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "4.6"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.85"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.5"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.3"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.25"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.05"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "2.65"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "2.6"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "2.6"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "2.6"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "2.9"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.45"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.7"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.85"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.85"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "3.85"
+                },
+                {
+                    "path": "themeStyle\/borderWidth",
+                    "value": "1"
+                },
+                {
+                    "path": "themeStyle\/lineHeight",
+                    "value": "1"
+                },
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"3ff0000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"3ff0000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                },
+                {
+                    "path": "gap",
+                    "value": "20"
+                },
+                {
                     "path": "size\/x",
-                    "value": "100"
+                    "value": "244"
                 },
                 {
                     "path": "size\/y",
-                    "value": "28"
+                    "value": "52"
                 }
             ],
             "scale": 1.0,
@@ -6988,12 +7052,16 @@
                     "value": "inherit"
                 },
                 {
-                    "path": "themeData",
-                    "value": ""
+                    "path": "themePreset",
+                    "value": "inherit"
                 },
                 {
                     "path": "scrollOffset",
                     "value": "0"
+                },
+                {
+                    "path": "themeData",
+                    "value": ""
                 },
                 {
                     "path": "size\/x",
@@ -7008,7 +7076,7 @@
             "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
-            "y": 236.178600000000074,
+            "y": 282.0,
             "z": 0.0
         },
         {
@@ -7023,7 +7091,7 @@
             },
             "enabled": true,
             "height": 480.0,
-            "id": "e63858d6-1234-425f-8d9a-e29740c82aef",
+            "id": "b8f72862-9838-4639-9b4c-51b94fb1c6f5",
             "kind": "uiStackLayout",
             "light": {
                 "alpha": 255.0,
@@ -7058,27 +7126,23 @@
             "projection": "None",
             "properties": [
                 {
-                    "path": "axis",
-                    "value": "horizontal"
-                },
-                {
                     "path": "gap",
-                    "value": "10"
+                    "value": "12.72"
                 },
                 {
                     "path": "size\/x",
-                    "value": "60"
+                    "value": "200"
                 },
                 {
                     "path": "size\/y",
-                    "value": "28"
+                    "value": "68.72"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 488.359566700580672,
-            "y": 53.8631875037406331,
+            "x": 24.5949074074073906,
+            "y": 17.3611111111111001,
             "z": 0.0
         },
         {
@@ -7187,8 +7251,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 457.23861392064174,
-            "y": 116.105093063618469,
+            "x": 21.7640768836050711,
+            "y": 95.8504634339889634,
             "z": 0.0
         },
         {
@@ -7231,17 +7295,34 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiButton",
+            "name": "moveItemButton",
             "parentId": "608f9036-d83a-4dc4-847d-e10e2a9baf8f",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "移動"
+                },
+                {
+                    "path": "caption",
+                    "value": "移動↑↓"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "123"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
-            "y": 0.0,
+            "y": 12.0,
             "z": 0.0
         },
         {
@@ -7289,12 +7370,25 @@
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "gap",
+                    "value": "10"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "140"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "44"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
+            "x": 104.0,
+            "y": 1.0,
             "z": 0.0
         },
         {
@@ -7337,7 +7431,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiScrollBar",
+            "name": "mainCapacity",
             "parentId": "f752b8f7-9bca-4991-bf8b-9ce055339dac",
             "pers": 0.0,
             "phase": "normal",
@@ -7348,12 +7442,16 @@
                     "value": "0.53"
                 },
                 {
+                    "path": "enabled",
+                    "value": "false"
+                },
+                {
                     "path": "size\/x",
-                    "value": "140"
+                    "value": "250"
                 },
                 {
                     "path": "size\/y",
-                    "value": "24"
+                    "value": "20"
                 }
             ],
             "scale": 1.0,
@@ -7375,8 +7473,8 @@
             },
             "enabled": true,
             "height": 480.0,
-            "id": "c1ae8199-ab53-4877-a0d6-09f4c1464b13",
-            "kind": "uiSlider",
+            "id": "0d8e541b-bf3e-45e5-8e7b-32bfda4d255e",
+            "kind": "uiPanel",
             "light": {
                 "alpha": 255.0,
                 "blue": 255.0,
@@ -7403,19 +7501,237 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiSlider",
-            "parentId": "f752b8f7-9bca-4991-bf8b-9ce055339dac",
+            "name": "infoPain",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
             "properties": [
                 {
-                    "path": "value",
-                    "value": "0.55"
+                    "path": "themePreset",
+                    "value": "inherit"
+                },
+                {
+                    "path": "themeData",
+                    "value": ""
                 },
                 {
                     "path": "size\/x",
-                    "value": "140"
+                    "value": "426.277"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "283"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 221.593489342625162,
+            "y": 74.4820828706198483,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "d546af0d-cb22-4df2-ab4e-896dab5738c7",
+            "kind": "uiPanel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "equipPain",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"surface\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4008000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "440"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "240"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 209.780092592592666,
+            "y": 396.412037037037635,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "d3a9b14a-6a36-45a6-bf02-5d064ec5a436",
+            "kind": "uiStackLayout",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "uiStackLayout",
+            "parentId": "0d8e541b-bf3e-45e5-8e7b-32bfda4d255e",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "axis",
+                    "value": "horizontal"
+                },
+                {
+                    "path": "gap",
+                    "value": "10"
+                },
+                {
+                    "path": "axis",
+                    "value": "vertical"
+                },
+                {
+                    "path": "gap",
+                    "value": "20"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "118"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "213.2"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 37.6157407407407121,
+            "y": 31.8287037037036669,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "7948f5b7-09a4-4105-a424-a155b7c4ec51",
+            "kind": "uiLabel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "uiLabel",
+            "parentId": "d3a9b14a-6a36-45a6-bf02-5d064ec5a436",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "role",
+                    "value": "buton"
+                },
+                {
+                    "path": "textPresentation",
+                    "value": "{\"align\":1,\"customAlign\":false,\"customOverflow\":false,\"customVertical\":false,\"fontHeight\":\"0000000000000000\",\"overflow\":0,\"padding\":[\"bff0000000000000\",\"bff0000000000000\"],\"role\":\"buton\",\"variant\":\"\",\"version\":1,\"vertical\":1}"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "370"
                 },
                 {
                     "path": "size\/y",
@@ -7426,7 +7742,659 @@
             "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
-            "y": 28.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "736da7cc-eff9-4f57-982a-60bfd6e18dad",
+            "kind": "uiListView",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemInfoList",
+            "parentId": "d3a9b14a-6a36-45a6-bf02-5d064ec5a436",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "370"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "170"
+                },
+                {
+                    "path": "scrollOffset",
+                    "value": "0"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 42.803040277694663,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "60df78a3-44f7-4244-bfb2-7fb937c84bbc",
+            "kind": "uiScrollBar",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "pocketCapacity",
+            "parentId": "f752b8f7-9bca-4991-bf8b-9ce055339dac",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "enabled",
+                    "value": "false"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "250"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "20"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 30.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 180.0,
+            "id": "16645ce6-d03f-4d01-8af0-23219afeafd7",
+            "kind": "lightCanvas",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "previewCanvas",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "screenSize\/x",
+                    "value": "100"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "100"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "150"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "150"
+                },
+                {
+                    "path": "camera\/p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/a\/value",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/zoom",
+                    "value": "1"
+                },
+                {
+                    "path": "camera\/center\/x",
+                    "value": "0.5"
+                },
+                {
+                    "path": "camera\/center\/y",
+                    "value": "0.5"
+                },
+                {
+                    "path": "camera\/xflip",
+                    "value": "false"
+                },
+                {
+                    "path": "camera\/yflip",
+                    "value": "false"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "300"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "300"
+                },
+                {
+                    "path": "transparentBackground",
+                    "value": "false"
+                },
+                {
+                    "path": "bgColor\/v_r",
+                    "value": "4"
+                },
+                {
+                    "path": "bgColor\/v_g",
+                    "value": "18"
+                },
+                {
+                    "path": "bgColor\/v_b",
+                    "value": "30"
+                },
+                {
+                    "path": "bgColor\/v_a",
+                    "value": "50"
+                },
+                {
+                    "path": "transparentBackground",
+                    "value": "true"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "180"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "180"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 180.0,
+            "x": 37.8717249503894777,
+            "y": 144.381046548402537,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "da2c2762-0f38-4767-900f-da685273f7b5",
+            "kind": "light",
+            "light": {
+                "alpha": 255.0,
+                "blue": 174.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 174.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 53.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "AmbientLight",
+            "name": "light",
+            "parentId": "16645ce6-d03f-4d01-8af0-23219afeafd7",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "color\/v_r",
+                    "value": "50"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_r",
+                    "value": "53"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "174"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "174"
+                },
+                {
+                    "path": "color\/v_a",
+                    "value": "255"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "58bb042c-6292-48a5-ace3-69edf66540d9",
+            "kind": "uiTextField",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "searchInput",
+            "parentId": "b8f72862-9838-4639-9b4c-51b94fb1c6f5",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "360"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "e63858d6-1234-425f-8d9a-e29740c82aef",
+            "kind": "uiStackLayout",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "uiStackLayout",
+            "parentId": "b8f72862-9838-4639-9b4c-51b94fb1c6f5",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "axis",
+                    "value": "horizontal"
+                },
+                {
+                    "path": "gap",
+                    "value": "10"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "60"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 40.7199999999999989,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "804d1acd-5caa-4359-9732-06f36e91bc96",
+            "kind": "uiPanel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "uiPanel",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "200"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "200"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 31.0272671303777656,
+            "y": 135.474990745728007,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "init"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "210abe6a-14ea-4a56-ac15-18210fe24a4b",
+            "kind": "doOnce",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doOnce",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "update"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "91f173a3-77f5-47ec-9c44-ced0ce512df5",
+            "kind": "doAlways",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doAlways",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
             "z": 0.0
         }
     ],
