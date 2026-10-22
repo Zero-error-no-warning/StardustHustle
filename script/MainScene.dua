@@ -7,6 +7,7 @@ auto inventory = scenes.inventory;
 auto sounds = scenes.MainCanvas.sound;
 auto InventoryKey = KeyConfig.Set("Inventory");
 auto standLight = scenes.leftCanvas.stand_point;
+auto InventoryState = null;
 
 export void init(){
     Mouse.cursorDisplay = false;
@@ -23,25 +24,38 @@ export void init(){
     };
 
     standLight.color = Color(255,255,0,255) ;
-}
-
-export void update(){
-    if(KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
-        mainCanvas.isFreeze = !mainCanvas.isFreeze;
-        inventory.isOFF = !mainCanvas.isFreeze;
-        Mouse.cursorDisplay = !inventory.isOFF;
-        standLight.color = inventory.isOFF ? Color(255,255,0,255) : Color(50,255,255,255);
-        if(inventory.isOFF){
+    InventoryState = self.stateMachine("InventoryState");
+    InventoryState.doState("InventoryClosed",(){
+        self.firstTime(true,(){
             Mouse.p = mainCanvas.sceneModule().targetPosition;
+            inventory.isOFF = true;
+            Mouse.cursorDisplay = false;
+            mainCanvas.isFreeze = false;
+            standLight.color =Color(255,255,0,255) ;
             foreach(sound ; sounds.subs()){
                 sound.play(false);
             }
+        });
+        if(KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
+            InventoryState.changeState("InventoryOpened");
         }
-        else{
-            print(sounds.subs());
+    });
+    InventoryState.doState("InventoryOpened",(){
+        self.firstTime(true,(){
+            inventory.isOFF = false;
+            Mouse.cursorDisplay = true;
+            mainCanvas.isFreeze = true;
+            standLight.color = Color(50,255,255,255);
             foreach(sound ; sounds.subs()){
                 sound.stop();
             }
+        });
+        if( inventory.isOFF || KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
+            InventoryState.changeState("InventoryClosed");
         }
-    }
+    });
+    InventoryState.changeState("InventoryClosed");
+}
+
+export void update(){
 }

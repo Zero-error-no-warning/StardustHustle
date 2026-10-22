@@ -448,15 +448,39 @@
                     "value": "104"
                 },
                 {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fontHeight",
+                    "value": "20"
+                },
+                {
+                    "path": "themeBase\/fontHeight",
+                    "value": "20"
+                },
+                {
+                    "path": "themeBase\/lineHeight",
+                    "value": "26"
+                },
+                {
+                    "path": "themeBase\/padding\/x",
+                    "value": "10"
+                },
+                {
                     "path": "themeData",
-                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4034000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403a000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4024000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4034000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "script.inventoryUI",
             "width": 640.0,
-            "x": -1.19695972230533698,
-            "y": 0.0,
+            "x": 0.0,
+            "y": 1.44675925925923821,
             "z": 0.0
         },
         {
@@ -601,8 +625,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 642.215474084714174,
-            "y": 46.9312287068627398,
+            "x": 739.471049090866472,
+            "y": 77.4692870386999317,
             "z": 0.0
         },
         {
@@ -4074,6 +4098,10 @@
                     "value": "20"
                 },
                 {
+                    "path": "gap",
+                    "value": "10"
+                },
+                {
                     "path": "size\/x",
                     "value": "244"
                 },
@@ -4129,7 +4157,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "pocketList",
+            "name": "pocketInventoryList",
             "parentId": "8c72b584-d6da-456c-a539-5b975d28d266",
             "pers": 0.0,
             "phase": "normal",
@@ -7056,10 +7084,6 @@
                     "value": "inherit"
                 },
                 {
-                    "path": "scrollOffset",
-                    "value": "0"
-                },
-                {
                     "path": "themeData",
                     "value": ""
                 },
@@ -7070,6 +7094,10 @@
                 {
                     "path": "size\/y",
                     "value": "200"
+                },
+                {
+                    "path": "scrollOffset",
+                    "value": "0"
                 }
             ],
             "scale": 1.0,
@@ -7310,8 +7338,16 @@
                     "value": "移動↑↓"
                 },
                 {
+                    "path": "caption",
+                    "value": "移動↨"
+                },
+                {
+                    "path": "caption",
+                    "value": "▲移動▼"
+                },
+                {
                     "path": "size\/x",
-                    "value": "123"
+                    "value": "135"
                 },
                 {
                     "path": "size\/y",
@@ -7431,7 +7467,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "mainCapacity",
+            "name": "mainCapacityScroll",
             "parentId": "f752b8f7-9bca-4991-bf8b-9ce055339dac",
             "pers": 0.0,
             "phase": "normal",
@@ -7444,6 +7480,202 @@
                 {
                     "path": "enabled",
                     "value": "false"
+                },
+                {
+                    "path": "contentExtent",
+                    "value": "0.5"
+                },
+                {
+                    "path": "contentExtent",
+                    "value": "2"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "115"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "137"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "147"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "163"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "182"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "194"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "200"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "196"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "194"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "190"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"3ff0000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"3ff0000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"scrollbar\":{\"accent\":[0,210,240,185],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
                 },
                 {
                     "path": "size\/x",
@@ -7459,142 +7691,6 @@
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "0d8e541b-bf3e-45e5-8e7b-32bfda4d255e",
-            "kind": "uiPanel",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "infoPain",
-            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "themePreset",
-                    "value": "inherit"
-                },
-                {
-                    "path": "themeData",
-                    "value": ""
-                },
-                {
-                    "path": "size\/x",
-                    "value": "426.277"
-                },
-                {
-                    "path": "size\/y",
-                    "value": "283"
-                }
-            ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 221.593489342625162,
-            "y": 74.4820828706198483,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "d546af0d-cb22-4df2-ab4e-896dab5738c7",
-            "kind": "uiPanel",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "equipPain",
-            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "themeData",
-                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"surface\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4008000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
-                },
-                {
-                    "path": "size\/x",
-                    "value": "440"
-                },
-                {
-                    "path": "size\/y",
-                    "value": "240"
-                }
-            ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 209.780092592592666,
-            "y": 396.412037037037635,
             "z": 0.0
         },
         {
@@ -7715,7 +7811,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiLabel",
+            "name": "itemName",
             "parentId": "d3a9b14a-6a36-45a6-bf02-5d064ec5a436",
             "pers": 0.0,
             "phase": "normal",
@@ -7851,7 +7947,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "pocketCapacity",
+            "name": "pocketCapacityScroll",
             "parentId": "f752b8f7-9bca-4991-bf8b-9ce055339dac",
             "pers": 0.0,
             "phase": "normal",
@@ -7860,6 +7956,218 @@
                 {
                     "path": "enabled",
                     "value": "false"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "101"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "112"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "176"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "177"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "181"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "188"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "184"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "184"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "186"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"3ff0000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"3ff0000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"scrollbar\":{\"accent\":[0,210,240,185],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
                 },
                 {
                     "path": "size\/x",
@@ -7873,8 +8181,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 0.0,
-            "y": 30.0,
+            "x": -27.5300736130228643,
+            "y": 32.393919444610674,
             "z": 0.0
         },
         {
@@ -8010,13 +8318,85 @@
                 {
                     "path": "size\/y",
                     "value": "180"
+                },
+                {
+                    "path": "transparentBackground",
+                    "value": "false"
+                },
+                {
+                    "path": "bgColor\/v_r",
+                    "value": "18"
+                },
+                {
+                    "path": "bgColor\/v_g",
+                    "value": "104"
+                },
+                {
+                    "path": "bgColor\/v_b",
+                    "value": "178"
+                },
+                {
+                    "path": "bgColor\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "bgColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "bgColor\/v_g",
+                    "value": "137"
+                },
+                {
+                    "path": "bgColor\/v_b",
+                    "value": "255"
+                },
+                {
+                    "path": "bgColor\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "transparentBackground",
+                    "value": "true"
+                },
+                {
+                    "path": "bgColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "bgColor\/v_g",
+                    "value": "0"
+                },
+                {
+                    "path": "bgColor\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "bgColor\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_r",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_a",
+                    "value": "255"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 180.0,
             "x": 37.8717249503894777,
-            "y": 144.381046548402537,
+            "y": 144.381046548402509,
             "z": 0.0
         },
         {
@@ -8045,7 +8425,7 @@
                 "pitch": 0.0,
                 "power": 1.0,
                 "quality": 0.900000000000000022,
-                "r": 100.0,
+                "r": 120.0,
                 "red": 53.0,
                 "roll": 0.0,
                 "shadowLength": 10000.0,
@@ -8058,7 +8438,7 @@
                 "targetZ": 0.0,
                 "yaw": 0.0
             },
-            "lightType": "AmbientLight",
+            "lightType": "PointLight",
             "name": "light",
             "parentId": "16645ce6-d03f-4d01-8af0-23219afeafd7",
             "pers": 0.0,
@@ -8088,14 +8468,30 @@
                 {
                     "path": "color\/v_a",
                     "value": "255"
+                },
+                {
+                    "path": "power",
+                    "value": "1"
+                },
+                {
+                    "path": "z",
+                    "value": "50"
+                },
+                {
+                    "path": "r",
+                    "value": "120"
+                },
+                {
+                    "path": "power",
+                    "value": "1"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
+            "x": -41.2286126571840654,
+            "y": -42.5585679041900278,
+            "z": 50.0
         },
         {
             "action": {
@@ -8241,6 +8637,146 @@
             },
             "enabled": true,
             "height": 480.0,
+            "id": "0d8e541b-bf3e-45e5-8e7b-32bfda4d255e",
+            "kind": "uiPanel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "infoPain",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "themePreset",
+                    "value": "inherit"
+                },
+                {
+                    "path": "themeData",
+                    "value": ""
+                },
+                {
+                    "path": "size\/x",
+                    "value": "426.277"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "283"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 313.54075924928452,
+            "y": 49.7206713004525227,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "96911e93-cfa4-42a0-853e-05b2168eb3cd",
+            "kind": "uiPanel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "infoPain Copy",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "themePreset",
+                    "value": "inherit"
+                },
+                {
+                    "path": "themeData",
+                    "value": ""
+                },
+                {
+                    "path": "size\/x",
+                    "value": "426.277"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "283"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 209.842520830424064,
+            "y": 322.429726411581896,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
             "id": "804d1acd-5caa-4359-9732-06f36e91bc96",
             "kind": "uiPanel",
             "light": {
@@ -8269,12 +8805,80 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "uiPanel",
+            "name": "previewPanel",
             "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
             "properties": [
+                {
+                    "path": "themeStyle\/fill\/R",
+                    "value": "5"
+                },
+                {
+                    "path": "themeStyle\/fill\/G",
+                    "value": "86"
+                },
+                {
+                    "path": "themeStyle\/fill\/B",
+                    "value": "155"
+                },
+                {
+                    "path": "themeStyle\/fill\/A",
+                    "value": "50"
+                },
+                {
+                    "path": "themeStyle\/fill\/R",
+                    "value": "5"
+                },
+                {
+                    "path": "themeStyle\/fill\/G",
+                    "value": "86"
+                },
+                {
+                    "path": "themeStyle\/fill\/B",
+                    "value": "155"
+                },
+                {
+                    "path": "themeStyle\/fill\/A",
+                    "value": "176"
+                },
+                {
+                    "path": "themeStyle\/fill\/R",
+                    "value": "5"
+                },
+                {
+                    "path": "themeStyle\/fill\/G",
+                    "value": "86"
+                },
+                {
+                    "path": "themeStyle\/fill\/B",
+                    "value": "155"
+                },
+                {
+                    "path": "themeStyle\/fill\/A",
+                    "value": "100"
+                },
+                {
+                    "path": "themeStyle\/fill\/R",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/fill\/G",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/fill\/B",
+                    "value": "254"
+                },
+                {
+                    "path": "themeStyle\/fill\/A",
+                    "value": "100"
+                },
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"surface\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[0,255,254,100],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                },
                 {
                     "path": "size\/x",
                     "value": "200"
@@ -8390,6 +8994,1168 @@
             "phase": "normal",
             "projection": "None",
             "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "fd4a7f8f-9cc6-46b7-ac39-e6ff46a57153",
+            "kind": "uiStackLayout",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "uiStackLayout",
+            "parentId": "96911e93-cfa4-42a0-853e-05b2168eb3cd",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "axis",
+                    "value": "horizontal"
+                },
+                {
+                    "path": "gap",
+                    "value": "10"
+                },
+                {
+                    "path": "axis",
+                    "value": "vertical"
+                },
+                {
+                    "path": "gap",
+                    "value": "20"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "118"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "213.2"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 19.6613449061605365,
+            "y": 31.8287037037036917,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "89f50df6-5ab9-42ca-a0c9-d1925d68c60d",
+            "kind": "uiLabel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "equipedName",
+            "parentId": "fd4a7f8f-9cc6-46b7-ac39-e6ff46a57153",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "role",
+                    "value": "buton"
+                },
+                {
+                    "path": "textPresentation",
+                    "value": "{\"align\":1,\"customAlign\":false,\"customOverflow\":false,\"customVertical\":false,\"fontHeight\":\"0000000000000000\",\"overflow\":0,\"padding\":[\"bff0000000000000\",\"bff0000000000000\"],\"role\":\"buton\",\"variant\":\"\",\"version\":1,\"vertical\":1}"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "370"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "24"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "fde0a666-a909-4d83-9fcb-bf5873be34af",
+            "kind": "uiListView",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "equipInfoList",
+            "parentId": "fd4a7f8f-9cc6-46b7-ac39-e6ff46a57153",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "370"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "170"
+                },
+                {
+                    "path": "scrollOffset",
+                    "value": "0"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 42.803040277694663,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "f3ab2e87-745e-4cde-b069-9b724d01e8fe",
+            "kind": "particleEffect",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "particleEffect",
+            "parentId": "16645ce6-d03f-4d01-8af0-23219afeafd7",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "endColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "endColor\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "endColor\/v_b",
+                    "value": "254"
+                },
+                {
+                    "path": "endColor\/v_a",
+                    "value": "100"
+                },
+                {
+                    "path": "endColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "endColor\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "endColor\/v_b",
+                    "value": "254"
+                },
+                {
+                    "path": "endColor\/v_a",
+                    "value": "100"
+                },
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Rect"
+                },
+                {
+                    "path": "spawnShape\/from\/x",
+                    "value": "-50"
+                },
+                {
+                    "path": "spawnShape\/from\/y",
+                    "value": "-50"
+                },
+                {
+                    "path": "spawnShape\/to\/x",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/to\/y",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/from\/z",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/to\/z",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/radius",
+                    "value": "100"
+                },
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Circle"
+                },
+                {
+                    "path": "endColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "endColor\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "endColor\/v_b",
+                    "value": "254"
+                },
+                {
+                    "path": "endColor\/v_a",
+                    "value": "100"
+                },
+                {
+                    "path": "startColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "startColor\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "startColor\/v_b",
+                    "value": "254"
+                },
+                {
+                    "path": "startColor\/v_a",
+                    "value": "100"
+                },
+                {
+                    "path": "startSize",
+                    "value": "1"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "10"
+                },
+                {
+                    "path": "width",
+                    "value": "20"
+                },
+                {
+                    "path": "rate",
+                    "value": "200"
+                },
+                {
+                    "path": "velocityStretch",
+                    "value": "0.3"
+                },
+                {
+                    "path": "lifetime\/min",
+                    "value": "0.3"
+                },
+                {
+                    "path": "lifetime\/max",
+                    "value": "0.1"
+                },
+                {
+                    "path": "spawnShape\/radius",
+                    "value": "50"
+                },
+                {
+                    "path": "z",
+                    "value": "50"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 50.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "8ab82813-a0c9-4b64-b25f-8d90c4ae45bf",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "exportButton",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "isVisible",
+                    "value": "false"
+                },
+                {
+                    "path": "isVisible",
+                    "value": "true"
+                },
+                {
+                    "path": "enabled",
+                    "value": "false"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "100"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 71.4428407400757521,
+            "y": 347.222222222222172,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "8a2c5cfb-a608-4c04-b4e5-0042c3d2ccb8",
+            "kind": "uiLabel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "mainCapacityLabel",
+            "parentId": "aabf56e2-141c-4e96-9e03-35524c7f9220",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "themeStyle\/accent\/R",
+                    "value": "0"
+                },
+                {
+                    "path": "themeStyle\/accent\/G",
+                    "value": "223"
+                },
+                {
+                    "path": "themeStyle\/accent\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/accent\/A",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/selectedFill\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/selectedFill\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/selectedFill\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/selectedFill\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/selectedFill\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/selectedFill\/B",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "166"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "207"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "211"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "217"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "234"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/G",
+                    "value": "243"
+                },
+                {
+                    "path": "themePreset",
+                    "value": "inherit"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "255"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "254"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "222"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "220"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "220"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "220"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "218"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "217"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "217"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "231"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "231"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "219"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "202"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "200"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "197"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "195"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "185"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "181"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "179"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "182"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "188"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "189"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "59"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "59"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "67"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "90"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "119"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "122"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "122"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "122"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "124"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "147"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "150"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "150"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "150"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "157"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "183"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "203"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "220"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "224"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "228"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "228"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "228"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "228"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "215"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"3ff0000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[190,250,255,204],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"3ff0000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "244"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "24"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "639b240d-7d23-4247-94aa-985f8e1332c8",
+            "kind": "uiLabel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "pocketCapacityLabel",
+            "parentId": "60df78a3-44f7-4244-bfb2-7fb937c84bbc",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "254"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "252"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "246"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "235"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "235"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "233"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "224"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "215"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "209"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "208"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "206"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "205"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeStyle\/disabledText\/A",
+                    "value": "204"
+                },
+                {
+                    "path": "themeData",
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"3ff0000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[190,250,255,204],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"3ff0000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "244"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "24"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
