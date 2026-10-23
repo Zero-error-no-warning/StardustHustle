@@ -63,8 +63,8 @@
             "scale": 1.0,
             "scriptModule": "script.weapons",
             "width": 640.0,
-            "x": 1.02618920363437383,
-            "y": 0.0,
+            "x": -41.9738107963656262,
+            "y": -175.0,
             "z": 0.0
         },
         {
@@ -176,7 +176,7 @@
             "scale": 1.5,
             "scriptModule": "",
             "width": 640.0,
-            "x": -46.5565411923335901,
+            "x": -46.556541192333583,
             "y": -13.4258313213517688,
             "z": 0.0
         },
@@ -433,6 +433,265 @@
             "x": 0.0,
             "y": 0.0,
             "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "5aced90b-97c4-451f-a983-b708880409ec",
+            "kind": "sceneReference",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "inventory",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "referenceRequired": false,
+            "referenceType": "ExternalScene",
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 14.0,
+            "id": "261f1eba-a3e8-45d0-a691-926458a6a035",
+            "kind": "marker",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "marker",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/y",
+                    "value": "81.6"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "44.8"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "10"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "10"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 13.0,
+            "x": -56.0,
+            "y": -171.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "1b221f2d-96a5-4673-b91e-751f03af0b4e",
+            "kind": "particleEffect",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "particleEffect",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Circle"
+                },
+                {
+                    "path": "spawnShape\/from\/x",
+                    "value": "-50"
+                },
+                {
+                    "path": "spawnShape\/from\/y",
+                    "value": "-50"
+                },
+                {
+                    "path": "spawnShape\/from\/z",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/to\/x",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/to\/y",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/to\/z",
+                    "value": "50"
+                },
+                {
+                    "path": "spawnShape\/extent\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "spawnShape\/extent\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "spawnShape\/radius",
+                    "value": "50"
+                },
+                {
+                    "path": "autoPlayMode",
+                    "value": "Manual"
+                },
+                {
+                    "path": "endColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "endColor\/v_g",
+                    "value": "49"
+                },
+                {
+                    "path": "endColor\/v_b",
+                    "value": "49"
+                },
+                {
+                    "path": "endColor\/v_a",
+                    "value": "195"
+                },
+                {
+                    "path": "startColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "startColor\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "startColor\/v_b",
+                    "value": "254"
+                },
+                {
+                    "path": "startColor\/v_a",
+                    "value": "100"
+                },
+                {
+                    "path": "spawnShape\/radius",
+                    "value": "75"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": -54.0,
+            "y": -174.0,
+            "z": 0.0
         }
     ],
     "previewEnvironment": {
@@ -441,8 +700,8 @@
             "angle": 0.0,
             "centerX": 0.5,
             "centerY": 0.5,
-            "x": 0.0,
-            "y": 0.0,
+            "x": 91.0,
+            "y": -64.0,
             "zoom": 1.0
         },
         "canvas": {

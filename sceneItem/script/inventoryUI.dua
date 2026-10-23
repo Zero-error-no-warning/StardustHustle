@@ -19,17 +19,17 @@ export ItemInfo[idata.EquipSlot] equipItemList = [
     "waist": null,
 ];
 
-
-export ItemInfo[] mainItemList = [
-    ItemInfo{ id = 1, itemID = "knife_001", count = 5, name = "ナイフ", modifier = [] , datetime = null, InstalledPartIDs = [:]},
-    ItemInfo{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃", modifier = [] , datetime = null, InstalledPartIDs = [:] },
-    // { id = 5, itemID = "barrel_001", count = 1, name = "バレル", modifier = ["長い"] , datetime = null, InstalledPartIDs = [:] },
-];
-
-export ItemInfo[] pocketItemList = [
-    ItemInfo{ id = 4, itemID = "bandage", count = 1, name = "", modifier = [] , datetime = null, InstalledPartIDs = [:] },
-    ItemInfo{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2", modifier = [] , datetime = null, InstalledPartIDs = [:] },
-];
+auto ItemLists = {
+    main = [
+        ItemInfo{ id = 1, itemID = "knife_001", count = 1, name = "ナイフ", modifier = [] , datetime = null, InstalledPartIDs = [:]},
+        ItemInfo{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃", modifier = [] , datetime = null, InstalledPartIDs = [:] },
+        // { id = 5, itemID = "barrel_001", count = 1, name = "バレル", modifier = ["長い"] , datetime = null, InstalledPartIDs = [:] },
+    ],
+        pocket= [
+        ItemInfo{ id = 4, itemID = "bandage", count = 5, name = "", modifier = [] , datetime = null, InstalledPartIDs = [:] },
+        ItemInfo{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2", modifier = [] , datetime = null, InstalledPartIDs = [:] },
+    ],
+};
 
 export auto inventoryProfile = {
     capacity = 1000,
@@ -47,9 +47,10 @@ export auto pocketProfile = {
 auto canvas =null;
 auto atlas = null;
 
-ListView mainInventoryList = null;
-ListView pocketInventoryList = null;
+ListView mainInventoryList = scenes.inventoryUI.findScene("mainInventoryList");
+ListView pocketInventoryList = scenes.inventoryUI.findScene("pocketInventoryList");
 
+    
 auto previewCanvas = scenes.previewCanvas;
 
 auto itemDataView = (ItemInfo item) => item.count;
@@ -60,12 +61,18 @@ Font.registerFile(assetPath("../res/font/madoufmg.ttf"));
 auto font = Font("魔導太丸ゴシック",height*2,6,Font.Type.AA16x16_Edge);
 
 ItemInfo selectedItem = null;
-ItemInfo[] selectedItemList = [];
+export auto sharedVar = {
+    currentModel = "",
+};
+export CharacterAsset[string] itemAssets = [:];
+
+export void open(){
+    scenes.inventoryUI.previewPanel.isVisible = true;
+    mainInventoryList.enabled = true;
+    pocketInventoryList.enabled = true;
+}
 
 export void init(){
-
-    mainInventoryList = scenes.inventoryUI.findScene("mainInventoryList");
-    pocketInventoryList = scenes.inventoryUI.findScene("pocketInventoryList");
 
 
     canvas = self.targetCanvas();
@@ -117,12 +124,15 @@ export void init(){
             if(sub.type == "Character")
                 sub.exit();
         }
-        selectedItemList = (listName == "main" ? mainItemList : pocketItemList);
-        auto item = selectedItemList[idx];
+        auto item = ItemLists[listName][idx];
         selectedItem = item;
         
         if(itemDatabase[item.itemID].model != ""){
-            Character model = previewCanvas.loadCharacter( itemDatabase[item.itemID].model.assetPath());
+            string path = itemDatabase[item.itemID].model.assetPath();
+            if(!itemAssets.contains(path)) 
+                itemAssets[path] = loadCharacterAsset(path);
+
+            Character model = itemAssets[path].spawn(previewCanvas);
             auto LeftTop = model.p;
             auto RightBot = model.p;
             model.selectMotion(0,0.0);
@@ -131,6 +141,7 @@ export void init(){
             previewCanvas.light.p = modelCenter.p - Vec2(15,15);
             previewCanvas.light.z = modelCenter.thick + 15 ;
             scenes.previewCanvas.particleEffect.p = modelCenter.p;
+            sharedVar.currentModel = path;
         }
 
         auto itemNameLabel = scenes.inventoryUI.findScene("itemName");
@@ -138,19 +149,28 @@ export void init(){
 
     };
     mainInventoryList.onClick = (ListView list, long idx){
-        if(idx >= 0 && idx < mainItemList.length){
+        if(idx >= 0 && idx < ItemLists.main.length){
             onInventoryClick("main", idx);
             pocketInventoryList.unSelect();
         }
     };
     pocketInventoryList.onClick = (ListView list, long idx){
-        if(idx >= 0 && idx < mainItemList.length){
+        if(idx >= 0 && idx <  ItemLists.pocket.length){
             onInventoryClick("pocket", idx);
             mainInventoryList.unSelect();
         }
     };
-    scenes.inventoryUI.exportButton.onClick = (Button b){
-        exportItem(selectedItem,selectedItemList);
+    mainInventoryList.onClick = (ListView list, long idx){
+        if(idx >= 0 && idx < ItemLists.main.length){
+            onInventoryClick("main", idx);
+            pocketInventoryList.unSelect();
+        }
+    };
+    mainInventoryList.onDoubleClick = (ListView list, long idx){
+        exportItem(selectedItem,"main");
+    };
+    pocketInventoryList.onDoubleClick = (ListView list, long idx){
+        exportItem(selectedItem,"pocket");
     };
 
     auto particle = scenes.previewCanvas.particleEffect;
@@ -195,16 +215,16 @@ export void update(){
                         ~ (styled(" " ~ item.getName()).color(Color(150,240,255,255))
                         ~ styled(" " ~ itemDataView(item)).color(Color(100,240,190,255))).height(height*0.9).font(font);
             };
-    mainInventoryList.richContents = mainItemList.map(itemViewer);
-    pocketInventoryList.richContents = pocketItemList.map(itemViewer);
+    mainInventoryList.richContents =  ItemLists.main.map(itemViewer);
+    pocketInventoryList.richContents =  ItemLists.pocket.map(itemViewer);
     
     auto mainCapacityScroll = scenes.inventoryUI.findScene("mainCapacityScroll");
     auto pocketCapacityScroll = scenes.inventoryUI.findScene("pocketCapacityScroll");
     auto mainCapacityLabel = scenes.inventoryUI.findScene("mainCapacityLabel");
     auto pocketCapacityLabel = scenes.inventoryUI.findScene("pocketCapacityLabel");
     
-    auto mainCapacity = calcCapacity(mainItemList);
-    auto pocketCapacity = calcCapacity(pocketItemList);
+    auto mainCapacity = calcCapacity( ItemLists.main);
+    auto pocketCapacity = calcCapacity( ItemLists.pocket);
     mainCapacityScroll.viewportExtent = mainCapacity;
     pocketCapacityScroll.viewportExtent = pocketCapacity;
     mainCapacityScroll.contentExtent = inventoryProfile.capacity;
@@ -215,7 +235,6 @@ export void update(){
     mainCapacityLabel.caption  = mainCapacity ~ " / " ~ inventoryProfile.capacity;
     pocketCapacityLabel.caption = pocketCapacity ~ " / " ~ pocketProfile.capacity;
 
-     scenes.inventoryUI.exportButton.enabled = selectedItem != null;
 }
 
 ItemInfo[] quickSort(ItemInfo[] inventory, any cmp){
@@ -234,47 +253,54 @@ ItemInfo[] quickSort(ItemInfo[] inventory, any cmp){
 }
     
 
-export void addItem(ItemInfo item, ItemInfo[] inventory,uint N){
-    foreach(existingItem ; inventory){
-        if(existingItem.itemID == item.itemID && existingItem.modifier == item.modifier){
-            existingItem.count += N;
+export void addItem(ItemInfo item,string listName){
+    if(itemDatabase[item.itemID].stackable)
+    foreach(existingItem ; ItemLists[listName]){
+        if(existingItem.id == item.id){
+            existingItem.count += item.count;
             return;
         }
     }
-    inventory ~= item;
+    ItemLists[listName] ~= item;
 }
 
-export void removeItem(ItemInfo item, ItemInfo[] inventory,uint N){
-    foreach(idx,existingItem ; inventory){
-        if(existingItem.itemID == item.itemID && existingItem.modifier == item.modifier){
-            existingItem.count -= N;
-            if(existingItem.count <= 0){
-                inventory = inventory[0..idx] ~ inventory[idx+1..$];
+export void removeItem(ItemInfo item,string listName,uint N){
+    foreach(idx,existingItem ; ItemLists[listName]){
+        if(existingItem.id == item.id){
+            if(itemDatabase[item.itemID].stackable) existingItem.count -= N;
+            if(!itemDatabase[item.itemID].stackable || existingItem.count <= 0){
+                ItemLists[listName] = ItemLists[listName][0..idx] ~ ItemLists[listName][idx+1..$];
             }
             return;
         }
     }
 }
-export void exportItem(ItemInfo item,ItemInfo[] inventory){
-    scenes.inventoryUI.exportButton.enabled = false;
+
+export void exportItem(ItemInfo item,string listName){
     
     if(!item) return;
+    mainInventoryList.enabled = false;
+    pocketInventoryList.enabled = false;
+
     auto itemData = itemDatabase[item.itemID];
     auto equipItem = equipItemList[itemData.equipSlot];
-    if(equipItem && {...equipItem, count = 1} == {...item,count = 1}){
-        addItem(equipItem, inventory,1);
+    if(equipItem){
+        addItem(equipItem, listName);
     }
-    equipItemList[itemData.equipSlot] = item;
-    removeItem(item,inventory,1);
+    equipItemList[itemData.equipSlot] = {...item,count = 1};
+    removeItem(item,listName,1);
     auto inventorySceneMaster = scenes.root.master;
 
     self.miniScene((){
         auto particle = scenes.previewCanvas.particleEffect;
         auto backPanel = scenes.inventoryUI.previewPanel;
-        auto t = 0.2;
+        auto t0 = 0.5;
+        auto t = t0;
         scenes.inventoryUI.previewPanel.isVisible = false;
         while(t > 0){
-        particle.emit(50);
+            particle.endColor = particle.endColor *Color(64,64,64,255);
+            particle.lifetime = {min = t*0.5,max = t};
+            particle.emit(t/t0*100);
             t -= Timer.dt;
             self.yields;
         }

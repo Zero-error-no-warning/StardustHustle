@@ -41,6 +41,7 @@ export table ItemData {
     string description;
     string icon;
     string model;
+    bool stackable;
     CommonItemStats commonStats;
     GunSlot[] slots;                  // 銃種の固定情報。非対応部位はここに載せない。
     SpecificItemStats[] specificStats; // 近接/回復/部品は各1件、共通品/完成銃製品は空。
@@ -79,25 +80,26 @@ auto miscIcon = "../res/icons/misc.png";
 
 export ItemData[string] itemDatabase = [
     "knife_001": ItemData{
-        type = "weapon_melee", baseName = "ナイフ", consumable = false, equipSlot = "weapon",
+        type = "weapon_melee", baseName = "ナイフ", consumable = false, equipSlot = "weapon",stackable = false,
         description = "大振りのナイフ", icon = meleeIcon, model = "../res/character/weapons/knife.zsc",
         commonStats = CommonItemStats{weight = 0.5, size = 0.3, value = 100.0}, slots = [],
         specificStats = [WeaponMeleeStat{sharpness = 0.8, swingSpeed = 1.2}]
     },
     "bandage": ItemData{
-        type = "medicine", baseName = "包帯", consumable = true, equipSlot = "none",
+        type = "medicine", baseName = "包帯", consumable = true, equipSlot = "none",stackable = true,
         description = "回復品の例", icon = medicineIcon, model = "../res/character/items/bandage.zsc",
         commonStats = CommonItemStats{weight = 0.1, size = 0.2, value = 50.0}, slots = [],
         specificStats = [MedicineStat{health = 20.0, duration = 5.0}]
     },
     "scrap": ItemData{
-        type = "misc", baseName = "金属片", consumable = false, equipSlot = "none",
+        type = "misc", baseName = "金属片", consumable = false, equipSlot = "none",stackable = true,
         description = "専用性能を持たない共通アイテム", icon = miscIcon, model = "",
         commonStats = CommonItemStats{weight = 0.02, size = 0.03, value = 2.0}, slots = [], specificStats = []
     },
     "handgun_A": ItemData{
-        type = "weapon_ranged", baseName = "組み立て拳銃A",
-        consumable = false, equipSlot = "weapon", description = "性能は装着部品から計算", icon = rangedIcon, model = "",
+        type = "weapon_ranged", baseName = "組み立て拳銃A", stackable = false,
+        consumable = false, equipSlot = "weapon", description = "性能は装着部品から計算", icon = rangedIcon,
+        model = "../res/character/weapons/handgun.zsc",
         // 銃重量は部品側。size/valueは本例では製品値（価格付けルールの実装は別）。
         commonStats = CommonItemStats{weight = 0.0, size = 0.28, value = 200.0},
         slots = [
@@ -107,21 +109,21 @@ export ItemData[string] itemDatabase = [
         ], specificStats = []
     },
     "receiver_A": ItemData{
-        type = "gun_parts", baseName = "Aquilレシーバー",
+        type = "gun_parts", baseName = "Aquilレシーバー", stackable = false,
         consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
         commonStats = CommonItemStats{weight = 0.30, size = 0.18, value = 100.0}, slots = [],
         specificStats = [GunPartsStat{kind = "receiver", brand = "Aquil", fitTags = ["handgunA.core"],
             accuracy = 0.20, swingSpeed = 0.60, reloadSpeed = 0.0, magazineSize = 0}]
     },
     "barrel_A": ItemData{
-        type = "gun_parts", baseName = "Aquilバレル",
+        type = "gun_parts", baseName = "Aquilバレル", stackable = false,
         consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
         commonStats = CommonItemStats{weight = 0.20, size = 0.12, value = 80.0}, slots = [],
         specificStats = [GunPartsStat{kind = "barrel", brand = "Aquil", fitTags = ["handgunA.barrel"],
             accuracy = 0.60, swingSpeed = 0.30, reloadSpeed = 0.0, magazineSize = 0}]
     },
     "magazine_A": ItemData{
-        type = "gun_parts", baseName = "Aquilマガジン",
+        type = "gun_parts", baseName = "Aquilマガジン", stackable = false,
         consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
         commonStats = CommonItemStats{weight = 0.10, size = 0.10, value = 40.0}, slots = [],
         specificStats = [GunPartsStat{kind = "magazine", brand = "Aquil", fitTags = ["handgunA.mag.9mm"],

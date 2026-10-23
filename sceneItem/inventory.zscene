@@ -8762,7 +8762,7 @@
             "scriptModule": "",
             "width": 640.0,
             "x": 209.842520830424064,
-            "y": 322.429726411581896,
+            "y": 322.42972641158201,
             "z": 0.0
         },
         {
@@ -9396,6 +9396,22 @@
                 {
                     "path": "z",
                     "value": "50"
+                },
+                {
+                    "path": "endColor\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "endColor\/v_g",
+                    "value": "49"
+                },
+                {
+                    "path": "endColor\/v_b",
+                    "value": "49"
+                },
+                {
+                    "path": "endColor\/v_a",
+                    "value": "195"
                 }
             ],
             "scale": 1.0,
@@ -9404,80 +9420,6 @@
             "x": 0.0,
             "y": 0.0,
             "z": 50.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "8ab82813-a0c9-4b64-b25f-8d90c4ae45bf",
-            "kind": "uiButton",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "exportButton",
-            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "isVisible",
-                    "value": "false"
-                },
-                {
-                    "path": "isVisible",
-                    "value": "true"
-                },
-                {
-                    "path": "enabled",
-                    "value": "false"
-                },
-                {
-                    "path": "size\/x",
-                    "value": "100"
-                },
-                {
-                    "path": "size\/y",
-                    "value": "28"
-                }
-            ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 71.4428407400757521,
-            "y": 347.222222222222172,
-            "z": 0.0
         },
         {
             "action": {

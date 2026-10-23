@@ -3,6 +3,8 @@
 
 alias WeaponType = "OneHandMelee" | "OneHandRanged" | "TwoHandMelee" | "TwoHandRanged" | "Hand";
 
+auto inventory = null;
+
 table WeaponInfo{
     string name;
     WeaponType type;
@@ -25,11 +27,54 @@ export void init(){
     rightHand = player.part("右手");
     leftHand = player.part("左手");
     player.morph("walk",0.1);
+
+    inventory = scenes.inventory;
 }
 import scenes;
+
+export void updateModel(){
+    foreach(sub;self.subs){
+        if(sub.type == "Character")
+            sub.exit();
+    }
+    auto inventoryModule = inventory.findScene("inventoryUI").sceneModule();
+    auto asset = inventoryModule.itemAssets[inventoryModule.sharedVar.currentModel];
+    auto canvas = self.targetCanvas();
+    auto chara = asset.spawn(canvas);
+    
+    chara.z = 50;
+    self.miniScene((){
+        auto particle = scenes.particleEffect;
+        auto diff0 = 300.;
+        chara.p = player.part("右手").p + Vec2(0,-diff0);
+        particle.p = chara.part("modelCenter").p;
+        particle.z = chara.z  + 50;
+        auto v = 0.0;
+        while(player.part("右手").p.y > chara.p.y){
+            auto diff = player.part("右手").p.y - chara.p.y;
+            particle.endColor = particle.endColor *Color(64,64,64,255);
+            particle.lifetime = {min = diff/diff0*0.1,max = diff/diff0*0.5};
+            particle.emit(diff/diff0*50);
+            player.morph("catchItem",0.3);
+            v += 3.*self.dt;
+            chara.p.y = chara.p.y + v;
+            self.yields;
+        }  
+        player.morph("caughtItem",0.0);
+        self.yields;
+        self.addSubScene(chara);
+        chara.lz = 50;
+        chara.lp = Vec2(0,0 );
+    },32);
+    
+}
 
 export void update(){
     self.p = rightHand.p;
     self.a = rightHand.a + Angle.Deg(90);
     self.z = rightHand.z;
+}
+
+export void equipAnimation(Character chara){
+    
 }
