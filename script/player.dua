@@ -21,6 +21,8 @@ Vec2 targetPosition = Vec2.Zero;
 auto stand_motions = {};
 auto stand = null;
 
+auto inventory = scenes.inventory;
+
 export void init(){
     auto physics = self.master;
     auto map = scenes.MainCanvas.findScene("stage").findScene("map");
@@ -34,11 +36,6 @@ export void init(){
     self_motions = {
         idle = self.motionIndex("idle"),
         walkFront = self.motionIndex("walkFront"),
-        walkLeft = self.motionIndex("walkFront"),
-        walkRight = self.motionIndex("walkFront"),
-        walkBack = self.motionIndex("walkFront"),
-        update = self.motionIndex("walkFront"),
-        holdLantern = self.motionIndex("holdLantern"),
         holdHandgun = self.motionIndex("holdHandgun"),
     };
     stand = scenes.leftCanvas.stand_player;
@@ -53,6 +50,45 @@ export void init(){
     self.motionSpeed = 1.0;
     stand.motionSpeed = 1.0;
     physics.z = 0;
+
+    auto weapon = self.stateMachine("weapon");
+    weapon["subMachineGun"] = (){
+        self.clearMorphParts("Torso");
+        self.morphParts("ArmR", self.motionIndex("holdSubMachineGun"),0.3);
+        self.morphParts("ArmL", self.motionIndex("holdSubMachineGun"),0.3);
+        self.morphParts("Head", self.motionIndex("holdSubMachineGun"),0.3);
+        self.morphPartOnly("Torso", self.motionIndex("holdSubMachineGun"),0.3);
+        self.morphPartOnly("Waist", self.motionIndex("holdSubMachineGun"),0.3);
+        self.part("weapons").isOFF = false;
+        if(Keyboard.isClicked("X"))
+            weapon.changeState("handgun");
+        if(Mouse.isPressed("Left") && self.everyNsecs(0.1)){
+            auto firePoint = self.part("firePointSMG");
+            auto physicsSpace = scenes.MainCanvas.physicsSpace;
+            auto bullet = physicsSpace.newExternalScene("./sceneItem/bullet.zscene".assetPath());
+            bullet.p = firePoint.p;
+            bullet.a = self.a;
+            bullet.findScene("SMG").setPhysicsVelocity(Vec3(Vec2(1000,0).rot(bullet.a),0));
+        }
+    };
+    weapon["handgun"] = (){
+        self.clearMorphParts("Torso");
+        self.morphParts("ArmR", self.motionIndex("holdHandGun"),0.3);
+        stand.morphParts("ArmR",stand.motionIndex("onehandGun"),0.3);
+        if(Keyboard.isClicked("X"))
+            weapon.changeState("subMachineGun");
+        if(Mouse.oncePressed("Left")){
+            auto firePoint = self.part("firePointSMG");
+            auto physicsSpace = scenes.MainCanvas.physicsSpace;
+            auto bullet = physicsSpace.newExternalScene("./sceneItem/bullet.zscene".assetPath());
+            bullet.p = firePoint.p;
+            bullet.a = self.a;
+            bullet.findScene("SMG").setPhysicsVelocity(Vec3(Vec2(1000,0).rot(bullet.a),0));
+            auto fireSound = scenes.MainCanvas.sound.gunfire;
+            fireSound.play();
+        }
+    };
+    weapon.changeState("handgun");
 }
 
 
@@ -91,29 +127,20 @@ export void update(){
     Vec3 v = Vec3( moveInput.unit.rot(self.a) * speed);
     auto physics = self.master;
     if(playerMove.isPressed("Dash")){
-        v =v * ((moveInput.x > 0 && moveInput.y == 0) ? 2 : 1.5);
+        print(v.norm , " =>  " , (v * 2.0).norm);
+        v = v * 2.0;
     }
     physics.setPhysicsVelocity(v);  
 
-    if(moveInput.y > 0)
-        self.morph(self_motions.walkLeft,0.3);
-    else if(moveInput.y < 0)
-        self.morph(self_motions.walkRight,0.3);
-    else if(moveInput.x < 0)
-        self.morph(self_motions.walkBack,0.3);
-    else if(moveInput.x > 0){
-        if(v.norm < 100)
-            self.morph(self_motions.walkFront,0.3);
-        else
-            self.morph(self_motions.update,0.3);
-    }
+    if(v.norm > 0)
+        self.morph(self_motions.walkFront,0.3);
     else{
         self.morph(self_motions.idle,0.3);
-        // stand.morph(stand_motions.idle,0.3);
     }
 
     if(moveInput.norm > 0){
         stand.morph(stand_motions.walk,0.3);
+        stand.motionSpeed = v.norm / speed;
     }
     else{
         stand.morph(stand_motions.idle,0.3);
@@ -124,9 +151,9 @@ export void update(){
     
 
     auto footSound = scenes.MainCanvas.sound.footsteps;
-    if (self.selectedMotionIndex != self_motions.idle) {
+    if (self.selectedMotionIndex == self_motions.walkFront) {
         if (!footSound.isPlaying)
-            self.everyNsecs(0.05,(){
+            self.everyNsecs(0.05*v.norm/speed,(){
                 footSound.play(false); // 続きから再開
             });
     } else {
@@ -134,4 +161,6 @@ export void update(){
             footSound.stop();      // 再生位置を保持して停止
     }
     mosueUpdate();
+
+
 }

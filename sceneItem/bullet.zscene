@@ -1,0 +1,229 @@
+{
+    "name": "bullet",
+    "nodes": [
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.5,
+            "centerY": 0.5,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "cadd07c7-7404-454c-9faf-d97d63f34d9c",
+            "kind": "alp",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "SMG",
+            "parentId": "",
+            "pers": 0.0,
+            "phase": "normal",
+            "physicsBody": {
+                "category": 8,
+                "collisionOnly": false,
+                "continuous": true,
+                "density": 10.0,
+                "friction": 0.0100000000000000002,
+                "gravityScale": 1.0,
+                "lockRotation": false,
+                "lockZ": false,
+                "mask": 3,
+                "mode": "dynamicBody",
+                "restitution": 0.0,
+                "sensor": false,
+                "spaceId": "",
+                "velocityX": 100.0,
+                "velocityY": 0.0,
+                "velocityZ": 0.0
+            },
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "10"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "3"
+                },
+                {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "thick",
+                    "value": "160"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "20"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "20"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "10"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "2"
+                },
+                {
+                    "path": "thick",
+                    "value": "5"
+                },
+                {
+                    "path": "p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "center\/x",
+                    "value": "0.5"
+                },
+                {
+                    "path": "center\/y",
+                    "value": "0.5"
+                },
+                {
+                    "path": "glow",
+                    "value": "1"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "2"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "2"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "script.bullet_SMG",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": "update"
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "fd55eec6-3839-4076-8c7a-fff4372c5bb6",
+            "kind": "doAlways",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "doAlways",
+            "parentId": "cadd07c7-7404-454c-9faf-d97d63f34d9c",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        }
+    ],
+    "previewEnvironment": {
+        "ambientPower": 1.0,
+        "camera": {
+            "angle": 0.0,
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "x": 0.0,
+            "y": 0.0,
+            "zoom": 1.0
+        },
+        "canvas": {
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "enabled": true,
+            "name": "",
+            "pers": 0.0,
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "enabled": true
+    },
+    "scriptModule": "",
+    "version": 2,
+    "windowSize": {
+        "height": 480,
+        "width": 640
+    }
+}

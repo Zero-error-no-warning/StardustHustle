@@ -102,7 +102,7 @@ void chooseTarget(double elapsed){
         traceIndex += 1;
         skipped += 1;
     }
-    if(traceIndex >= 64){
+    if(traceIndex >= 10){
         playerTrace = playerTrace[traceIndex .. $];
         traceIndex = 0;
     }

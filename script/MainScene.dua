@@ -25,7 +25,7 @@ export void init(){
 
     standLight.color = Color(255,255,0,255) ;
     InventoryState = self.stateMachine("InventoryState");
-    InventoryState.doState("InventoryClosed",(){
+    InventoryState["InventoryClosed"] = (){
         self.firstTime(true,(){
             Mouse.p = mainCanvas.sceneModule().targetPosition;
             inventory.isOFF = true;
@@ -39,8 +39,8 @@ export void init(){
         if(KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
             InventoryState.changeState("InventoryOpened");
         }
-    });
-    InventoryState.doState("InventoryOpened",(){
+    };
+    InventoryState["InventoryOpened"] = (){
         self.firstTime(true,(){
             inventory.isOFF = false;
             inventory.findScene("inventoryUI").sceneModule().open();
@@ -63,7 +63,7 @@ export void init(){
                 InventoryState.changeState("InventoryClosed");
             }
         });
-    });
+    };
     InventoryState.changeState("InventoryClosed");
 }
 

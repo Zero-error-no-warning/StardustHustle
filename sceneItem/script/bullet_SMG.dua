@@ -1,0 +1,23 @@
+// Sceneごとの状態: instance int count = 0;
+// selfはこのコードを割り当てたSceneです。
+instance double lifetime = 1.0;
+instance bool stopped = false;
+export void update(){
+    lifetime -= self.dt;
+    if(!stopped){
+        foreach(hit; physicsCollisionEvents(self)){
+            if(hit.phase == CollisionPhase.end || hit.sensor)
+                continue;
+
+            self.setPhysicsVelocity(Vec3.Zero);
+            removePhysicsBody(self);
+            stopped = true;
+            self.glow = 0.5;
+            break;
+        }
+    }
+    if(lifetime < 0){
+        self.exit();
+    }
+}
+

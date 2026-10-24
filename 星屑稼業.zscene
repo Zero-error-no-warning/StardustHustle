@@ -46,7 +46,12 @@
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "timeScale",
+                    "value": "1"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "script.MainScene",
             "width": 640.0,
@@ -1924,7 +1929,7 @@
             "action": {
                 "function": ""
             },
-            "assetPath": "sceneItem\\weapon.zscene",
+            "assetPath": "sceneItem\\stand_items.zscene",
             "centerX": 0.0,
             "centerY": 0.0,
             "condition": {
@@ -2150,127 +2155,6 @@
             "action": {
                 "function": ""
             },
-            "assetPath": "res\\character\\weapons\\knife_td.zsc",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "3190cf3c-733a-40e9-8f01-9920d37ced27",
-            "kind": "character",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "character",
-            "parentId": "f133041b-1212-4a35-8235-1a4b33d463f8",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "z",
-                    "value": "2.65"
-                },
-                {
-                    "path": "scale",
-                    "value": "0.3"
-                }
-            ],
-            "scale": 0.3000000000000001,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 89.7648358585857551,
-            "y": 82.1200284090908212,
-            "z": 2.65000000000000036
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "sceneItem\\weapon_td.zscene",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
-            "id": "e607c2ab-2241-4206-a9b8-f8062ad35b05",
-            "kind": "externalScene",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "externalScene",
-            "parentId": "f133041b-1212-4a35-8235-1a4b33d463f8",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "referenceBindings": [
-                {
-                    "slotId": "f8e754be-835d-4737-ab67-ac5e9f8ea5c6",
-                    "targetId": "116a72c7-b036-4efd-918f-b5d639b9049d"
-                }
-            ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
             "assetPath": "sceneItem\\inventory.zscene",
             "centerX": 0.0,
             "centerY": 0.0,
@@ -2333,6 +2217,59 @@
             "width": 640.0,
             "x": 13.0208333333333712,
             "y": -4.34027777777771462,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "res\\sound\\拳銃を撃つ.mp3",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "98f9b3cf-b0a6-4e3e-a088-e5d9b9f6bb46",
+            "kind": "sound",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "gunfire",
+            "parentId": "895c061a-afaa-4ebd-acc4-6f5f4bc422d3",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
             "z": 0.0
         }
     ],
