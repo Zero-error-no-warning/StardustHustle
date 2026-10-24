@@ -1,25 +1,12 @@
 // Sceneごとの状態: instance int count = 0;
 // selfはこのコードを割り当てたSceneです。
 
-alias WeaponType = "OneHandMelee" | "OneHandRanged" | "TwoHandMelee" | "TwoHandRanged" | "Hand";
-
 auto inventory = null;
 
-table WeaponInfo{
-    string name;
-    WeaponType type;
-}
 auto player = null;
 auto rightHand = null;
 auto leftHand = null;
 
-export string current = "knife";
-export void change(string name){
-    current = name;
-    foreach(sub;self.subs){
-        sub.isOFF = current != name;
-    }
-}
 
 
 export void init(){

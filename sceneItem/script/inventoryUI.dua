@@ -146,7 +146,8 @@ export void init(){
 
         auto itemNameLabel = scenes.inventoryUI.findScene("itemName");
         itemNameLabel.richCaption = styled(atlas.addTexture(itemDatabase[item.itemID].icon.assetPath()),Vec2(0,0)).height(height) ~ styled(" " ~ item.getName()).color(Color(150,240,255,255)).font(font).height(height);
-
+        auto itemInfoSystem = scenes.inventoryUI.findScene("itemInfoSystem");
+        
     };
     mainInventoryList.onClick = (ListView list, long idx){
         if(idx >= 0 && idx < ItemLists.main.length){

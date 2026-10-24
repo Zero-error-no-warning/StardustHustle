@@ -94,7 +94,6 @@ export void update(){
         v =v * ((moveInput.x > 0 && moveInput.y == 0) ? 2 : 1.5);
     }
     physics.setPhysicsVelocity(v);  
-    // if(!map.blocked(self.p + 10*v*self.dt,"Collision 1")) self.p =  self.p  + v*self.dt;
 
     if(moveInput.y > 0)
         self.morph(self_motions.walkLeft,0.3);
@@ -124,35 +123,6 @@ export void update(){
     });
     
 
-    // if(mainCanvasScript.playerParameter.haveHandgun){
-    //     stand.morphParts("HandR",stand_motions.holdHandgun,0.3);
-    //     stand.morphParts("ArmR",stand_motions.holdHandgun,0.3);
-    //     stand.morphParts("HandL",stand_motions.holdHandgun,0.3);
-    //     stand.morphParts("ArmL",stand_motions.holdHandgun,0.3);
-
-    //     self.morphParts("Hand_R",self_motions.holdHandgun,0.3);
-    //     self.morphParts("Arm_R",self_motions.holdHandgun,0.3);
-    //     self.morphParts("Hand_L",self_motions.holdHandgun,0.3);
-    //     self.morphParts("Arm_L",self_motions.holdHandgun,0.3);
-    // }
-    // else{
-    //     stand.clearMorphParts("HandR",0.3);
-    //     stand.clearMorphParts("ArmR",0.3);
-    //     stand.clearMorphParts("HandL",0.3);
-    //     stand.clearMorphParts("ArmL",0.3);
-        
-    //     self.clearMorphParts("Hand_R",0.3);
-    //     self.clearMorphParts("Arm_R",0.3);
-    //     self.clearMorphParts("Hand_L",0.3);
-    //     self.clearMorphParts("Arm_L",0.3);
-    //     self.morphParts("Hand_L",self_motions.holdLantern,0.0);
-    //     self.morphParts("Arm_L",self_motions.holdLantern,0.0);
-
-    //     stand.morphParts("ArmL",stand_motions.holdLantern,0.0);
-    //     stand.morphParts("HandL",stand_motions.holdLantern,0.0);
-    // }
-
-    
     auto footSound = scenes.MainCanvas.sound.footsteps;
     if (self.selectedMotionIndex != self_motions.idle) {
         if (!footSound.isPlaying)

@@ -7,7 +7,7 @@
 
 alias ItemType = "weapon_melee" | "weapon_ranged" | "gun_parts" | "magic_stone" |  "bullet" | "food" | "armor" | "medicine" | "misc";
 alias GunPartsKind = "barrel" | "stock" | "scope" | "magazine" | "grip" | "slide" | "receiver";
-alias GunBrand = "Aquil" | "Bolt" | "Carg" | "Drux" | "Junk";
+alias GunBrand = "Aquil" | "Bolt" | "Carg" | "Junk";
 
 export alias EquipSlot = "weapon" | "none" | "head" | "body" | "waist";
 
@@ -21,6 +21,7 @@ table Modifier {
 export table CommonItemStats { double weight; double size; double value; }
 table WeaponMeleeStat { double sharpness; double swingSpeed; }
 table MedicineStat { double health; double duration; }
+
 table GunSlot { string id; GunPartsKind kind; string[] acceptTags; }
 table GunPartsStat {
     GunPartsKind kind;

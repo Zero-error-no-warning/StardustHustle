@@ -52,12 +52,12 @@ export void init(){
             }
         });
         self.firstTime( inventory.isOFF || KeyConfig["Inventory"].isClicked("OpenCloseInventory"),(){
-            auto weaponsModule = scenes.leftCanvas.stand_weapons.findScene("weapon.weapon").sceneModule();
+            auto weaponsModule = scenes.leftCanvas.stand_items.findModule("item");
             if(inventory.isOFF) {self.miniScene((){
                     weaponsModule.updateModel();
                     self.yields;
                     InventoryState.changeState("InventoryClosed");
-                },32);
+                });
             }
             else{
                 InventoryState.changeState("InventoryClosed");

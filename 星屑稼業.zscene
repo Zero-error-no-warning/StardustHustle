@@ -368,14 +368,6 @@
                     "value": "0"
                 },
                 {
-                    "path": "camera\/center\/x",
-                    "value": "0"
-                },
-                {
-                    "path": "camera\/center\/y",
-                    "value": "0"
-                },
-                {
                     "path": "size\/x",
                     "value": "1280"
                 },
@@ -386,6 +378,38 @@
                 {
                     "path": "screenSize\/y",
                     "value": "180"
+                },
+                {
+                    "path": "camera\/p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/p\/y",
+                    "value": "-0.5984798611526827"
+                },
+                {
+                    "path": "camera\/a\/value",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/zoom",
+                    "value": "1"
+                },
+                {
+                    "path": "camera\/center\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/center\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/xflip",
+                    "value": "false"
+                },
+                {
+                    "path": "camera\/yflip",
+                    "value": "false"
                 }
             ],
             "scale": 1.0,
@@ -1936,7 +1960,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "stand_weapons",
+            "name": "stand_items",
             "parentId": "5b244696-bb07-4716-a5cd-f17a565aeb4b",
             "pers": 0.0,
             "phase": "normal",
@@ -1950,6 +1974,10 @@
                 {
                     "slotId": "5aced90b-97c4-451f-a983-b708880409ec",
                     "targetId": "c629ef0c-6fac-44e5-81b7-e6ba52070a1a"
+                },
+                {
+                    "slotId": "cd2f957f-9db1-4c08-a00d-3adec68c96c8",
+                    "targetId": "116a72c7-b036-4efd-918f-b5d639b9049d"
                 }
             ],
             "scale": 1.0,
