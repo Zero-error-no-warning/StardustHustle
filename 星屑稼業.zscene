@@ -184,6 +184,22 @@
                 {
                     "path": "persDivMax",
                     "value": "1"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "false"
+                },
+                {
+                    "path": "pixelSize",
+                    "value": "1"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "180"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "320"
                 }
             ],
             "scale": 1.0,
@@ -589,18 +605,6 @@
                     "value": "0"
                 },
                 {
-                    "path": "camera\/p\/x",
-                    "value": "-70.6596"
-                },
-                {
-                    "path": "camera\/p\/y",
-                    "value": "-0.48"
-                },
-                {
-                    "path": "camera\/p\/x",
-                    "value": "-65.0068"
-                },
-                {
                     "path": "screenSize\/x",
                     "value": "180"
                 },
@@ -623,6 +627,66 @@
                 {
                     "path": "pixelSize",
                     "value": "2"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "180"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "360"
+                },
+                {
+                    "path": "camera\/p\/x",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/p\/y",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/a\/value",
+                    "value": "0"
+                },
+                {
+                    "path": "camera\/zoom",
+                    "value": "1"
+                },
+                {
+                    "path": "camera\/center\/x",
+                    "value": "0.5"
+                },
+                {
+                    "path": "camera\/center\/y",
+                    "value": "0.5"
+                },
+                {
+                    "path": "camera\/xflip",
+                    "value": "false"
+                },
+                {
+                    "path": "camera\/yflip",
+                    "value": "false"
+                },
+                {
+                    "path": "pixelSize",
+                    "value": "1"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "90"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "180"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "120"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "240"
                 }
             ],
             "scale": 1.0,
@@ -697,13 +761,25 @@
                 {
                     "path": "lp\/y",
                     "value": "0"
+                },
+                {
+                    "path": "scale",
+                    "value": "1.5"
+                },
+                {
+                    "path": "a\/value",
+                    "value": "0"
+                },
+                {
+                    "path": "scale",
+                    "value": "1"
                 }
             ],
-            "scale": 2.0,
+            "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": -139.146567717996476,
-            "y": 140.942007301454254,
+            "x": -30.8807498167619094,
+            "y": 57.3916600792320537,
             "z": 0.0
         },
         {
@@ -763,13 +839,21 @@
                 {
                     "path": "p\/y",
                     "value": "0"
+                },
+                {
+                    "path": "scale",
+                    "value": "0.75"
+                },
+                {
+                    "path": "lscale",
+                    "value": "1"
                 }
             ],
-            "scale": 2.0,
+            "scale": 1.0,
             "scriptModule": "script.stand_porter",
             "width": 640.0,
-            "x": -59.2495062541145714,
-            "y": 12.5680770842060952,
+            "x": 8.38648911625575977,
+            "y": -11.3034506935717474,
             "z": 0.0
         },
         {
@@ -1432,8 +1516,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": -84.385660422526712,
-            "y": 55.6586270871987523,
+            "x": -46.2426612826097028,
+            "y": -17.8441589209540439,
             "z": 100.0
         },
         {
@@ -1970,7 +2054,12 @@
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "isOFF",
+                    "value": "false"
+                }
+            ],
             "referenceBindings": [
                 {
                     "slotId": "6134b438-6044-43c0-9f08-9b2a9e6a0bc3",
@@ -2264,7 +2353,20 @@
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "loop",
+                    "value": "false"
+                },
+                {
+                    "path": "loadType",
+                    "value": "DecompressOnLoad"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "false"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,

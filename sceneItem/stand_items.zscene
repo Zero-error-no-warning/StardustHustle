@@ -58,6 +58,10 @@
                 {
                     "path": "thick",
                     "value": "0"
+                },
+                {
+                    "path": "scale",
+                    "value": "1"
                 }
             ],
             "scale": 1.0,
@@ -176,7 +180,7 @@
             "scale": 1.5,
             "scriptModule": "",
             "width": 640.0,
-            "x": -46.556541192333583,
+            "x": -46.5565411923335901,
             "y": -13.4258313213517688,
             "z": 0.0
         },
@@ -536,6 +540,66 @@
                 {
                     "path": "spawnShape\/radius",
                     "value": "75"
+                },
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Rect"
+                },
+                {
+                    "path": "rate",
+                    "value": "160"
+                },
+                {
+                    "path": "maxParticles",
+                    "value": "64"
+                },
+                {
+                    "path": "loop",
+                    "value": "false"
+                },
+                {
+                    "path": "duration",
+                    "value": "0.18"
+                },
+                {
+                    "path": "spawnShape\/extent\/x",
+                    "value": "96"
+                },
+                {
+                    "path": "spawnShape\/extent\/y",
+                    "value": "48"
+                },
+                {
+                    "path": "lifetime\/min",
+                    "value": "0.02"
+                },
+                {
+                    "path": "lifetime\/max",
+                    "value": "0.06"
+                },
+                {
+                    "path": "sizeMultiplier\/min",
+                    "value": "0.4"
+                },
+                {
+                    "path": "sizeMultiplier\/max",
+                    "value": "1.6"
+                },
+                {
+                    "path": "margin\/LeftTop\/y",
+                    "value": "0.45"
+                },
+                {
+                    "path": "margin\/RightBot\/y",
+                    "value": "0.55"
+                },
+                {
+                    "path": "blend",
+                    "value": "Add"
+                },
+                {
+                    "path": "seed",
+                    "value": "42"
                 }
             ],
             "scale": 1.0,
@@ -590,7 +654,12 @@
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [],
+            "properties": [
+                {
+                    "path": "isVisible",
+                    "value": "false"
+                }
+            ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,

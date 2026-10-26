@@ -2,7 +2,7 @@
 // selfはこのコードを割り当てたSceneです。
 import scenes;
 
-import "./database/itemData.dua" as idata;
+import script.database.itemData as idata;
 
 auto getName = idata.getName;
 alias ItemState = idata.ItemState;
@@ -30,6 +30,11 @@ auto ItemLists = {
         ItemState{ id = 4, itemID = "bandage", count = 5, name = "" , datetime = null, },
         ItemState{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2" , datetime = null, },
     ],
+};
+
+auto ItemListsFiltered = {
+    main = [],
+    pocket = [],
 };
 
 export auto inventoryProfile = {
@@ -83,9 +88,7 @@ ItemFilterComboTypes[string] itemTypeComboText = [
     "回復" : "medicine",
     "その他" : "misc",
 ];
-export auto sharedVar = {
-    currentModel = "",
-};
+
 export CharacterAsset[string] itemAssets = [:];
 
 export void open(){
@@ -232,25 +235,23 @@ export void init(){
         if(sub.type == "Character")
             sub.exit();
     }
-    print(listName,idx);
-    auto item = ItemLists[listName][idx];
+    auto item = ItemListsFiltered[listName][idx];
     selectedItem = item;
     
     if(itemDatabase[item.itemID].model != ""){
-        string path = itemDatabase[item.itemID].model.assetPath();
+        string path = idata.getModel(item);
         if(!itemAssets.contains(path)) 
             itemAssets[path] = loadCharacterAsset(path);
 
         Character model = itemAssets[path].spawn(previewCanvas);
-        auto LeftTop = model.p;
-        auto RightBot = model.p;
+        
         model.selectMotion(0,0.0);
+        idata.setWeaponVariant(item,model);
         auto modelCenter = model.part("modelCenter");
         previewCanvas.camera.p = modelCenter.p;
         previewCanvas.light.p = modelCenter.p - Vec2(15,15);
         previewCanvas.light.z = modelCenter.thick + 15 ;
         scenes.previewCanvas.particleEffect.p = modelCenter.p;
-        sharedVar.currentModel = path;
     }
 
     auto itemNameLabel = scenes.inventoryUI.findScene("itemName");
@@ -259,7 +260,7 @@ export void init(){
 };
 
 void listSelected(string listName, long idx){
-    if(idx >= 0 && idx < ItemLists[listName].length){
+    if(idx >= 0 && idx < ItemListsFiltered[listName].length){
         foreach(key,list;InventoryLists){
             if(key != listName)
                 list.unSelect();
@@ -303,16 +304,19 @@ export void finalize(){
 
 export void update(){
     auto itemViewer = (ItemState item){
+                if(item)
                 return styled(atlas.addTexture(itemDatabase[item.itemID].icon.assetPath()),Vec2(0,0)).height(height)
                         ~ (styled(" " ~ item.getName()).color(Color(150,240,255,255))
                         ~ styled(" " ~ itemDataView(item)).color(Color(100,240,190,255))).height(height*0.9).font(font);
+                return styled("(空)").color(Color(200,0,0,255));
             };
     auto itemSort = (ItemState a, ItemState b){
         
     };
     foreach(key,list;InventoryLists){
-        list.richContents = ItemLists[key].filter((ItemState item)=>
-        itemFilterCombo.selectedText == "" || itemFilterCombo.selectedText == "すべて" || itemDatabase[item.itemID].type == itemTypeComboText[itemFilterCombo.selectedText] ).quickSort(itemSort).map(itemViewer);
+        ItemListsFiltered[key] = ItemLists[key].filter((ItemState item)=>
+        itemFilterCombo.selectedText == "" || itemFilterCombo.selectedText == "すべて" || itemDatabase[item.itemID].type == itemTypeComboText[itemFilterCombo.selectedText] ).quickSort(itemSort);
+        list.richContents = ItemListsFiltered[key].map(itemViewer);
     }   
     
     auto mainCapacityScroll = scenes.inventoryUI.findScene("mainCapacityScroll");
@@ -332,6 +336,19 @@ export void update(){
     mainCapacityLabel.caption  = mainCapacity ~ " / " ~ inventoryProfile.capacity;
     pocketCapacityLabel.caption = pocketCapacity ~ " / " ~ pocketProfile.capacity;
 
+    auto equipList = scenes.inventoryUI.findScene("equipList");
+    auto contents = [];
+    string[idata.EquipSlot] slotNames = [
+        "weapon":"手",
+        "body":"体",
+        "head":"頭",
+        "waist":"腰",
+    ];
+    foreach(slot,item; equipItemList){
+        if(slotNames.contains(slot)) 
+        contents ~= [styled("[ " ~ slotNames[slot] ~" ] ")  ~ itemViewer(item)];
+    }
+    equipList.richContents =contents;
 }
 
 ItemState[] quickSort(ItemState[] inventory, any cmp){
@@ -408,8 +425,9 @@ export void holdItem(ItemState item,string listName){
     if(equipItem){
         addItem(equipItem, listName,1);
     }
-    equipItemList[itemData.equipSlot] = {...item,count = 1};
+    equipItemList["weapon"] = {...item,count = 1};
     removeItem(item,listName,1);
+
     auto inventorySceneMaster = scenes.root.master;
     
     auto particle = scenes.previewCanvas.particleEffect;
@@ -421,8 +439,7 @@ export void holdItem(ItemState item,string listName){
     self.miniScene = [
         miniWhile(()=>t>0,(){
             particle.endColor = particle.endColor *Color(64,64,64,255);
-            particle.lifetime = {min = t*0.5,max = t};
-            particle.emit(t/t0*100);
+            particle.emit(t/t0*30);
             t -= Timer.dt;
         }),
         (){

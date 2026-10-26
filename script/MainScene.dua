@@ -25,6 +25,11 @@ export void init(){
 
     standLight.color = Color(255,255,0,255) ;
     InventoryState = self.stateMachine("InventoryState");
+    InventoryState["First"] = (){
+        if(KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
+            InventoryState.changeState("InventoryOpened");
+        }
+    };
     InventoryState["InventoryClosed"] = (){
         self.firstTime(true,(){
             Mouse.p = mainCanvas.sceneModule().targetPosition;
@@ -33,7 +38,7 @@ export void init(){
             mainCanvas.isFreeze = false;
             standLight.color =Color(255,255,0,255) ;
             foreach(sound ; sounds.subs()){
-                sound.play(false);
+                if(sound.onPause) sound.play(false);
             }
         });
         if(KeyConfig["Inventory"].isClicked("OpenCloseInventory")){
@@ -53,18 +58,18 @@ export void init(){
         });
         self.firstTime( inventory.isOFF || KeyConfig["Inventory"].isClicked("OpenCloseInventory"),(){
             auto weaponsModule = scenes.leftCanvas.stand_items.findModule("item");
-            if(inventory.isOFF) {self.miniScene((){
-                    weaponsModule.updateModel();
-                    self.yields;
-                    InventoryState.changeState("InventoryClosed");
-                });
+            if(inventory.isOFF) {
+                self.miniScene = [():>weaponsModule.updateModel(),
+                    miniWhile(()=>!weaponsModule.isReady(),(){
+                    }),
+                    ():>InventoryState.changeState("InventoryClosed")];
             }
             else{
                 InventoryState.changeState("InventoryClosed");
             }
         });
     };
-    InventoryState.changeState("InventoryClosed");
+    InventoryState.changeState("First");
 }
 
 export void update(){

@@ -1,10 +1,14 @@
-// FPS履歴はシーンごとに保持し、配列と表示の更新は1秒に一度だけ行います。
+// 履歴は従来どおり0.5秒ごとに進め、表示の入力が変わったときだけ組み直します。
 instance int[] history = [0,0,0,0,0,0];
+instance bool historyChanged = true;
+instance bool hasDisplay = false;
+instance int displayedFps = -1;
+instance int displayedLimit = -1;
 
 auto f = (double t)=>1.*Timer.limitFPS;
 
 export void update(){
-    self.everyNsecs(0.5,(){
+    self.everyNsecs(1,(){
         auto len = history.length;
         foreach(idx; 0 .. len-1){
             history[idx] = history[idx+1];
@@ -12,6 +16,14 @@ export void update(){
         history[len-1] = Timer.fps;
         f = (double t) => 1.*history[cast(int)(t*(len-1))] / cast(double)
         (Timer.limitFPS);
+        historyChanged = true;
     });
+    auto fps = Timer.fps;
+    auto limit = Timer.limitFPS;
+    if(hasDisplay && !historyChanged && fps == displayedFps && limit == displayedLimit) return;
     self.text = styled(Timer.fps) ~ " FPS " ~ styled(f).color(Color(255-255*Timer.fps/Timer.limitFPS,255,0,255));
+    displayedFps = fps;
+    displayedLimit = limit;
+    hasDisplay = true;
+    historyChanged = false;
 }

@@ -1,7 +1,7 @@
 export alias ItemType = "weapon_melee" | "weapon_ranged" | "gun_parts" | "magic_stone" |  "ammo" | "food" | "armor" | "medicine" | "misc";
 
 export alias EquipSlot = "weapon" | "none" | "head" | "body" | "waist" | "gunparts";
-alias GunPartsKind = "barrel" | "stock" | "scope" | "magazine" | "grip" | "slide" | "receiver";
+alias GunPartsKind = "barrel" | "stock" | "scope" | "magazine" | "grip" | "slide" | "receiver" | null;
 
 export table ItemData { //個体差のない基本データ
     ItemType type;
@@ -14,7 +14,8 @@ export table ItemData { //個体差のない基本データ
     string model;
     CommonData commonData; // 共通の基本性能
     SpecificData specificData; // アイテム固有性能
-    GunSlot[] slots = [];                  // 銃種の固定情報。非対応部位はここに載せない。
+    GunSlot[] slots = [];     // 対応部位
+    GunPartsKind gunpartsKind = null;
     string tag;
 }
 alias SpecificData = ConsumptData[] | WeaponData | null;
@@ -26,10 +27,10 @@ alias ConsumptEffectType = "health" | "stamina" |"fastMove" | "fastSwing" | "fas
 table ConsumptEffect { ConsumptEffectType type; double value; double duration; }
 table ConsumptData  {double satiety; ConsumptEffect[] effect;}
 
-table WeaponData { 
+export table WeaponData { 
     double sharpDamage = 0.0;
     double hardDamage = 0.0;
-    double attackCycle = 0.0;
+    double fireRate = 0.0;
     double bulletSpread = 0.0;
     double bulletSpeed = 0.0;
     double reloadSpeed = 0.0;
@@ -47,7 +48,7 @@ export table ItemState { // アイテムの個体情報
     GunState gunState  = null;
     WeaponEffect weaponEffect = null;
     CommonEffect commonEffect = null;
-    ItemState[GunSlot] slot = [:];
+    ItemState[GunPartsKind] slot = [:];
 }
 
 
@@ -76,8 +77,8 @@ export ItemData[string] itemDatabase = [
         type = "weapon_melee", baseName = "ナイフ", consumable = false, equipSlot = "weapon",stackable = false,
         description = "大振りのナイフ", icon = meleeIcon, model = "../res/character/weapons/knife.zsc",
         commonData = CommonData{weight = 0.5, size = 0.3, value = 100.0}, slots = [],
-        specificData = WeaponData{sharpDamage = 0.8, hardDamage = 0.1, attackCycle = 1.2, bulletSpread = 0.0, bulletSpeed = 1.0, reloadSpeed = 0.0, magazineSize = 0},
-        tag = "onehand",
+        specificData = WeaponData{sharpDamage = 0.8, hardDamage = 0.1, fireRate = 1.2, bulletSpread = 0.0, bulletSpeed = 1.0, reloadSpeed = 0.0, magazineSize = 0},
+        tag = "onehandshort",
     },
     "bandage": ItemData{
         type = "medicine", baseName = "包帯", consumable = true, equipSlot = "none",stackable = true,
@@ -89,7 +90,7 @@ export ItemData[string] itemDatabase = [
         tag = "healing",
     },
     "handgun_A": ItemData{
-        type = "weapon_ranged", baseName = "組み立て拳銃A", stackable = false,
+        type = "weapon_ranged", baseName = "拳銃A", stackable = false,
         consumable = false, equipSlot = "weapon", description = "", icon = rangedIcon,
         model = "../res/character/weapons/handgun.zsc",
        
@@ -98,8 +99,20 @@ export ItemData[string] itemDatabase = [
             {id = "receiver", kind = "receiver", acceptTags = ["handgunA.core"]},
             {id = "barrel", kind = "barrel", acceptTags = ["handgunA.barrel"]},
             {id = "magazine", kind = "magazine", acceptTags = ["handgunA.mag.9mm"]}
-        ], specificData =  WeaponData{sharpDamage = 10.0, hardDamage = 0.1, attackCycle = 1., bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 15},
-        tag = "onehand",
+        ], specificData =  WeaponData{sharpDamage = 10.0, hardDamage = 0.1, fireRate = 1., bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 15},
+        tag = "handgun",
+    },
+    "smg_A" : ItemData{
+        type = "weapon_ranged", baseName = "SMG_A", stackable = false,
+        consumable = false, equipSlot = "weapon", description = "", icon = rangedIcon,
+        model = "../res/character/weapons/smg.zsc",
+        commonData = CommonData{weight = 0.0, size = 0.5, value = 300.0},
+        slots = [
+            {id = "receiver", kind = "receiver", acceptTags = ["smgA.core"]},
+            {id = "barrel", kind = "barrel", acceptTags = ["smgA.barrel"]},
+            {id = "magazine", kind = "magazine", acceptTags = ["smgA.mag.9mm"]}
+        ], specificData =  WeaponData{sharpDamage = 8.0, hardDamage = 0.1, fireRate = 1.5, bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 30},
+        tag = "smg",
     },
     "SMGAmmo": ItemData{
         type = "ammo", baseName = "SMG弾", consumable = true, equipSlot = "none", stackable = true,
@@ -112,8 +125,9 @@ export ItemData[string] itemDatabase = [
         type = "gun_parts", baseName = "ロングバレルA", consumable = false, equipSlot = "none", stackable = false,
         description = "SMG用のロングバレル", icon = gunPartsIcon, model = "",
         commonData = CommonData{weight = 0.2, size = 0.5, value = 150.0}, slots = [],
-        specificData = WeaponData{sharpDamage = 1.0, hardDamage = 1.0, attackCycle = 0.0, bulletSpread = -0.5, bulletSpeed = 300.0, reloadSpeed = 0.0, magazineSize = 0},
-        tag = "barrel",
+        specificData = WeaponData{sharpDamage = 1.0, hardDamage = 1.0, fireRate = 0.0, bulletSpread = -0.5, bulletSpeed = 300.0, reloadSpeed = 0.0, magazineSize = 0},
+        tag = "long",
+        gunpartsKind = "barrel",
     },
 ];
 
@@ -148,18 +162,37 @@ export double getActualSize(ItemState item){
 
 export WeaponData getActualWeaponData(ItemState item){
     auto itemData = itemDatabase[item.itemID];
-    if(itemData.type != "weapon_ranged" || itemData.type != "weapon_melee") return WeaponData{};
+    if(itemData.type != "weapon_ranged" && itemData.type != "weapon_melee") return WeaponData{fireRate = 0.0};
 
-    WeaponData actualData = itemData.specificData;
-    if(actualData is WeaponData){
+    WeaponData actualData = {...itemData.specificData};
+    if(item.weaponEffect){
         actualData.sharpDamage += item.weaponEffect.sharpDamage;
         actualData.hardDamage += item.weaponEffect.hardDamage;
-        actualData.attackCycle += item.weaponEffect.attackCycle;
+        actualData.fireRate += item.weaponEffect.fireRate;
         actualData.bulletSpread += item.weaponEffect.bulletSpread;
         actualData.bulletSpeed += item.weaponEffect.bulletSpeed;
         actualData.reloadSpeed += item.weaponEffect.reloadSpeed;
         actualData.magazineSize += item.weaponEffect.magazineSize;
-        return actualData;
     }
-    return WeaponData{};
+    return actualData;
+}
+
+export string getModel(ItemState item){
+    auto itemData = itemDatabase[item.itemID];
+    return itemData.model.assetPath();
+}
+
+export string getTag(ItemState item){
+    auto itemData = itemDatabase[item.itemID];
+    return itemData.tag;
+}
+
+export void setWeaponVariant(ItemState weapon,Character chara){
+    foreach(key,part; chara.parts){
+        chara.selectLayerVariant(part,0);
+    }
+    foreach(key,mod; weapon.slot){
+        auto tag = getTag(mod);
+        chara.selectLayerVariant(key,key,tag);
+    }
 }

@@ -3,6 +3,7 @@
 import scenes;
 
 
+import sceneItem.script.database.itemData as idata;
 instance double speed = 60.0;
 
 double cameraSpan = 3.0;
@@ -21,7 +22,9 @@ Vec2 targetPosition = Vec2.Zero;
 auto stand_motions = {};
 auto stand = null;
 
-auto inventory = scenes.inventory;
+alias WeaponData = idata.WeaponData;
+WeaponData weaponData = WeaponData{};
+
 
 export void init(){
     auto physics = self.master;
@@ -60,8 +63,6 @@ export void init(){
         self.morphPartOnly("Torso", self.motionIndex("holdSubMachineGun"),0.3);
         self.morphPartOnly("Waist", self.motionIndex("holdSubMachineGun"),0.3);
         self.part("weapons").isOFF = false;
-        if(Keyboard.isClicked("X"))
-            weapon.changeState("handgun");
         if(Mouse.isPressed("Left") && self.everyNsecs(0.1)){
             auto firePoint = self.part("firePointSMG");
             auto physicsSpace = scenes.MainCanvas.physicsSpace;
@@ -74,32 +75,52 @@ export void init(){
             auto fireSound = scenes.MainCanvas.sound.gunfire;
             fireSound.play();
         }
+        if(Mouse.isPressed("Right")){
+
+        }
     };
     weapon["handgun"] = (){
         self.clearMorphParts("Torso");
         self.morphParts("ArmR", self.motionIndex("holdHandGun"),0.3);
         stand.morphParts("ArmR",stand.motionIndex("onehandGun"),0.3);
-        if(Keyboard.isClicked("X"))
-            weapon.changeState("subMachineGun");
-        if(Mouse.oncePressed("Left")){
-            auto firePoint = self.part("firePointSMG");
+        if(Mouse.oncePressed("Left") && self.everyNsecs(1./weaponData.fireRate)){
+            auto firePoint = self.part("firePointHandgun");
             auto physicsSpace = scenes.MainCanvas.physicsSpace;
-            auto bullet = physicsSpace.newExternalScene("./sceneItem/bullet.zscene".assetPath());
             auto effect = self.newExternalScene("./sceneItem/fireEffect.zscene".assetPath());
             effect.p = firePoint.p;
             
+            auto bullet = physicsSpace.newExternalScene("./sceneItem/bullet.zscene".assetPath());
             bullet.p = firePoint.p;
             bullet.a = self.a;
             bullet.findScene("SMG").setPhysicsVelocity(Vec3(Vec2(1000,0).rot(bullet.a),0));
             auto fireSound = scenes.MainCanvas.sound.gunfire;
             fireSound.play();
+
+            auto stand_items  = scenes.leftCanvas.stand_items.findModule("item");
+            stand_items.fire(0.2);
+            self.morphPartsTimed("ArmR","recoilHandGun",0.1,0.01);
         }
     };
+    weapon["onehandshort"] = (){
+    };
     weapon["none"] = (){
-        self.clearMorphParts("Torso");
-        stand.morphParts("ArmR",stand.motionIndex("idle"),0.3);
+        self.clearMorphParts("");
+        stand.clearMorphParts("");
     };
     weapon.changeState("handgun");
+
+    self.doAlways((){
+        auto inventory = scenes.inventory.findModule("inventoryUI");
+        auto eqWeapon = inventory.equipItemList["weapon"];
+        if(eqWeapon){
+            auto eqWeaponData = idata.itemDatabase[eqWeapon.itemID];
+            weaponData = idata.getActualWeaponData(eqWeapon);
+            weapon.changeState(eqWeaponData.tag);
+        }
+        else{
+            weapon.changeState("none");
+        }
+    });
 }
 
 
@@ -121,6 +142,7 @@ auto mainCanvasScript = sceneModule(mainCanvas);
 auto playerMove = KeyConfig.Set("PlayerMove");
 
 export void update(){
+
     Vec2 moveInput = Vec2(0, 0);
     if(playerMove.isPressed("MoveFront"))
         moveInput.x = moveInput.x + 1;

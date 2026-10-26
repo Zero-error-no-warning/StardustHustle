@@ -14,17 +14,11 @@ export void init(){
 }
 
 
-export table playerParameter = {
-    haveHandgun = false,
-};
 export void update(){
     
     self.camera.p = player.p;
     self.camera.a = player.a + Angle.Deg(90);
     
-    if(Keyboard.isClicked("F")){
-        playerParameter.haveHandgun = !playerParameter.haveHandgun;
-    }
     self.snapCameraPixel();
     self.pixelSize =cast(int)(self.camera.zoom+0.5);
 }

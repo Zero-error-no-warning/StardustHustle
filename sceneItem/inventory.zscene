@@ -8382,8 +8382,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 180.0,
-            "x": 37.8717249503894777,
-            "y": 144.381046548402509,
+            "x": 27.7444101355746398,
+            "y": 150.168083585439575,
             "z": 0.0
         },
         {
@@ -9423,6 +9423,106 @@
                 {
                     "path": "endColor\/v_a",
                     "value": "195"
+                },
+                {
+                    "path": "rate",
+                    "value": "160"
+                },
+                {
+                    "path": "maxParticles",
+                    "value": "64"
+                },
+                {
+                    "path": "loop",
+                    "value": "false"
+                },
+                {
+                    "path": "duration",
+                    "value": "0.18"
+                },
+                {
+                    "path": "autoExit",
+                    "value": "true"
+                },
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Rect"
+                },
+                {
+                    "path": "spawnShape\/extent\/x",
+                    "value": "96"
+                },
+                {
+                    "path": "spawnShape\/extent\/y",
+                    "value": "48"
+                },
+                {
+                    "path": "lifetime\/min",
+                    "value": "0.02"
+                },
+                {
+                    "path": "lifetime\/max",
+                    "value": "0.06"
+                },
+                {
+                    "path": "geometry",
+                    "value": "Sprite"
+                },
+                {
+                    "path": "startSize",
+                    "value": "24"
+                },
+                {
+                    "path": "endSize",
+                    "value": "24"
+                },
+                {
+                    "path": "sizeMultiplier\/min",
+                    "value": "0.4"
+                },
+                {
+                    "path": "sizeMultiplier\/max",
+                    "value": "1.6"
+                },
+                {
+                    "path": "margin\/LeftTop\/y",
+                    "value": "0.45"
+                },
+                {
+                    "path": "margin\/RightBot\/y",
+                    "value": "0.55"
+                },
+                {
+                    "path": "blend",
+                    "value": "Add"
+                },
+                {
+                    "path": "seed",
+                    "value": "42"
+                },
+                {
+                    "path": "maxParticles",
+                    "value": "1000"
+                },
+                {
+                    "path": "rate",
+                    "value": "160"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "false"
+                },
+                {
+                    "path": "autoExit",
+                    "value": "false"
+                },
+                {
+                    "path": "autoPlayMode",
+                    "value": "Manual"
+                },
+                {
+                    "path": "maxParticles",
+                    "value": "64"
                 }
             ],
             "scale": 1.0,

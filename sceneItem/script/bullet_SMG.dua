@@ -2,6 +2,8 @@
 // selfはこのコードを割り当てたSceneです。
 instance double lifetime = 1.0;
 instance bool stopped = false;
+import scenes;
+
 export void update(){
     lifetime -= self.dt;
     if(!stopped){
@@ -17,8 +19,9 @@ export void update(){
             break;
         }
     }
-    if(lifetime < 0){
-        self.exit();
+    if(lifetime < 0 ){
+        // self.exit();
+        scenes.root.master.exit();
     }
 }
 
