@@ -479,8 +479,8 @@
             "scale": 1.0,
             "scriptModule": "script.inventoryUI",
             "width": 640.0,
-            "x": 0.0,
-            "y": 1.44675925925923821,
+            "x": -11.9695972230534835,
+            "y": 3.84067870386991217,
             "z": 0.0
         },
         {
@@ -7295,8 +7295,8 @@
             },
             "enabled": true,
             "height": 480.0,
-            "id": "cbd5a39a-fe73-477e-8143-1e02d4c38d13",
-            "kind": "uiButton",
+            "id": "69ed15a7-61b2-49bf-81b2-f2c74ee6ec7d",
+            "kind": "uiStackLayout",
             "light": {
                 "alpha": 255.0,
                 "blue": 255.0,
@@ -7323,42 +7323,17 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "moveItemButton",
+            "name": "uiStackLayout",
             "parentId": "608f9036-d83a-4dc4-847d-e10e2a9baf8f",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
-            "properties": [
-                {
-                    "path": "caption",
-                    "value": "移動"
-                },
-                {
-                    "path": "caption",
-                    "value": "移動↑↓"
-                },
-                {
-                    "path": "caption",
-                    "value": "移動↨"
-                },
-                {
-                    "path": "caption",
-                    "value": "▲移動▼"
-                },
-                {
-                    "path": "size\/x",
-                    "value": "135"
-                },
-                {
-                    "path": "size\/y",
-                    "value": "28"
-                }
-            ],
+            "properties": [],
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
-            "y": 12.0,
+            "y": 0.0,
             "z": 0.0
         },
         {
@@ -8897,6 +8872,88 @@
         },
         {
             "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": false,
+            "height": 480.0,
+            "id": "1c754ecf-1327-42d5-9384-3dcb9e5b6c21",
+            "kind": "uiWindow",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemMoveWindow",
+            "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "contentAxis",
+                    "value": "horizontal"
+                },
+                {
+                    "path": "contentAxis",
+                    "value": "vertical"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "true"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "false"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "true"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "300"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "220"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 435.69333891914539,
+            "y": 233.407145849542388,
+            "z": 0.0
+        },
+        {
+            "action": {
                 "function": "init"
             },
             "assetPath": "",
@@ -10103,6 +10160,729 @@
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "cbd5a39a-fe73-477e-8143-1e02d4c38d13",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "moveItemButton",
+            "parentId": "69ed15a7-61b2-49bf-81b2-f2c74ee6ec7d",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "移動"
+                },
+                {
+                    "path": "caption",
+                    "value": "移動↑↓"
+                },
+                {
+                    "path": "caption",
+                    "value": "移動↨"
+                },
+                {
+                    "path": "caption",
+                    "value": "▲移動▼"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "135"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 12.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "e76da9d7-4f76-49f7-af55-dcd0688942f1",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "moveItemButtonxN",
+            "parentId": "69ed15a7-61b2-49bf-81b2-f2c74ee6ec7d",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "移動"
+                },
+                {
+                    "path": "caption",
+                    "value": "移動↑↓"
+                },
+                {
+                    "path": "caption",
+                    "value": "移動↨"
+                },
+                {
+                    "path": "caption",
+                    "value": "▲移動▼"
+                },
+                {
+                    "path": "caption",
+                    "value": "x10"
+                },
+                {
+                    "path": "caption",
+                    "value": "数指定"
+                },
+                {
+                    "path": "caption",
+                    "value": "数量指定"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "135"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 32.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "kind": "uiPanel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "panel",
+            "parentId": "1c754ecf-1327-42d5-9384-3dcb9e5b6c21",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "300"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "193.6"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "fa87b441-3b36-49be-88d4-76947c353573",
+            "kind": "uiSlider",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindowSlider",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "size\/x",
+                    "value": "217"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "24"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 46.6814291699083697,
+            "y": 14.7917888563050042,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "66c03722-11a4-4284-9b4b-1bffec2f7ee2",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindowCancel",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "Cancel"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "100"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 173.559159734274942,
+            "y": 120.575019450595462,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "7c945456-c126-476d-8090-b16c147a4802",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindowOK",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "OK"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "100"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 39.4996708360763478,
+            "y": 120.892931952839831,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "0e89a8e9-51a0-49b8-88bf-0173cae4a526",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindowx10",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "Cancel"
+                },
+                {
+                    "path": "caption",
+                    "value": "x10"
+                },
+                {
+                    "path": "lp\/x",
+                    "value": "37.1058"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "80"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "50"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 37.1058000000000021,
+            "y": 80.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "673043b4-cde1-4e2f-bfa8-6a55b8637670",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindow50p",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "Cancel"
+                },
+                {
+                    "path": "caption",
+                    "value": "x10"
+                },
+                {
+                    "path": "caption",
+                    "value": "1\/2"
+                },
+                {
+                    "path": "caption",
+                    "value": "50%"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "80"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "50"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 126.877730564366516,
+            "y": 80.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "c1e6c843-a385-4caa-b492-9c3163e874bf",
+            "kind": "uiButton",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindow100p",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "caption",
+                    "value": "Cancel"
+                },
+                {
+                    "path": "caption",
+                    "value": "x10"
+                },
+                {
+                    "path": "caption",
+                    "value": "1\/2"
+                },
+                {
+                    "path": "caption",
+                    "value": "50%"
+                },
+                {
+                    "path": "caption",
+                    "value": "100%"
+                },
+                {
+                    "path": "lp\/y",
+                    "value": "80"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "57"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "28"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 214.255790292656684,
+            "y": 80.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "669d30e1-d62b-45ee-ab50-67c703a41cae",
+            "kind": "uiLabel",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "itemoMoveWindowLabel",
+            "parentId": "0600b9f5-515d-4258-9298-f4f558a91fea",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 169.968280567358988,
+            "y": 44.2875097252977525,
             "z": 0.0
         }
     ],

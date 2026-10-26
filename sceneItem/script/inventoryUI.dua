@@ -6,12 +6,14 @@ import scenes;
 import "./database/itemData.dua" as idata;
 
 auto getName = idata.getName;
-alias ItemInfo = idata.ItemInfo;
-auto itemDatabase = idata.itemDatabase;
+alias ItemState = idata.ItemState;
+alias GunState = idata.GunState;
+
+export auto itemDatabase = idata.itemDatabase;
 
 ////////// Inventory Data ////////// #mark: 
 
-export ItemInfo[idata.EquipSlot] equipItemList = [
+export ItemState[idata.EquipSlot] equipItemList = [
     "weapon": null,
     "none": null,
     "head": null,
@@ -21,13 +23,13 @@ export ItemInfo[idata.EquipSlot] equipItemList = [
 
 auto ItemLists = {
     main = [
-        ItemInfo{ id = 1, itemID = "knife_001", count = 1, name = "ナイフ", modifier = [] , datetime = null, InstalledPartIDs = [:]},
-        ItemInfo{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃", modifier = [] , datetime = null, InstalledPartIDs = [:] },
-        // { id = 5, itemID = "barrel_001", count = 1, name = "バレル", modifier = ["長い"] , datetime = null, InstalledPartIDs = [:] },
+        ItemState{ id = 1, itemID = "knife_001", count = 1, name = "ナイフ", modifier = [] , datetime = null, InstalledPartIDs = [:], gunState = null},
+        ItemState{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃", modifier = [] , datetime = null, InstalledPartIDs = [:] , gunState = GunState{loadedAmmo = 16}},
+        ItemState{ id = 5, itemID = "SMGAmmo", count = 100, name = "SMG弾", modifier = [] , datetime = null, InstalledPartIDs = [:],gunState = null },
     ],
-        pocket= [
-        ItemInfo{ id = 4, itemID = "bandage", count = 5, name = "", modifier = [] , datetime = null, InstalledPartIDs = [:] },
-        ItemInfo{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2", modifier = [] , datetime = null, InstalledPartIDs = [:] },
+    pocket= [
+        ItemState{ id = 4, itemID = "bandage", count = 5, name = "", modifier = [] , datetime = null, InstalledPartIDs = [:], gunState = null },
+        ItemState{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2", modifier = [] , datetime = null, InstalledPartIDs = [:], gunState = null },
     ],
 };
 
@@ -47,20 +49,28 @@ export auto pocketProfile = {
 auto canvas =null;
 auto atlas = null;
 
-ListView mainInventoryList = scenes.inventoryUI.findScene("mainInventoryList");
-ListView pocketInventoryList = scenes.inventoryUI.findScene("pocketInventoryList");
+
+auto InventoryLists = {
+    main = scenes.inventoryUI.findScene("mainInventoryList"),
+    pocket =  scenes.inventoryUI.findScene("pocketInventoryList"),
+};
+
 
     
 auto previewCanvas = scenes.previewCanvas;
 
-auto itemDataView = (ItemInfo item) => item.count;
+auto itemDataView = (ItemState item) => item.count;
 
 auto height = 20;
 
 Font.registerFile(assetPath("../res/font/madoufmg.ttf"));
 auto font = Font("魔導太丸ゴシック",height*2,6,Font.Type.AA16x16_Edge);
 
-ItemInfo selectedItem = null;
+ItemState selectedItem = null;
+alias ItemListNames = "main" | "pocket" | "";
+ItemListNames selectedListName = "";
+
+
 export auto sharedVar = {
     currentModel = "",
 };
@@ -68,8 +78,7 @@ export CharacterAsset[string] itemAssets = [:];
 
 export void open(){
     scenes.inventoryUI.previewPanel.isVisible = true;
-    mainInventoryList.enabled = true;
-    pocketInventoryList.enabled = true;
+    foreach(list;InventoryLists) list.enabled = true;
 }
 
 export void init(){
@@ -77,8 +86,6 @@ export void init(){
 
     canvas = self.targetCanvas();
     atlas = canvas.atlas;
-    print("canvas:" ~canvas);
-    print("atlas:"~atlas);
 
     auto base = self.theme.base;
     base.font = font;
@@ -90,13 +97,15 @@ export void init(){
     viewDataTypeCombo.onSelected = (long idx){
         switch(idx){
             case 0:
-                itemDataView = (ItemInfo item) => "( " ~ item.count ~" )";
+                itemDataView = (ItemState item) => "( " ~ item.count ~" )";
                 break;
             case 1:
-                itemDataView = (ItemInfo item) => "( " ~ cast(int)(Vec2(itemDatabase[item.itemID].commonStats.weight,itemDatabase[item.itemID].commonStats.size).norm*100 * item.count) ~" )";
+                itemDataView = (ItemState item) => "( " 
+                    ~ cast(int)(cast(int)(calcCapacity([item]))) 
+                    ~ " @ " ~ cast(int)calcCapacity([{...item,count = 1}]) ~" )";
                 break;
             case 2:
-                itemDataView = (ItemInfo item){
+                itemDataView = (ItemState item){
                     if(item.datetime == null) return "不明";
                     auto cur = Timer.currDateTime();
                     bool dY =  item.datetime.year == cur.year;
@@ -119,69 +128,126 @@ export void init(){
     viewDataTypeCombo.select(0);
 
 
-    auto onInventoryClick = (string listName, long idx){
-        foreach(sub;previewCanvas.subs){
-            if(sub.type == "Character")
-                sub.exit();
-        }
-        auto item = ItemLists[listName][idx];
-        selectedItem = item;
-        
-        if(itemDatabase[item.itemID].model != ""){
-            string path = itemDatabase[item.itemID].model.assetPath();
-            if(!itemAssets.contains(path)) 
-                itemAssets[path] = loadCharacterAsset(path);
+   foreach(key,list;InventoryLists){
+        InventoryLists[key].onClick = (ListView list, long idx){
+            listSelected(key, idx);
+        };
+        InventoryLists[key].onDoubleClick = (ListView list, long idx){
+            holdItem(selectedItem,key);
+        };
+   }
 
-            Character model = itemAssets[path].spawn(previewCanvas);
-            auto LeftTop = model.p;
-            auto RightBot = model.p;
-            model.selectMotion(0,0.0);
-            auto modelCenter = model.part("modelCenter");
-            previewCanvas.camera.p = modelCenter.p;
-            previewCanvas.light.p = modelCenter.p - Vec2(15,15);
-            previewCanvas.light.z = modelCenter.thick + 15 ;
-            scenes.previewCanvas.particleEffect.p = modelCenter.p;
-            sharedVar.currentModel = path;
-        }
-
-        auto itemNameLabel = scenes.inventoryUI.findScene("itemName");
-        itemNameLabel.richCaption = styled(atlas.addTexture(itemDatabase[item.itemID].icon.assetPath()),Vec2(0,0)).height(height) ~ styled(" " ~ item.getName()).color(Color(150,240,255,255)).font(font).height(height);
-        auto itemInfoSystem = scenes.inventoryUI.findScene("itemInfoSystem");
-        
-    };
-    mainInventoryList.onClick = (ListView list, long idx){
-        if(idx >= 0 && idx < ItemLists.main.length){
-            onInventoryClick("main", idx);
-            pocketInventoryList.unSelect();
-        }
-    };
-    pocketInventoryList.onClick = (ListView list, long idx){
-        if(idx >= 0 && idx <  ItemLists.pocket.length){
-            onInventoryClick("pocket", idx);
-            mainInventoryList.unSelect();
-        }
-    };
-    mainInventoryList.onClick = (ListView list, long idx){
-        if(idx >= 0 && idx < ItemLists.main.length){
-            onInventoryClick("main", idx);
-            pocketInventoryList.unSelect();
-        }
-    };
-    mainInventoryList.onDoubleClick = (ListView list, long idx){
-        exportItem(selectedItem,"main");
-    };
-    pocketInventoryList.onDoubleClick = (ListView list, long idx){
-        exportItem(selectedItem,"pocket");
-    };
 
     auto particle = scenes.previewCanvas.particleEffect;
     particle.stop();
+
+    scenes.inventoryUI.findScene("moveItemButton").onClick = (Button b){
+        if(selectedItem && selectedListName != ""){
+            auto from = selectedListName;
+            auto to = selectedListName == "main" ? "pocket" :"main"; 
+            moveItem(selectedItem, from, to, 1);
+        }
+    };
+
+    auto window = scenes.inventoryUI.itemMoveWindow;
+    scenes.inventoryUI.findScene("moveItemButtonxN").onClick = (Button b){
+        if(!selectedItem) return;
+        auto from = selectedListName;
+        auto to = selectedListName == "main" ? "pocket" :"main"; 
+        scenes.inventoryUI.mainPanel.enabled = false;
+        window.isOFF = false;
+
+        window.panel.itemoMoveWindowSlider.minimum = 1;
+        window.panel.itemoMoveWindowSlider.maximum = selectedItem.count;
+        window.panel.itemoMoveWindowSlider.value = 1;
+        window.panel.itemoMoveWindowLabel.caption = 1;
+        window.panel.itemoMoveWindowSlider.onChanged = (double value){
+            auto ivalue = cast(int)(value);
+            window.panel.itemoMoveWindowSlider.value = ivalue;
+            window.panel.itemoMoveWindowLabel.caption = ivalue;
+        };
+        import math;
+        window.panel.itemoMoveWindowx10.onClick = (Button b){
+            auto value = window.panel.itemoMoveWindowSlider.value;
+            value = math.fmin(value + 10, selectedItem.count);
+            window.panel.itemoMoveWindowSlider.value = value;
+            window.panel.itemoMoveWindowLabel.caption = value;
+        };
+        window.panel.itemoMoveWindow50p.onClick = (Button b){
+            auto value = window.panel.itemoMoveWindowSlider.value;
+            value = cast(int)(selectedItem.count / 2);
+            window.panel.itemoMoveWindowSlider.value = value;
+            window.panel.itemoMoveWindowLabel.caption = value;
+        };
+        window.panel.itemoMoveWindow100p.onClick = (Button b){
+            auto value = window.panel.itemoMoveWindowSlider.value;
+            value = selectedItem.count;
+            window.panel.itemoMoveWindowSlider.value = value;
+            window.panel.itemoMoveWindowLabel.caption = value;
+        };
+        window.panel.itemoMoveWindowOK.onClick = (Button b){
+            auto value = window.panel.itemoMoveWindowSlider.value;
+            moveItem(selectedItem, from, to, cast(int)(value));
+            window.close();
+        };
+        window.panel.itemoMoveWindowCancel.onClick = (Button b){
+            window.close();
+        };
+    };
+
+    window.onClose = (){
+        scenes.inventoryUI.mainPanel.enabled = true;
+    };
 }
 
+ auto onInventoryClick = (string listName, long idx){
+    foreach(sub;previewCanvas.subs){
+        if(sub.type == "Character")
+            sub.exit();
+    }
+    print(listName,idx);
+    auto item = ItemLists[listName][idx];
+    selectedItem = item;
+    
+    if(itemDatabase[item.itemID].model != ""){
+        string path = itemDatabase[item.itemID].model.assetPath();
+        if(!itemAssets.contains(path)) 
+            itemAssets[path] = loadCharacterAsset(path);
 
+        Character model = itemAssets[path].spawn(previewCanvas);
+        auto LeftTop = model.p;
+        auto RightBot = model.p;
+        model.selectMotion(0,0.0);
+        auto modelCenter = model.part("modelCenter");
+        previewCanvas.camera.p = modelCenter.p;
+        previewCanvas.light.p = modelCenter.p - Vec2(15,15);
+        previewCanvas.light.z = modelCenter.thick + 15 ;
+        scenes.previewCanvas.particleEffect.p = modelCenter.p;
+        sharedVar.currentModel = path;
+    }
+
+    auto itemNameLabel = scenes.inventoryUI.findScene("itemName");
+    itemNameLabel.richCaption = styled(atlas.addTexture(itemDatabase[item.itemID].icon.assetPath()),Vec2(0,0)).height(height) ~ styled(" " ~ item.getName()).color(Color(150,240,255,255)).font(font).height(height);
+    auto itemInfoSystem = scenes.inventoryUI.findScene("itemInfoSystem");
+};
+
+void listSelected(string listName, long idx){
+    if(idx >= 0 && idx < ItemLists[listName].length){
+        foreach(key,list;InventoryLists){
+            if(key != listName)
+                list.unSelect();
+        }
+        onInventoryClick(listName, idx);
+        selectedListName = listName;
+    }
+    else{
+        selectedItem = null;
+        selectedListName = "";
+    }
+}
 
 import math;
-export double calcCapacity(ItemInfo[] items){
+export double calcCapacity(ItemState[] items){
     auto sqrt = math.sqrt;
     auto tidyCap = 0.0;
     auto messyCap = 0.0;
@@ -203,8 +269,6 @@ export double calcCapacity(ItemInfo[] items){
 
 
 
-
-
 export void finalize(){
     
 }
@@ -216,8 +280,9 @@ export void update(){
                         ~ (styled(" " ~ item.getName()).color(Color(150,240,255,255))
                         ~ styled(" " ~ itemDataView(item)).color(Color(100,240,190,255))).height(height*0.9).font(font);
             };
-    mainInventoryList.richContents =  ItemLists.main.map(itemViewer);
-    pocketInventoryList.richContents =  ItemLists.pocket.map(itemViewer);
+    foreach(key,list;InventoryLists){
+        list.richContents = ItemLists[key].map(itemViewer);
+    }   
     
     auto mainCapacityScroll = scenes.inventoryUI.findScene("mainCapacityScroll");
     auto pocketCapacityScroll = scenes.inventoryUI.findScene("pocketCapacityScroll");
@@ -238,11 +303,11 @@ export void update(){
 
 }
 
-ItemInfo[] quickSort(ItemInfo[] inventory, any cmp){
+ItemState[] quickSort(ItemState[] inventory, any cmp){
     if(inventory.length <= 1) return inventory;
     auto pivot = inventory[0];
-    ItemInfo[] less;
-    ItemInfo[] greater;
+    ItemState[] less;
+    ItemState[] greater;
     foreach(i; 1 .. inventory.length){
         if(cmp(inventory[i], pivot)){
             less ~= inventory[i];
@@ -254,21 +319,22 @@ ItemInfo[] quickSort(ItemInfo[] inventory, any cmp){
 }
     
 
-export void addItem(ItemInfo item,string listName){
+export void addItem(ItemState item,string listName,int N  ){
     if(itemDatabase[item.itemID].stackable)
     foreach(existingItem ; ItemLists[listName]){
         if(existingItem.id == item.id){
-            existingItem.count += item.count;
+            existingItem.count +=  N>0 ? N : item.count;
             return;
         }
     }
-    ItemLists[listName] ~= item;
+    auto newItem = {...item,count = N > 0 ? N : item.count};
+    ItemLists[listName] ~= newItem;
 }
 
-export void removeItem(ItemInfo item,string listName,uint N){
+export void removeItem(ItemState item,string listName,int N ){
     foreach(idx,existingItem ; ItemLists[listName]){
         if(existingItem.id == item.id){
-            if(itemDatabase[item.itemID].stackable) existingItem.count -= N;
+            if(itemDatabase[item.itemID].stackable) existingItem.count -= N>0 ? N : item.count;
             if(!itemDatabase[item.itemID].stackable || existingItem.count <= 0){
                 ItemLists[listName] = ItemLists[listName][0..idx] ~ ItemLists[listName][idx+1..$];
             }
@@ -277,35 +343,60 @@ export void removeItem(ItemInfo item,string listName,uint N){
     }
 }
 
-export void exportItem(ItemInfo item,string listName){
+int countItem(ItemState item,string listName){
+    foreach(existingItem ; ItemLists[listName]){
+        if(existingItem.id == item.id){
+            return existingItem.count;
+        }
+    }
+    return 0;
+}
+
+export void moveItem(ItemState item,string fromList,string toList,int N){
+    auto selectedNum = InventoryLists[fromList].selectedNum;
+
+    N = N > item.count ? item.count : N;
+    removeItem(item,fromList,N);
+    addItem(item,toList,N);
+ 
+    listSelected(fromList, selectedNum);
+}
+
+export void holdItem(ItemState item,string listName){
     
-    if(!item) return;
-    mainInventoryList.enabled = false;
-    pocketInventoryList.enabled = false;
+    if(!item ) return;
 
     auto itemData = itemDatabase[item.itemID];
+    if(!itemData.holdable) return;
+
+    foreach(key,list;InventoryLists){
+        list.enabled = false;
+    }
+
     auto equipItem = equipItemList[itemData.equipSlot];
     if(equipItem){
-        addItem(equipItem, listName);
+        addItem(equipItem, listName,1);
     }
     equipItemList[itemData.equipSlot] = {...item,count = 1};
     removeItem(item,listName,1);
     auto inventorySceneMaster = scenes.root.master;
-
-    self.miniScene((){
-        auto particle = scenes.previewCanvas.particleEffect;
-        auto backPanel = scenes.inventoryUI.previewPanel;
-        auto t0 = 0.5;
-        auto t = t0;
-        scenes.inventoryUI.previewPanel.isVisible = false;
-        while(t > 0){
+    
+    auto particle = scenes.previewCanvas.particleEffect;
+    auto backPanel = scenes.inventoryUI.previewPanel;
+    auto t0 = 0.5;
+    auto t = t0;
+    scenes.inventoryUI.previewPanel.isVisible = false;
+        
+    self.miniScene = [
+        miniWhile(()=>t>0,(){
             particle.endColor = particle.endColor *Color(64,64,64,255);
             particle.lifetime = {min = t*0.5,max = t};
             particle.emit(t/t0*100);
             t -= Timer.dt;
-            self.yields;
+        }),
+        (){
+            inventorySceneMaster.isOFF = true;
         }
-        inventorySceneMaster.isOFF = true;
-    },32);
+    ];
 }
 

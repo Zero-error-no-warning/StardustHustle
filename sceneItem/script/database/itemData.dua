@@ -5,7 +5,7 @@
 // 単独のDua例としてID・数量は標準のintへ統一（正の値を使う）。既存uint版への組込は別途。
 // 文法・型検査と、実際に実行した検証の範囲は末尾「確認範囲」を参照。
 
-alias ItemType = "weapon_melee" | "weapon_ranged" | "gun_parts" | "magic_stone" |  "bullet" | "food" | "armor" | "medicine" | "misc";
+alias ItemType = "weapon_melee" | "weapon_ranged" | "gun_parts" | "magic_stone" |  "ammo" | "food" | "armor" | "medicine" | "misc";
 alias GunPartsKind = "barrel" | "stock" | "scope" | "magazine" | "grip" | "slide" | "receiver";
 alias GunBrand = "Aquil" | "Bolt" | "Carg" | "Junk";
 
@@ -38,23 +38,30 @@ export table ItemData {
     ItemType type;
     string baseName;
     bool consumable;
+    bool stackable;
+    bool holdable;
     EquipSlot equipSlot;
     string description;
     string icon;
     string model;
-    bool stackable;
     CommonItemStats commonStats;
     GunSlot[] slots;                  // 銃種の固定情報。非対応部位はここに載せない。
     SpecificItemStats[] specificStats; // 近接/回復/部品は各1件、共通品/完成銃製品は空。
+    string tag;
 }
-export table ItemInfo {
+export table ItemState {
     int id;
     string itemID;
     int count;
+    GunState gunState;
     string name;
     Modifier[] modifier;             // 修飾子は従来どおり個体直下。
     any datetime;                   // 元のDateTimeを保持する欄。ホストなしの本例ではnull。
     int[string] InstalledPartIDs;    // スロットID -> 部品個体ID。製品IDではない。
+}
+
+export table GunState {
+    int loadedAmmo;
 }
 // 製品の基礎性能ではなく、その時の組み合わせから返す完成銃の計算結果。
 export table WeaponRangedStat {
@@ -84,18 +91,24 @@ export ItemData[string] itemDatabase = [
         type = "weapon_melee", baseName = "ナイフ", consumable = false, equipSlot = "weapon",stackable = false,
         description = "大振りのナイフ", icon = meleeIcon, model = "../res/character/weapons/knife.zsc",
         commonStats = CommonItemStats{weight = 0.5, size = 0.3, value = 100.0}, slots = [],
-        specificStats = [WeaponMeleeStat{sharpness = 0.8, swingSpeed = 1.2}]
+        specificStats = [WeaponMeleeStat{sharpness = 0.8, swingSpeed = 1.2}],
+        tag = "onehand",
+        holdable = true
     },
     "bandage": ItemData{
         type = "medicine", baseName = "包帯", consumable = true, equipSlot = "none",stackable = true,
         description = "回復品の例", icon = medicineIcon, model = "../res/character/items/bandage.zsc",
         commonStats = CommonItemStats{weight = 0.1, size = 0.2, value = 50.0}, slots = [],
-        specificStats = [MedicineStat{health = 20.0, duration = 5.0}]
+        specificStats = [MedicineStat{health = 20.0, duration = 5.0}],
+        tag = "healing",
+        holdable = true
     },
     "scrap": ItemData{
         type = "misc", baseName = "金属片", consumable = false, equipSlot = "none",stackable = true,
         description = "専用性能を持たない共通アイテム", icon = miscIcon, model = "",
-        commonStats = CommonItemStats{weight = 0.02, size = 0.03, value = 2.0}, slots = [], specificStats = []
+        commonStats = CommonItemStats{weight = 0.02, size = 0.03, value = 2.0}, slots = [], specificStats = [],
+        tag = "material",
+        holdable = false
     },
     "handgun_A": ItemData{
         type = "weapon_ranged", baseName = "組み立て拳銃A", stackable = false,
@@ -107,28 +120,44 @@ export ItemData[string] itemDatabase = [
             {id = "receiver", kind = "receiver", acceptTags = ["handgunA.core"]},
             {id = "barrel", kind = "barrel", acceptTags = ["handgunA.barrel"]},
             {id = "magazine", kind = "magazine", acceptTags = ["handgunA.mag.9mm"]}
-        ], specificStats = []
+        ], specificStats = [],
+        tag = "onehand",
+        holdable = true
     },
     "receiver_A": ItemData{
         type = "gun_parts", baseName = "Aquilレシーバー", stackable = false,
         consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
         commonStats = CommonItemStats{weight = 0.30, size = 0.18, value = 100.0}, slots = [],
         specificStats = [GunPartsStat{kind = "receiver", brand = "Aquil", fitTags = ["handgunA.core"],
-            accuracy = 0.20, swingSpeed = 0.60, reloadSpeed = 0.0, magazineSize = 0}]
+            accuracy = 0.20, swingSpeed = 0.60, reloadSpeed = 0.0, magazineSize = 0}],
+        tag = "parts",
+        holdable = false
     },
     "barrel_A": ItemData{
         type = "gun_parts", baseName = "Aquilバレル", stackable = false,
         consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
         commonStats = CommonItemStats{weight = 0.20, size = 0.12, value = 80.0}, slots = [],
         specificStats = [GunPartsStat{kind = "barrel", brand = "Aquil", fitTags = ["handgunA.barrel"],
-            accuracy = 0.60, swingSpeed = 0.30, reloadSpeed = 0.0, magazineSize = 0}]
+            accuracy = 0.60, swingSpeed = 0.30, reloadSpeed = 0.0, magazineSize = 0}],
+        tag = "parts",
+        holdable = false
     },
     "magazine_A": ItemData{
         type = "gun_parts", baseName = "Aquilマガジン", stackable = false,
         consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
         commonStats = CommonItemStats{weight = 0.10, size = 0.10, value = 40.0}, slots = [],
         specificStats = [GunPartsStat{kind = "magazine", brand = "Aquil", fitTags = ["handgunA.mag.9mm"],
-            accuracy = 0.0, swingSpeed = 0.10, reloadSpeed = 1.20, magazineSize = 12}]
+            accuracy = 0.0, swingSpeed = 0.10, reloadSpeed = 1.20, magazineSize = 12}],
+        tag = "parts",
+        holdable = false
+    },
+    "SMGAmmo": ItemData{
+        type = "ammo", baseName = "SMG弾", stackable = true,
+        consumable = true, equipSlot = "none", description = "", icon = bulletIcon, model = "",
+        commonStats = CommonItemStats{weight = 0.01, size = 0.01, value = 5.0}, slots = [],
+        specificStats = [],
+        tag = "ammo",
+        holdable = false
     }
 ];
 
@@ -154,15 +183,15 @@ SetBonus[] gunSetBonuses = [
 ];
 
 ////////// 2. 個体：装着部品もレジストリから消さない //////////
-export ItemInfo[int] itemsByID = [
-    1: ItemInfo{id = 1, itemID = "handgun_A", count = 1, name = "", modifier = [],
+export ItemState[int] itemsByID = [
+    1: ItemState{id = 1, itemID = "handgun_A", count = 1, name = "", modifier = [],gunState = null,
         datetime = null, InstalledPartIDs = ["receiver": 101, "barrel": 102, "magazine": 103]},
-    2: ItemInfo{id = 2, itemID = "knife_001", count = 1, name = "", modifier = [sharp()], datetime = null, InstalledPartIDs = [:]},
-    3: ItemInfo{id = 3, itemID = "bandage", count = 2, name = "", modifier = [], datetime = null, InstalledPartIDs = [:]},
-    4: ItemInfo{id = 4, itemID = "scrap", count = 3, name = "", modifier = [], datetime = null, InstalledPartIDs = [:]},
-    101: ItemInfo{id = 101, itemID = "receiver_A", count = 1, name = "", modifier = [precise()], datetime = null, InstalledPartIDs = [:]},
-    102: ItemInfo{id = 102, itemID = "barrel_A", count = 1, name = "", modifier = [precise(), lightweight()], datetime = null, InstalledPartIDs = [:]},
-    103: ItemInfo{id = 103, itemID = "magazine_A", count = 1, name = "", modifier = [], datetime = null, InstalledPartIDs = [:]}
+    2: ItemState{id = 2, itemID = "knife_001", count = 1, name = "", modifier = [sharp()],gunState = null, datetime = null, InstalledPartIDs = [:]},
+    3: ItemState{id = 3, itemID = "bandage", count = 2, name = "", modifier = [], gunState = null,datetime = null, InstalledPartIDs = [:]},
+    4: ItemState{id = 4, itemID = "scrap", count = 3, name = "", modifier = [], gunState = null,datetime = null, InstalledPartIDs = [:]},
+    101: ItemState{id = 101, itemID = "receiver_A", count = 1, name = "", modifier = [precise()],gunState = null, datetime = null, InstalledPartIDs = [:]},
+    102: ItemState{id = 102, itemID = "barrel_A", count = 1, name = "", modifier = [precise(), lightweight()], gunState = null,datetime = null, InstalledPartIDs = [:]},
+    103: ItemState{id = 103, itemID = "magazine_A", count = 1, name = "", modifier = [], gunState = null,datetime = null, InstalledPartIDs = [:]}
 ];
 // 101〜103は装着済みなので一覧に重ねて置かない。銃重量に加えるのも一度だけ。
 export int[] inventoryIDs = [1, 2, 3, 4];
@@ -198,7 +227,7 @@ export bool uninstallPart(int gunID, string slotID){
 }
 
 ////////// 3. 派生値：保存せず、その時の構成から計算 //////////
-ModifyChange[] changesOf(ItemInfo item){
+ModifyChange[] changesOf(ItemState item){
     ModifyChange[] result = [];
     foreach(mod; item.modifier) if(mod.targetType == itemDatabase[item.itemID].type) result ~= mod.changes;
     return result;
@@ -230,7 +259,7 @@ export double stackWeight(int itemID){
 export double inventoryWeight(){
     double result = 0.0; foreach(id; inventoryIDs) result += stackWeight(id); return result;
 }
-export string getName(ItemInfo item){
+export string getName(ItemState item){
     string prefix = ""; foreach(mod; item.modifier) prefix ~= mod.name ~ " ";
     return item.name == "" ? prefix ~ itemDatabase[item.itemID].baseName : item.name;
 }
