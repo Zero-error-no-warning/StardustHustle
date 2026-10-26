@@ -1,78 +1,63 @@
-// ミナ案：共通アイテム・近接武器・回復品・銃/部品が共存する、独立した設計例。
-// 元の itemData.dua の置換用ではありません。制作側からimportしない限り影響しません。
-// 読む順：型 -> 製品DB -> 個体DB -> 共通/近接/回復の計算 -> 銃専用の集計。
-// 製品は読取専用。WeaponRangedStatだけは製品基礎値でなく完成銃の計算結果です。
-// 単独のDua例としてID・数量は標準のintへ統一（正の値を使う）。既存uint版への組込は別途。
-// 文法・型検査と、実際に実行した検証の範囲は末尾「確認範囲」を参照。
+export alias ItemType = "weapon_melee" | "weapon_ranged" | "gun_parts" | "magic_stone" |  "ammo" | "food" | "armor" | "medicine" | "misc";
 
-alias ItemType = "weapon_melee" | "weapon_ranged" | "gun_parts" | "magic_stone" |  "ammo" | "food" | "armor" | "medicine" | "misc";
+export alias EquipSlot = "weapon" | "none" | "head" | "body" | "waist" | "gunparts";
 alias GunPartsKind = "barrel" | "stock" | "scope" | "magazine" | "grip" | "slide" | "receiver";
-alias GunBrand = "Aquil" | "Bolt" | "Carg" | "Junk";
 
-export alias EquipSlot = "weapon" | "none" | "head" | "body" | "waist";
-
-struct ModifyChange { string target; double add; double mul; }
-table Modifier {
-    string name;
-    ItemType targetType;
-    string setTag;
-    ModifyChange[] changes;
-}
-export table CommonItemStats { double weight; double size; double value; }
-table WeaponMeleeStat { double sharpness; double swingSpeed; }
-table MedicineStat { double health; double duration; }
-
-table GunSlot { string id; GunPartsKind kind; string[] acceptTags; }
-table GunPartsStat {
-    GunPartsKind kind;
-    GunBrand brand;
-    string[] fitTags;
-    double accuracy;    // この例では加算寄与。0は寄与なし。
-    double swingSpeed;  // 同じく加算寄与。
-    double reloadSpeed; // magazineだけが基礎値を供給。
-    int magazineSize;  // magazineだけが供給。銃側では重複加算しない。
-}
-// 完成銃の製品基礎性能を外し、部品性能を既存の専用性能unionへ加える。
-export alias SpecificItemStats = WeaponMeleeStat | GunPartsStat | MedicineStat;
-export table ItemData {
+export table ItemData { //個体差のない基本データ
     ItemType type;
     string baseName;
-    bool consumable;
-    bool stackable;
-    bool holdable;
+    bool consumable = false;
+    bool stackable = false;
     EquipSlot equipSlot;
     string description;
     string icon;
     string model;
-    CommonItemStats commonStats;
-    GunSlot[] slots;                  // 銃種の固定情報。非対応部位はここに載せない。
-    SpecificItemStats[] specificStats; // 近接/回復/部品は各1件、共通品/完成銃製品は空。
+    CommonData commonData; // 共通の基本性能
+    SpecificData specificData; // アイテム固有性能
+    GunSlot[] slots = [];                  // 銃種の固定情報。非対応部位はここに載せない。
     string tag;
 }
-export table ItemState {
+alias SpecificData = ConsumptData[] | WeaponData | null;
+
+export table CommonData { double weight; double size; double value; }
+
+
+alias ConsumptEffectType = "health" | "stamina" |"fastMove" | "fastSwing" | "fastReload" | "lowSpread" | "fastHeal" | "fastSearch";
+table ConsumptEffect { ConsumptEffectType type; double value; double duration; }
+table ConsumptData  {double satiety; ConsumptEffect[] effect;}
+
+table WeaponData { 
+    double sharpDamage = 0.0;
+    double hardDamage = 0.0;
+    double attackCycle = 0.0;
+    double bulletSpread = 0.0;
+    double bulletSpeed = 0.0;
+    double reloadSpeed = 0.0;
+    int magazineSize = 0;
+}
+
+table GunSlot { string id; GunPartsKind kind; string[] acceptTags; }
+
+export table ItemState { // アイテムの個体情報
     int id;
     string itemID;
     int count;
-    GunState gunState;
     string name;
-    Modifier[] modifier;             // 修飾子は従来どおり個体直下。
-    any datetime;                   // 元のDateTimeを保持する欄。ホストなしの本例ではnull。
-    int[string] InstalledPartIDs;    // スロットID -> 部品個体ID。製品IDではない。
+    any datetime;                   // 元のDateTimeを保持する欄。
+    GunState gunState  = null;
+    WeaponEffect weaponEffect = null;
+    CommonEffect commonEffect = null;
+    ItemState[GunSlot] slot = [:];
 }
 
+
+table CommonEffect {...CommonData;}
+table WeaponEffect {...WeaponData;}
+
+
 export table GunState {
-    int loadedAmmo;
+    int loadedAmmo = 0;
 }
-// 製品の基礎性能ではなく、その時の組み合わせから返す完成銃の計算結果。
-export table WeaponRangedStat {
-    bool ready;
-    double weight;
-    double accuracy;
-    double swingSpeed;
-    double reloadSpeed;
-    int magazineSize;
-}
-table SetBonus { string source; string key; int required; ModifyChange[] changes; }
 
 ////////// 1. 製品固定データ：共通値と各カテゴリの専用値 //////////
 
@@ -90,270 +75,91 @@ export ItemData[string] itemDatabase = [
     "knife_001": ItemData{
         type = "weapon_melee", baseName = "ナイフ", consumable = false, equipSlot = "weapon",stackable = false,
         description = "大振りのナイフ", icon = meleeIcon, model = "../res/character/weapons/knife.zsc",
-        commonStats = CommonItemStats{weight = 0.5, size = 0.3, value = 100.0}, slots = [],
-        specificStats = [WeaponMeleeStat{sharpness = 0.8, swingSpeed = 1.2}],
+        commonData = CommonData{weight = 0.5, size = 0.3, value = 100.0}, slots = [],
+        specificData = WeaponData{sharpDamage = 0.8, hardDamage = 0.1, attackCycle = 1.2, bulletSpread = 0.0, bulletSpeed = 1.0, reloadSpeed = 0.0, magazineSize = 0},
         tag = "onehand",
-        holdable = true
     },
     "bandage": ItemData{
         type = "medicine", baseName = "包帯", consumable = true, equipSlot = "none",stackable = true,
         description = "回復品の例", icon = medicineIcon, model = "../res/character/items/bandage.zsc",
-        commonStats = CommonItemStats{weight = 0.1, size = 0.2, value = 50.0}, slots = [],
-        specificStats = [MedicineStat{health = 20.0, duration = 5.0}],
+        commonData = CommonData{weight = 0.1, size = 0.2, value = 50.0}, slots = [],
+        specificData = [ConsumptData{
+            satiety = 0.0,
+            effect = [ConsumptEffect{type="health",value = 20.,duration = 30.}]}],
         tag = "healing",
-        holdable = true
-    },
-    "scrap": ItemData{
-        type = "misc", baseName = "金属片", consumable = false, equipSlot = "none",stackable = true,
-        description = "専用性能を持たない共通アイテム", icon = miscIcon, model = "",
-        commonStats = CommonItemStats{weight = 0.02, size = 0.03, value = 2.0}, slots = [], specificStats = [],
-        tag = "material",
-        holdable = false
     },
     "handgun_A": ItemData{
         type = "weapon_ranged", baseName = "組み立て拳銃A", stackable = false,
-        consumable = false, equipSlot = "weapon", description = "性能は装着部品から計算", icon = rangedIcon,
+        consumable = false, equipSlot = "weapon", description = "", icon = rangedIcon,
         model = "../res/character/weapons/handgun.zsc",
-        // 銃重量は部品側。size/valueは本例では製品値（価格付けルールの実装は別）。
-        commonStats = CommonItemStats{weight = 0.0, size = 0.28, value = 200.0},
+       
+        commonData = CommonData{weight = 0.0, size = 0.28, value = 200.0},
         slots = [
             {id = "receiver", kind = "receiver", acceptTags = ["handgunA.core"]},
             {id = "barrel", kind = "barrel", acceptTags = ["handgunA.barrel"]},
             {id = "magazine", kind = "magazine", acceptTags = ["handgunA.mag.9mm"]}
-        ], specificStats = [],
+        ], specificData =  WeaponData{sharpDamage = 10.0, hardDamage = 0.1, attackCycle = 1., bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 15},
         tag = "onehand",
-        holdable = true
-    },
-    "receiver_A": ItemData{
-        type = "gun_parts", baseName = "Aquilレシーバー", stackable = false,
-        consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
-        commonStats = CommonItemStats{weight = 0.30, size = 0.18, value = 100.0}, slots = [],
-        specificStats = [GunPartsStat{kind = "receiver", brand = "Aquil", fitTags = ["handgunA.core"],
-            accuracy = 0.20, swingSpeed = 0.60, reloadSpeed = 0.0, magazineSize = 0}],
-        tag = "parts",
-        holdable = false
-    },
-    "barrel_A": ItemData{
-        type = "gun_parts", baseName = "Aquilバレル", stackable = false,
-        consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
-        commonStats = CommonItemStats{weight = 0.20, size = 0.12, value = 80.0}, slots = [],
-        specificStats = [GunPartsStat{kind = "barrel", brand = "Aquil", fitTags = ["handgunA.barrel"],
-            accuracy = 0.60, swingSpeed = 0.30, reloadSpeed = 0.0, magazineSize = 0}],
-        tag = "parts",
-        holdable = false
-    },
-    "magazine_A": ItemData{
-        type = "gun_parts", baseName = "Aquilマガジン", stackable = false,
-        consumable = false, equipSlot = "none", description = "", icon = gunPartsIcon, model = "",
-        commonStats = CommonItemStats{weight = 0.10, size = 0.10, value = 40.0}, slots = [],
-        specificStats = [GunPartsStat{kind = "magazine", brand = "Aquil", fitTags = ["handgunA.mag.9mm"],
-            accuracy = 0.0, swingSpeed = 0.10, reloadSpeed = 1.20, magazineSize = 12}],
-        tag = "parts",
-        holdable = false
     },
     "SMGAmmo": ItemData{
-        type = "ammo", baseName = "SMG弾", stackable = true,
-        consumable = true, equipSlot = "none", description = "", icon = bulletIcon, model = "",
-        commonStats = CommonItemStats{weight = 0.01, size = 0.01, value = 5.0}, slots = [],
-        specificStats = [],
+        type = "ammo", baseName = "SMG弾", consumable = true, equipSlot = "none", stackable = true,
+        description = "SMG用の弾薬", icon = bulletIcon, model = "",
+        commonData = CommonData{weight = 0.01, size = 0.01, value = 5.0}, slots = [],
+        specificData = null,
         tag = "ammo",
-        holdable = false
-    }
+    },
+    "longBarrel_A": ItemData{
+        type = "gun_parts", baseName = "ロングバレルA", consumable = false, equipSlot = "none", stackable = false,
+        description = "SMG用のロングバレル", icon = gunPartsIcon, model = "",
+        commonData = CommonData{weight = 0.2, size = 0.5, value = 150.0}, slots = [],
+        specificData = WeaponData{sharpDamage = 1.0, hardDamage = 1.0, attackCycle = 0.0, bulletSpread = -0.5, bulletSpeed = 300.0, reloadSpeed = 0.0, magazineSize = 0},
+        tag = "barrel",
+    },
 ];
 
-// 同一製品でも、下の関数から各個体用の修飾子を作る。倍率の中立値は必ず1。
-// 現行のmodifierDatabaseも、候補名だけでなくこれらのchangesを持つ候補へ拡張する想定。
-Modifier sharp(){
-    return Modifier{name = "鋭い", targetType = "weapon_melee", setTag = "",
-        changes = [ModifyChange("melee.sharpness", 0.2, 1.0)]};
-}
-Modifier precise(){
-    return Modifier{name = "精密", targetType = "gun_parts", setTag = "precision",
-        changes = [ModifyChange("gun.accuracy", 0.02, 1.0)]};
-}
-Modifier lightweight(){
-    return Modifier{name = "軽量", targetType = "gun_parts", setTag = "",
-        changes = [ModifyChange("self.weight", 0.0, 0.8)]};
-}
-SetBonus[] gunSetBonuses = [
-    {source = "brand", key = "Aquil", required = 3,
-        changes = [ModifyChange("gun.accuracy", 0.03, 1.0)]},
-    {source = "modifier", key = "precision", required = 2,
-        changes = [ModifyChange("gun.accuracy", 0.0, 1.10)]}
-];
 
-////////// 2. 個体：装着部品もレジストリから消さない //////////
-export ItemState[int] itemsByID = [
-    1: ItemState{id = 1, itemID = "handgun_A", count = 1, name = "", modifier = [],gunState = null,
-        datetime = null, InstalledPartIDs = ["receiver": 101, "barrel": 102, "magazine": 103]},
-    2: ItemState{id = 2, itemID = "knife_001", count = 1, name = "", modifier = [sharp()],gunState = null, datetime = null, InstalledPartIDs = [:]},
-    3: ItemState{id = 3, itemID = "bandage", count = 2, name = "", modifier = [], gunState = null,datetime = null, InstalledPartIDs = [:]},
-    4: ItemState{id = 4, itemID = "scrap", count = 3, name = "", modifier = [], gunState = null,datetime = null, InstalledPartIDs = [:]},
-    101: ItemState{id = 101, itemID = "receiver_A", count = 1, name = "", modifier = [precise()],gunState = null, datetime = null, InstalledPartIDs = [:]},
-    102: ItemState{id = 102, itemID = "barrel_A", count = 1, name = "", modifier = [precise(), lightweight()], gunState = null,datetime = null, InstalledPartIDs = [:]},
-    103: ItemState{id = 103, itemID = "magazine_A", count = 1, name = "", modifier = [], gunState = null,datetime = null, InstalledPartIDs = [:]}
-];
-// 101〜103は装着済みなので一覧に重ねて置かない。銃重量に加えるのも一度だけ。
-export int[] inventoryIDs = [1, 2, 3, 4];
 
-bool hasTag(string[] tags, string tag){ foreach(value; tags) if(value == tag) return true; return false; }
-bool inInventory(int id){ foreach(value; inventoryIDs) if(value == id) return true; return false; }
-bool compatible(ItemData gun, string slotID, ItemData part){
-    if(gun.type != "weapon_ranged" || part.type != "gun_parts" || part.specificStats.length != 1) return false;
-    any stat = part.specificStats[0]; // 部品type確認後、この例では専用性能を1件持つ。
-    foreach(slot; gun.slots) if(slot.id == slotID && slot.kind == stat.kind)
-        foreach(tag; slot.acceptTags) if(hasTag(stat.fitTags, tag)) return true;
-    return false;
-}
-export bool installPart(int gunID, string slotID, int partID){
-    if(!itemsByID.contains(gunID) || !itemsByID.contains(partID) || !inInventory(partID)) return false;
-    auto gun = itemsByID[gunID]; auto part = itemsByID[partID];
-    if(gun.count != 1 || part.count != 1 || gun.InstalledPartIDs.get(slotID, 0) != 0) return false;
-    if(!compatible(itemDatabase[gun.itemID], slotID, itemDatabase[part.itemID])) return false;
-    foreach(i, id; inventoryIDs) if(id == partID){
-        inventoryIDs = inventoryIDs[0 .. i] ~ inventoryIDs[i + 1 .. $]; break;
-    }
-    gun.InstalledPartIDs[slotID] = partID;
-    itemsByID[gunID] = gun;
-    return true;
-}
-export bool uninstallPart(int gunID, string slotID){
-    if(!itemsByID.contains(gunID)) return false;
-    auto gun = itemsByID[gunID]; int partID = gun.InstalledPartIDs.get(slotID, 0);
-    if(partID == 0 || !itemsByID.contains(partID) || inInventory(partID)) return false;
-    gun.InstalledPartIDs.remove(slotID); itemsByID[gunID] = gun;
-    inventoryIDs ~= partID; // 同じIDを戻すだけ。修飾子・名前などの個体情報はそのまま。
-    return true;
-}
+//////////  補助関数
 
-////////// 3. 派生値：保存せず、その時の構成から計算 //////////
-ModifyChange[] changesOf(ItemState item){
-    ModifyChange[] result = [];
-    foreach(mod; item.modifier) if(mod.targetType == itemDatabase[item.itemID].type) result ~= mod.changes;
-    return result;
-}
-double changed(double base, string target, ModifyChange[] changes){
-    double add = 0.0; double mul = 1.0;
-    foreach(change; changes) if(change.target == target){ add += change.add; mul *= change.mul; }
-    return (base + add) * mul; // 全加算をまとめてから全倍率。適用順で結果を変えない。
-}
-double nonnegative(double value){ return value < 0.0 ? 0.0 : value; }
-
-// 全カテゴリ共通：1個あたりの共通値を新しく返す。製品DBを書き換えない。
-// 銃の重量だけはcalculateGunへ委譲する。銃全体の重量補正にはgun.weightを使う。
-export CommonItemStats calculateCommon(int itemID){
-    CommonItemStats result = {weight = 0.0, size = 0.0, value = 0.0};
-    if(!itemsByID.contains(itemID)) return result;
-    auto item = itemsByID[itemID]; auto product = itemDatabase[item.itemID];
-    auto changes = changesOf(item);
-    result.weight = product.type == "weapon_ranged" ? calculateGun(itemID).weight
-        : nonnegative(changed(product.commonStats.weight, "self.weight", changes));
-    result.size = nonnegative(changed(product.commonStats.size, "self.size", changes));
-    result.value = nonnegative(changed(product.commonStats.value, "self.value", changes));
-    return result;
-}
-export double stackWeight(int itemID){
-    if(!itemsByID.contains(itemID)) return 0.0;
-    return calculateCommon(itemID).weight * cast(double)itemsByID[itemID].count;
-}
-export double inventoryWeight(){
-    double result = 0.0; foreach(id; inventoryIDs) result += stackWeight(id); return result;
-}
 export string getName(ItemState item){
-    string prefix = ""; foreach(mod; item.modifier) prefix ~= mod.name ~ " ";
-    return item.name == "" ? prefix ~ itemDatabase[item.itemID].baseName : item.name;
+    return item.name == "" ?  itemDatabase[item.itemID].baseName : item.name;
 }
-// 非銃カテゴリは従来の製品専用値に個体補正をかけるだけ。銃の集計へ混ぜない。
-export WeaponMeleeStat calculateMelee(int itemID){
-    WeaponMeleeStat result = {sharpness = 0.0, swingSpeed = 0.0};
-    if(!itemsByID.contains(itemID)) return result;
-    auto item = itemsByID[itemID]; auto product = itemDatabase[item.itemID];
-    if(product.type != "weapon_melee" || product.specificStats.length != 1) return result;
-    any base = product.specificStats[0]; auto changes = changesOf(item);
-    result.sharpness = nonnegative(changed(base.sharpness, "melee.sharpness", changes));
-    result.swingSpeed = nonnegative(changed(base.swingSpeed, "melee.swingSpeed", changes));
-    return result;
+export double getActualWeight(ItemState item){
+    auto itemData = itemDatabase[item.itemID];
+    double weight = itemData.commonData.weight;
+    if(item.commonEffect)
+        weight += item.commonEffect.weight;
+    return weight;
 }
-export MedicineStat calculateMedicine(int itemID){
-    MedicineStat result = {health = 0.0, duration = 0.0};
-    if(!itemsByID.contains(itemID)) return result;
-    auto item = itemsByID[itemID]; auto product = itemDatabase[item.itemID];
-    if(product.type != "medicine" || product.specificStats.length != 1) return result;
-    any base = product.specificStats[0]; auto changes = changesOf(item);
-    result.health = nonnegative(changed(base.health, "medicine.health", changes));
-    result.duration = nonnegative(changed(base.duration, "medicine.duration", changes));
-    return result;
+export double getActualValue(ItemState item){
+    auto itemData = itemDatabase[item.itemID];
+    double value = itemData.commonData.value;
+    if(item.commonEffect)
+        value += item.commonEffect.value;
+    return value;
 }
-// ここから銃専用：完成銃の基礎性能は製品に持たず、部品の寄与を集める。
-export WeaponRangedStat calculateGun(int gunID){
-    WeaponRangedStat result = {ready = false, weight = 0.0, accuracy = 0.0,
-        swingSpeed = 0.0, reloadSpeed = 0.0, magazineSize = 0};
-    if(!itemsByID.contains(gunID)) return result;
-    auto gun = itemsByID[gunID]; auto product = itemDatabase[gun.itemID];
-    if(product.type != "weapon_ranged" || gun.count != 1) return result;
-    result.ready = true;
-    ModifyChange[] changes = changesOf(gun);
-    int[string] brands = [:]; int[string] modifierTags = [:];
-    int[] visited = [];
-    foreach(slot; product.slots){
-        int partID = gun.InstalledPartIDs.get(slot.id, 0);
-        if(partID == 0 || !itemsByID.contains(partID)){ result.ready = false; continue; }
-        bool duplicate = false; foreach(id; visited) if(id == partID) duplicate = true;
-        if(duplicate){ result.ready = false; continue; } // 同じ個体を二つの部位で数えない。
-        visited ~= partID;
-        auto part = itemsByID[partID]; auto partProduct = itemDatabase[part.itemID];
-        if(part.count != 1 || !compatible(product, slot.id, partProduct)){ result.ready = false; continue; }
-        any stat = partProduct.specificStats[0]; auto ownChanges = changesOf(part);
-        result.weight += nonnegative(changed(partProduct.commonStats.weight, "self.weight", ownChanges));
-        result.accuracy += stat.accuracy;
-        result.swingSpeed += stat.swingSpeed;
-        if(slot.kind == "magazine"){ result.reloadSpeed = stat.reloadSpeed; result.magazineSize = stat.magazineSize; }
-        changes ~= ownChanges;
-        brands[stat.brand] = brands.get(stat.brand, 0) + 1;
-        string[] counted = [];
-        foreach(mod; part.modifier) if(mod.targetType == partProduct.type && mod.setTag != "" && !hasTag(counted, mod.setTag)){
-            counted ~= mod.setTag; modifierTags[mod.setTag] = modifierTags.get(mod.setTag, 0) + 1;
-        }
+export double getActualSize(ItemState item){
+    auto itemData = itemDatabase[item.itemID];
+    double size = itemData.commonData.size;
+    if(item.commonEffect)
+        size += item.commonEffect.size;
+    return size;
+}
+
+export WeaponData getActualWeaponData(ItemState item){
+    auto itemData = itemDatabase[item.itemID];
+    if(itemData.type != "weapon_ranged" || itemData.type != "weapon_melee") return WeaponData{};
+
+    WeaponData actualData = itemData.specificData;
+    if(actualData is WeaponData){
+        actualData.sharpDamage += item.weaponEffect.sharpDamage;
+        actualData.hardDamage += item.weaponEffect.hardDamage;
+        actualData.attackCycle += item.weaponEffect.attackCycle;
+        actualData.bulletSpread += item.weaponEffect.bulletSpread;
+        actualData.bulletSpeed += item.weaponEffect.bulletSpeed;
+        actualData.reloadSpeed += item.weaponEffect.reloadSpeed;
+        actualData.magazineSize += item.weaponEffect.magazineSize;
+        return actualData;
     }
-    // 各セットは独立。銃本体は数えず、装着部品を1部品1票で数える。
-    foreach(bonus; gunSetBonuses){
-        int count = bonus.source == "brand" ? brands.get(bonus.key, 0) : modifierTags.get(bonus.key, 0);
-        if(count >= bonus.required) changes ~= bonus.changes;
-    }
-    result.weight = nonnegative(changed(result.weight, "gun.weight", changes));
-    result.accuracy = nonnegative(changed(result.accuracy, "gun.accuracy", changes));
-    if(result.accuracy > 1.0) result.accuracy = 1.0;
-    result.swingSpeed = nonnegative(changed(result.swingSpeed, "gun.swingSpeed", changes));
-    result.reloadSpeed = nonnegative(changed(result.reloadSpeed, "gun.reloadSpeed", changes));
-    result.magazineSize = cast(int)nonnegative(changed(cast(double)result.magazineSize, "gun.magazineSize", changes));
-    return result;
+    return WeaponData{};
 }
-
-// 明示規則：重量=sum(部品の実重量)、accuracy/swingSpeed=寄与の和、
-// reloadSpeed/magazineSize=一つのmagazineから供給。magazineスロットは本例では一つだけ。
-// その後、個体補正と成立セットを同じchanged関数へ渡す。途中の重量丸めはしない。
-// accuracyは0〜1、他は0以上。装弾数だけ最後に整数へ切り捨てる。
-// 全スロット必須。ready=falseは未完成なので発射不可とする（判定/UI連携は未実装）。
-// SetBonusは各系列1段階だけ。段階を増やすなら同系列は最高段階だけ採用する。
-// 未知のtargetは現状無視する。採用時は製品/修飾子を登録するときに検証して誤記を弾く。
-
-// 手動確認例（読み込むだけでは脱着・print・ファイル保存を実行しない）：
-// calculateMelee(2) -> sharpness=1.0, swingSpeed=1.2（鋭いナイフ）。
-// calculateMedicine(3) -> health=20.0, duration=5.0。1回/1個の効果。count=2でも効果を2倍にしない。
-// calculateCommon(3).weight -> 0.1。stackWeight(3) -> 0.2（包帯2個）。
-// stackWeight(4) -> 0.06（金属片3個）。specificStatsが空でも共通計算だけで扱える。
-// calculateGun(1) -> ready=true, weight=0.56, accuracy=0.957,
-// swingSpeed=1.0, reloadSpeed=1.2, magazineSize=12。
-// uninstallPart(1, "barrel") -> inventoryIDsに102が戻る。itemsByID[102].modifierは2個のまま。
-// installPart(1, "barrel", 102) -> 同じ102を再装着。製品や個体の作り直しは不要。
-// inventoryWeight() -> 約1.32。装着部品は一覧にないので銃と二重に足さない。
-// UI/戦闘は共通値にcalculateCommon、専用値に各カテゴリのcalculate関数を共用する。
-// 元getCapacityのような表示処理も、基礎commonStatsでなくcalculateCommonの結果を読む。
-
-// 未実装：保存/読込、main/pocketとの接続、UI、弾薬・耐久度・必須/任意部位、
-// 不正な保存データの完全検証。保存時はレジストリ・一覧ID・InstalledPartIDsをまとめる。
-// 所有権変更はinstallPart/uninstallPartの入口へ集約。銃/部品はcount=1、一般stack処理へ渡さない。
-// 簡潔さのためキャッシュなし。非銃は共通+専用値、銃だけ共通重量の委譲と部品集計が違う。
-// food/armor/bullet等は専用性能が必要になるまで共通値だけで扱い、型や機能を先回りして増やさない。
-// 確認範囲：既存dua-check.exeで構文・静的型診断0件。新ビルドなし。
-// 単独runnerがないためDua上の集計・脱着は未実行。上記数値は手計算した期待値。

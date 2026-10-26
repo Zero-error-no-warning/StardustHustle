@@ -132,6 +132,70 @@
                 {
                     "path": "size\/x",
                     "value": "2"
+                },
+                {
+                    "path": "size\/y",
+                    "value": "2"
+                },
+                {
+                    "path": "size\/x",
+                    "value": "6"
+                },
+                {
+                    "path": "color\/v_r",
+                    "value": "136"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "2"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "2"
+                },
+                {
+                    "path": "color\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "glow",
+                    "value": "1"
+                },
+                {
+                    "path": "color\/v_r",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "glow",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_r",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "color\/v_a",
+                    "value": "255"
                 }
             ],
             "scale": 1.0,
@@ -139,6 +203,208 @@
             "width": 640.0,
             "x": 0.0,
             "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "action": {
+                "function": ""
+            },
+            "assetPath": "",
+            "centerX": 0.0,
+            "centerY": 0.0,
+            "condition": {
+                "function": ""
+            },
+            "enabled": true,
+            "height": 480.0,
+            "id": "5bbaaea3-52ce-4da0-9522-c833eee49745",
+            "kind": "particleEffect",
+            "light": {
+                "alpha": 255.0,
+                "blue": 255.0,
+                "decay": 1.0,
+                "directionX": 0.0,
+                "directionY": 0.0,
+                "directionZ": -1.0,
+                "fog": 0.0,
+                "green": 255.0,
+                "pitch": 0.0,
+                "power": 1.0,
+                "quality": 0.900000000000000022,
+                "r": 100.0,
+                "red": 255.0,
+                "roll": 0.0,
+                "shadowLength": 10000.0,
+                "sizeX": 30.0,
+                "sizeY": 30.0,
+                "spreadX": 1.0,
+                "spreadY": 1.0,
+                "targetX": 0.0,
+                "targetY": 0.0,
+                "targetZ": 0.0,
+                "yaw": 0.0
+            },
+            "lightType": "PointLight",
+            "name": "particleEffect",
+            "parentId": "cadd07c7-7404-454c-9faf-d97d63f34d9c",
+            "pers": 0.0,
+            "phase": "normal",
+            "projection": "None",
+            "properties": [
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Circle"
+                },
+                {
+                    "path": "spawnShape\/radius",
+                    "value": "5"
+                },
+                {
+                    "path": "velocity\/x",
+                    "value": "-10"
+                },
+                {
+                    "path": "velocityRandom\/y",
+                    "value": "5"
+                },
+                {
+                    "path": "autoPlayMode",
+                    "value": "Manual"
+                },
+                {
+                    "path": "startColor\/v_r",
+                    "value": "182"
+                },
+                {
+                    "path": "startColor\/v_g",
+                    "value": "0"
+                },
+                {
+                    "path": "startColor\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "startColor\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "autoPlayMode",
+                    "value": "Burst"
+                },
+                {
+                    "path": "maxParticles",
+                    "value": "64"
+                },
+                {
+                    "path": "space",
+                    "value": "World"
+                },
+                {
+                    "path": "spawnShape\/shape",
+                    "value": "Point"
+                },
+                {
+                    "path": "autoExit",
+                    "value": "true"
+                },
+                {
+                    "path": "velocity\/x",
+                    "value": "120"
+                },
+                {
+                    "path": "velocity\/z",
+                    "value": "80"
+                },
+                {
+                    "path": "velocityRandom\/x",
+                    "value": "80"
+                },
+                {
+                    "path": "velocityRandom\/y",
+                    "value": "140"
+                },
+                {
+                    "path": "velocityRandom\/z",
+                    "value": "40"
+                },
+                {
+                    "path": "lifetime\/min",
+                    "value": "0.1"
+                },
+                {
+                    "path": "lifetime\/max",
+                    "value": "0.22"
+                },
+                {
+                    "path": "drag",
+                    "value": "6"
+                },
+                {
+                    "path": "acceleration\/z",
+                    "value": "-240"
+                },
+                {
+                    "path": "geometry",
+                    "value": "Velocity"
+                },
+                {
+                    "path": "width",
+                    "value": "1.2"
+                },
+                {
+                    "path": "velocityStretch",
+                    "value": "0.035"
+                },
+                {
+                    "path": "startColor\/v_r",
+                    "value": "255"
+                },
+                {
+                    "path": "startColor\/v_g",
+                    "value": "233"
+                },
+                {
+                    "path": "startColor\/v_b",
+                    "value": "142"
+                },
+                {
+                    "path": "startColor\/v_a",
+                    "value": "255"
+                },
+                {
+                    "path": "endColor\/v_r",
+                    "value": "255"
+                },
+                {
+                    "path": "endColor\/v_g",
+                    "value": "80"
+                },
+                {
+                    "path": "endColor\/v_b",
+                    "value": "0"
+                },
+                {
+                    "path": "endColor\/v_a",
+                    "value": "0"
+                },
+                {
+                    "path": "blend",
+                    "value": "Add"
+                },
+                {
+                    "path": "velocity\/x",
+                    "value": "-120"
+                },
+                {
+                    "path": "velocityRandom\/x",
+                    "value": "-80"
+                }
+            ],
+            "scale": 1.0,
+            "scriptModule": "",
+            "width": 640.0,
+            "x": 2.9375,
+            "y": -0.09375,
             "z": 0.0
         },
         {

@@ -472,8 +472,16 @@
                     "value": "10"
                 },
                 {
+                    "path": "themeStyle\/skinKind",
+                    "value": "flat"
+                },
+                {
+                    "path": "themeStyle\/skinKind",
+                    "value": "inherit"
+                },
+                {
                     "path": "themeData",
-                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4034000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403a000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4024000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4034000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
+                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4034000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403a000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4024000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[24,0,0,104],\"font\":\"Pixel\",\"fontHeight\":\"4034000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"inherit\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
                 }
             ],
             "scale": 1.0,
@@ -4090,16 +4098,20 @@
                     "value": "1"
                 },
                 {
-                    "path": "themeData",
-                    "value": "{\"base\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,210,240,100],\"borderWidth\":\"4014000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[4,18,30,50],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"403c000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[170,140,95,255],\"originalFill\":[35,28,50,255],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1},\"roleInheritance\":{},\"roles\":{\"label\":{\"accent\":[0,210,240,100],\"autoStateColors\":true,\"border\":[0,0,0,0],\"borderWidth\":\"3ff0000000000000\",\"cornerRadius\":\"4008000000000000\",\"disabledImageTint\":[140,140,140,255],\"disabledText\":[138,155,172,193],\"fill\":[0,0,0,0],\"font\":\"Pixel\",\"fontHeight\":\"4039000000000000\",\"horizontalAlign\":0,\"hoverFill\":[8,65,85,50],\"imageTint\":[255,255,255,255],\"lineHeight\":\"3ff0000000000000\",\"originalAccent\":[245,195,90,255],\"originalBorder\":[0,0,0,0],\"originalFill\":[0,0,0,0],\"originalHover\":[55,42,75,255],\"originalPressed\":[85,60,100,255],\"originalSelected\":[65,45,85,255],\"overflow\":0,\"padding\":[\"4034000000000000\",\"0000000000000000\"],\"pressedFill\":[127,129,135,94],\"pressedImageTint\":[210,210,210,255],\"scrollWidth\":\"4024000000000000\",\"selectedFill\":[8,210,240,100],\"skin\":\"flat\",\"states\":[null,null,null,null,null,null,null,null,null,null,null,null,null],\"text\":[190,250,255,255],\"verticalAlign\":1}},\"version\":2}"
-                },
-                {
                     "path": "gap",
                     "value": "20"
                 },
                 {
                     "path": "gap",
                     "value": "10"
+                },
+                {
+                    "path": "themePreset",
+                    "value": "inherit"
+                },
+                {
+                    "path": "themeData",
+                    "value": ""
                 },
                 {
                     "path": "size\/x",
@@ -8710,7 +8722,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "infoPain Copy",
+            "name": "equipPain",
             "parentId": "f86470e0-ce47-4067-80e6-8d16306a5dfe",
             "pers": 0.0,
             "phase": "normal",
@@ -8937,6 +8949,18 @@
                     "value": "true"
                 },
                 {
+                    "path": "isOFF",
+                    "value": "true"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "false"
+                },
+                {
+                    "path": "isOFF",
+                    "value": "true"
+                },
+                {
                     "path": "size\/x",
                     "value": "300"
                 },
@@ -8949,7 +8973,7 @@
             "scriptModule": "",
             "width": 640.0,
             "x": 435.69333891914539,
-            "y": 233.407145849542388,
+            "y": 233.407145849542445,
             "z": 0.0
         },
         {
@@ -9148,76 +9172,6 @@
             },
             "enabled": true,
             "height": 480.0,
-            "id": "89f50df6-5ab9-42ca-a0c9-d1925d68c60d",
-            "kind": "uiLabel",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "equipedName",
-            "parentId": "fd4a7f8f-9cc6-46b7-ac39-e6ff46a57153",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [
-                {
-                    "path": "role",
-                    "value": "buton"
-                },
-                {
-                    "path": "textPresentation",
-                    "value": "{\"align\":1,\"customAlign\":false,\"customOverflow\":false,\"customVertical\":false,\"fontHeight\":\"0000000000000000\",\"overflow\":0,\"padding\":[\"bff0000000000000\",\"bff0000000000000\"],\"role\":\"buton\",\"variant\":\"\",\"version\":1,\"vertical\":1}"
-                },
-                {
-                    "path": "size\/x",
-                    "value": "370"
-                },
-                {
-                    "path": "size\/y",
-                    "value": "24"
-                }
-            ],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-        },
-        {
-            "action": {
-                "function": ""
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": true,
-            "height": 480.0,
             "id": "fde0a666-a909-4d83-9fcb-bf5873be34af",
             "kind": "uiListView",
             "light": {
@@ -9246,7 +9200,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "equipInfoList",
+            "name": "equipList",
             "parentId": "fd4a7f8f-9cc6-46b7-ac39-e6ff46a57153",
             "pers": 0.0,
             "phase": "normal",
@@ -9269,7 +9223,7 @@
             "scriptModule": "",
             "width": 640.0,
             "x": 0.0,
-            "y": 42.803040277694663,
+            "y": 0.0,
             "z": 0.0
         },
         {
@@ -10438,6 +10392,30 @@
             "phase": "normal",
             "projection": "None",
             "properties": [
+                {
+                    "path": "step",
+                    "value": "1"
+                },
+                {
+                    "path": "fillTrack",
+                    "value": "true"
+                },
+                {
+                    "path": "fillColor\/R",
+                    "value": "8"
+                },
+                {
+                    "path": "fillColor\/G",
+                    "value": "235"
+                },
+                {
+                    "path": "fillColor\/B",
+                    "value": "223"
+                },
+                {
+                    "path": "fillColor\/A",
+                    "value": "156"
+                },
                 {
                     "path": "size\/x",
                     "value": "217"

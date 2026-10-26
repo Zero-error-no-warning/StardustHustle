@@ -66,9 +66,13 @@ export void init(){
             auto firePoint = self.part("firePointSMG");
             auto physicsSpace = scenes.MainCanvas.physicsSpace;
             auto bullet = physicsSpace.newExternalScene("./sceneItem/bullet.zscene".assetPath());
+            auto effect = self.newExternalScene("./sceneItem/fireEffect.zscene".assetPath());
+            effect.p = firePoint.p;
             bullet.p = firePoint.p;
             bullet.a = self.a;
             bullet.findScene("SMG").setPhysicsVelocity(Vec3(Vec2(1000,0).rot(bullet.a),0));
+            auto fireSound = scenes.MainCanvas.sound.gunfire;
+            fireSound.play();
         }
     };
     weapon["handgun"] = (){
@@ -81,12 +85,19 @@ export void init(){
             auto firePoint = self.part("firePointSMG");
             auto physicsSpace = scenes.MainCanvas.physicsSpace;
             auto bullet = physicsSpace.newExternalScene("./sceneItem/bullet.zscene".assetPath());
+            auto effect = self.newExternalScene("./sceneItem/fireEffect.zscene".assetPath());
+            effect.p = firePoint.p;
+            
             bullet.p = firePoint.p;
             bullet.a = self.a;
             bullet.findScene("SMG").setPhysicsVelocity(Vec3(Vec2(1000,0).rot(bullet.a),0));
             auto fireSound = scenes.MainCanvas.sound.gunfire;
             fireSound.play();
         }
+    };
+    weapon["none"] = (){
+        self.clearMorphParts("Torso");
+        stand.morphParts("ArmR",stand.motionIndex("idle"),0.3);
     };
     weapon.changeState("handgun");
 }

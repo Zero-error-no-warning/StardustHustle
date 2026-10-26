@@ -13,6 +13,7 @@ export void update(){
             removePhysicsBody(self);
             stopped = true;
             self.glow = 0.5;
+            self.newExternalScene("./impactEffect.zscene".assetPath());
             break;
         }
     }

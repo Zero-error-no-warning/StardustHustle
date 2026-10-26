@@ -1,6 +1,5 @@
 // Sceneごとの状態: instance int count = 0;
 // selfはこのコードを割り当てたSceneです。
-import ui;
 import scenes;
 
 import "./database/itemData.dua" as idata;
@@ -23,13 +22,13 @@ export ItemState[idata.EquipSlot] equipItemList = [
 
 auto ItemLists = {
     main = [
-        ItemState{ id = 1, itemID = "knife_001", count = 1, name = "ナイフ", modifier = [] , datetime = null, InstalledPartIDs = [:], gunState = null},
-        ItemState{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃", modifier = [] , datetime = null, InstalledPartIDs = [:] , gunState = GunState{loadedAmmo = 16}},
-        ItemState{ id = 5, itemID = "SMGAmmo", count = 100, name = "SMG弾", modifier = [] , datetime = null, InstalledPartIDs = [:],gunState = null },
+        ItemState{ id = 1, itemID = "knife_001", count = 1, name = "ナイフ",  datetime = null,},
+        ItemState{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃" , datetime = null , gunState = GunState{loadedAmmo = 16}},
+        ItemState{ id = 5, itemID = "SMGAmmo", count = 100, name = "SMG弾" , datetime = null},
     ],
     pocket= [
-        ItemState{ id = 4, itemID = "bandage", count = 5, name = "", modifier = [] , datetime = null, InstalledPartIDs = [:], gunState = null },
-        ItemState{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2", modifier = [] , datetime = null, InstalledPartIDs = [:], gunState = null },
+        ItemState{ id = 4, itemID = "bandage", count = 5, name = "" , datetime = null, },
+        ItemState{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2" , datetime = null, },
     ],
 };
 
@@ -70,7 +69,20 @@ ItemState selectedItem = null;
 alias ItemListNames = "main" | "pocket" | "";
 ItemListNames selectedListName = "";
 
-
+auto itemFilterCombo = null;
+alias ItemFilterComboTypes = idata.ItemType | "all";
+ItemFilterComboTypes[string] itemTypeComboText = [
+    "すべて" : "all",
+    "近接武器" : "weapon_melee",
+    "遠距離武器" : "weapon_ranged",
+    "銃パーツ" : "gun_parts",
+    "魔法石" : "magic_stone",
+    "弾" : "ammo",
+    "食料" : "food",
+    "防具" : "armor",
+    "回復" : "medicine",
+    "その他" : "misc",
+];
 export auto sharedVar = {
     currentModel = "",
 };
@@ -92,7 +104,17 @@ export void init(){
     self.editThemeBase(base);
 
     ComboBox viewDataTypeCombo = scenes.inventoryUI.findScene("viewDataTypeCombo");
-    viewDataTypeCombo.richContents = [styled("数量"),styled("嵩張",Ruby("かさば"))~"り",styled("入手順")];
+    viewDataTypeCombo.contents = 
+    ["数量",
+    "かさばり",
+    "入手順",
+    "攻撃力 鋭",
+    "攻撃力 硬",
+    "防御力 柔",
+    "防御力 堅",
+    "回復",
+    "満腹度",
+    ];
 
     viewDataTypeCombo.onSelected = (long idx){
         switch(idx){
@@ -191,6 +213,7 @@ export void init(){
             window.close();
         };
         window.panel.itemoMoveWindowCancel.onClick = (Button b){
+        scenes.inventoryUI.mainPanel.enabled = true;
             window.close();
         };
     };
@@ -198,6 +221,10 @@ export void init(){
     window.onClose = (){
         scenes.inventoryUI.mainPanel.enabled = true;
     };
+
+    itemFilterCombo = scenes.inventoryUI.findScene("itemFilterCombo");
+    itemFilterCombo.contents = itemTypeComboText.keys();
+    itemFilterCombo.caption = "種類";
 }
 
  auto onInventoryClick = (string listName, long idx){
@@ -255,9 +282,9 @@ export double calcCapacity(ItemState[] items){
     auto totalSize = 0.0;
     foreach(item ; items){
         auto itemdata = itemDatabase[item.itemID];
-        auto weight = itemdata.commonStats.weight;
         auto count = item.count;
-        auto size = itemdata.commonStats.size;
+        auto weight = idata.getActualWeight(item);
+        auto size = idata.getActualSize(item);
         messyCap += count * sqrt(weight*weight + size*size)*100;
         totalWeight += count * weight;
         totalSize += count * size;
@@ -275,13 +302,17 @@ export void finalize(){
 
 
 export void update(){
-    auto itemViewer = (any item){
+    auto itemViewer = (ItemState item){
                 return styled(atlas.addTexture(itemDatabase[item.itemID].icon.assetPath()),Vec2(0,0)).height(height)
                         ~ (styled(" " ~ item.getName()).color(Color(150,240,255,255))
                         ~ styled(" " ~ itemDataView(item)).color(Color(100,240,190,255))).height(height*0.9).font(font);
             };
+    auto itemSort = (ItemState a, ItemState b){
+        
+    };
     foreach(key,list;InventoryLists){
-        list.richContents = ItemLists[key].map(itemViewer);
+        list.richContents = ItemLists[key].filter((ItemState item)=>
+        itemFilterCombo.selectedText == "" || itemFilterCombo.selectedText == "すべて" || itemDatabase[item.itemID].type == itemTypeComboText[itemFilterCombo.selectedText] ).quickSort(itemSort).map(itemViewer);
     }   
     
     auto mainCapacityScroll = scenes.inventoryUI.findScene("mainCapacityScroll");
@@ -367,7 +398,7 @@ export void holdItem(ItemState item,string listName){
     if(!item ) return;
 
     auto itemData = itemDatabase[item.itemID];
-    if(!itemData.holdable) return;
+    if(itemData.equipSlot != "weapon") return;
 
     foreach(key,list;InventoryLists){
         list.enabled = false;
