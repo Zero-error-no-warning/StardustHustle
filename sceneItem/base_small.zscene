@@ -1,5 +1,5 @@
 {
-    "name": "untitled",
+    "name": "base_small",
     "nodes": [
         {
             "action": {
@@ -142,59 +142,6 @@
             "x": 487.66046272902804,
             "y": 407.038701979027167,
             "z": 120.0
-        },
-        {
-            "action": {
-                "function": "init"
-            },
-            "assetPath": "",
-            "centerX": 0.0,
-            "centerY": 0.0,
-            "condition": {
-                "function": ""
-            },
-            "enabled": false,
-            "height": 480.0,
-            "id": "0de9df42-2513-4549-afc1-4c72bdcbf2d2",
-            "kind": "doOnce",
-            "light": {
-                "alpha": 255.0,
-                "blue": 255.0,
-                "decay": 1.0,
-                "directionX": 0.0,
-                "directionY": 0.0,
-                "directionZ": -1.0,
-                "fog": 0.0,
-                "green": 255.0,
-                "pitch": 0.0,
-                "power": 1.0,
-                "quality": 0.900000000000000022,
-                "r": 100.0,
-                "red": 255.0,
-                "roll": 0.0,
-                "shadowLength": 10000.0,
-                "sizeX": 30.0,
-                "sizeY": 30.0,
-                "spreadX": 1.0,
-                "spreadY": 1.0,
-                "targetX": 0.0,
-                "targetY": 0.0,
-                "targetZ": 0.0,
-                "yaw": 0.0
-            },
-            "lightType": "PointLight",
-            "name": "doOnce",
-            "parentId": "57f28d44-2525-4cbe-acdc-dc70c4a874bb",
-            "pers": 0.0,
-            "phase": "normal",
-            "projection": "None",
-            "properties": [],
-            "scale": 1.0,
-            "scriptModule": "",
-            "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
         },
         {
             "action": {
@@ -353,7 +300,7 @@
             "angle": 0.0,
             "centerX": 0.5,
             "centerY": 0.5,
-            "x": 705.139206066918291,
+            "x": 705.139206066918405,
             "y": 435.269866751354868,
             "zoom": 1.000000000000006
         },

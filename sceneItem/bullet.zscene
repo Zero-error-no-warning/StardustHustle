@@ -41,7 +41,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "SMG",
+            "name": "bulletPhysics",
             "parentId": "",
             "pers": 0.0,
             "phase": "normal",
@@ -196,13 +196,37 @@
                 {
                     "path": "color\/v_a",
                     "value": "255"
+                },
+                {
+                    "path": "isVisible",
+                    "value": "true"
+                },
+                {
+                    "path": "glow",
+                    "value": "1"
+                },
+                {
+                    "path": "color\/v_r",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_g",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_b",
+                    "value": "255"
+                },
+                {
+                    "path": "color\/v_a",
+                    "value": "255"
                 }
             ],
             "scale": 1.0,
-            "scriptModule": "script.bullet_SMG",
+            "scriptModule": "",
             "width": 640.0,
-            "x": 0.0,
-            "y": 0.0,
+            "x": -3.0,
+            "y": 5.0,
             "z": 0.0
         },
         {
@@ -245,7 +269,7 @@
                 "yaw": 0.0
             },
             "lightType": "PointLight",
-            "name": "particleEffect",
+            "name": "impactEffect",
             "parentId": "cadd07c7-7404-454c-9faf-d97d63f34d9c",
             "pers": 0.0,
             "phase": "normal",
@@ -398,6 +422,14 @@
                 {
                     "path": "velocityRandom\/x",
                     "value": "-80"
+                },
+                {
+                    "path": "autoExit",
+                    "value": "false"
+                },
+                {
+                    "path": "autoPlayMode",
+                    "value": "Manual"
                 }
             ],
             "scale": 1.0,
@@ -448,7 +480,7 @@
             },
             "lightType": "PointLight",
             "name": "doAlways",
-            "parentId": "cadd07c7-7404-454c-9faf-d97d63f34d9c",
+            "parentId": "",
             "pers": 0.0,
             "phase": "normal",
             "projection": "None",
@@ -486,7 +518,13 @@
         },
         "enabled": true
     },
-    "scriptModule": "",
+    "reuse": {
+        "acquireFunction": "acquired",
+        "enabled": true,
+        "maxIdle": 32,
+        "releaseFunction": "returned"
+    },
+    "scriptModule": "script.bullet",
     "version": 2,
     "windowSize": {
         "height": 480,

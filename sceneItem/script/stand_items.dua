@@ -25,8 +25,8 @@ export void init(){
     auto WeaponState = self.stateMachine("WeaponState");
     auto v = 0.0;
     auto particle = scenes.particleEffect;
-    auto diff0 = 75.;
-    Character chara = null;
+    auto diff0 = 100.;
+    Character weaponModel = null;
     WeaponState["CatchStart"] = (){
         _isReady = false;
         foreach(sub;self.subs){
@@ -37,34 +37,33 @@ export void init(){
         auto weapon = iModule.equipItemList["weapon"];
         auto asset = iModule.itemAssets[idata.getModel(weapon)];
         auto canvas = self.targetCanvas();
-        chara = asset.spawn(canvas);
-        chara.scale = 0.5;
-        auto dx = chara.part("modelCenter").p-chara.p;
-        idata.setWeaponVariant(weapon,chara);
+        weaponModel = asset.spawn(canvas);
+        auto dx = weaponModel.part("modelCenter").p-weaponModel.p;
+        idata.setWeaponVariant(weapon,weaponModel);
         
-        chara.p = player.p + Vec2(0,-diff0)-dx;
-        chara.z = 50;
-        particle.p = chara.part("modelCenter").p;
-        particle.z = chara.z  + 50;
+        weaponModel.p = player.p + Vec2(0,-diff0)-dx;
+        weaponModel.z = 50;
+        particle.p = weaponModel.part("modelCenter").p;
+        particle.z = weaponModel.z  + 50;
         v = 0;
         WeaponState.changeState("Catching");
     };
     WeaponState["Catching"] = (){
-        auto diff = player.part("右手").p.y - chara.p.y;
+        auto diff = player.part("右手").p.y - weaponModel.p.y;
         particle.endColor = particle.endColor *Color(64,64,64,255);
         particle.emit(diff/diff0*50);
         v += 5.*self.dt;
         player.clearMorphParts("ArmR",0.0);
         player.morph("catchItem",0.3);
-        chara.p.y = chara.p.y + v;
-        if(player.part("右手").p.y <= chara.p.y) WeaponState.changeState("Caught");
+        weaponModel.p.y = weaponModel.p.y + v;
+        if(player.part("右手").p.y <= weaponModel.p.y) WeaponState.changeState("Caught");
     };
     WeaponState["Caught"] = (){
         _isReady = true;
         player.morph("caughtItem",0.3);
-        self.addSubScene(chara);
-        chara.lz = 50;
-        chara.lp = Vec2(0,0 );
+        self.addSubScene(weaponModel);
+        weaponModel.lz = 50;
+        weaponModel.lp = Vec2(0,0 );
         auto iModule = inventory.findScene("inventoryUI").sceneModule();
         auto weapon = iModule.equipItemList["weapon"];
         auto hand = iModule.equipItemList["none"];
@@ -73,6 +72,10 @@ export void init(){
             auto wdata = idatabase[weapon.itemID];
             if(wdata.tag == "handgun"){
                 WeaponState.changeState("Got_Onehand_ranged");
+                return;
+            }
+            if(wdata.tag == "smg"){
+                WeaponState.changeState("Got_Twohand_ranged");
                 return;
             }
         }
@@ -89,21 +92,58 @@ export void init(){
         self.z = rightHand.z;
         self.firstTime(recoilTime > 0.,(){
             player.clearMorphParts("ArmR");
-            player.morphPartsTimed("ArmR","onehandGunRecoil",recoilTime,0.01);
+            player.clearMorphParts("ArmL");
+            player.morphPartsTimed("ArmR","recoilOnehandGun",recoilTime,0.01);
+
+            weaponModel.play(weaponModel.motionIndex("fire"),1);
             
-            auto effect = chara.newExternalScene("./fireEffect.zscene".assetPath());
-            effect.p = chara.part("firepoint0").p;
-            effect.scale = 2;
         });
         if(recoilTime > 0.){
             recoilTime -= self.dt;
         }
         else{
-            player.morphParts("ArmR","onehandGun",0.3);
+            player.clearMorphParts("ArmR");
+            player.clearMorphParts("ArmL");
+            player.morphParts("ArmR","onehandGun",0.1);
         }
         
     };
+    WeaponState["Got_Twohand_ranged"] = (){
+        self.p = rightHand.p;
+        self.a = rightHand.a ;
+        self.z = rightHand.z;
+        
+        self.firstTime(recoilTime > 0.,(){
+            player.clearMorphParts("ArmR");
+            player.clearMorphParts("ArmL");
+            player.morphPartsTimed("ArmR","recoilTwohandGun",recoilTime,0.01);
+            player.morphPartsTimed("ArmL","recoilTwohandGun",recoilTime,0.01);
+
+            weaponModel.play(weaponModel.motionIndex("fire"),1);
+        });
+        if(recoilTime > 0.){
+            recoilTime -= self.dt;
+        }
+        else{
+            player.clearMorphParts("ArmR");
+            player.clearMorphParts("ArmL");
+            player.morphParts("ArmL","twohandGun",0.1);
+            player.morphParts("ArmR","twohandGun",0.1);
+        }
+    };
     WeaponState.changeState("None");
+
+    self.doAlways((){
+        if(onFire){
+            onFire = false;
+            auto fireEffect = weaponModel.newExternalScene("./fireEffect.zscene".assetPath());
+            fireEffect.p = weaponModel.part("firepoint0").p;
+            fireEffect.scale = 2;
+            auto shellEffect = weaponModel.newExternalScene("./shellEffect.zscene".assetPath());
+            shellEffect.p = weaponModel.part("shellPoint").p;
+            shellEffect.scale = 1;
+        }
+    });
 }
 export void updateModel(){
     self.stateMachine("WeaponState").changeState("CatchStart");    
@@ -111,10 +151,12 @@ export void updateModel(){
 export void update(){
 }
 
-export void equipAnimation(Character chara){
+export void equipAnimation(Character weaponModel){
     
 }
 double recoilTime = 0.;
+bool onFire = false;
 export void fire(double recoilTime_){
     recoilTime = recoilTime_;
+    onFire = true;
 }

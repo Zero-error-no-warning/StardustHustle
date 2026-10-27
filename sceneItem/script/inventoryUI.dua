@@ -23,11 +23,12 @@ export ItemState[idata.EquipSlot] equipItemList = [
 auto ItemLists = {
     main = [
         ItemState{ id = 1, itemID = "knife_001", count = 1, name = "ナイフ",  datetime = null,},
-        ItemState{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃" , datetime = null , gunState = GunState{loadedAmmo = 16}},
+        ItemState{ id = 2, itemID = "handgun_A", count = 1, name = "拳銃" , datetime = null , gunState = GunState{loadedAmmo = 6}},
         ItemState{ id = 5, itemID = "SMGAmmo", count = 100, name = "SMG弾" , datetime = null},
     ],
     pocket= [
         ItemState{ id = 4, itemID = "bandage", count = 5, name = "" , datetime = null, },
+        ItemState{ id = 2, itemID = "smg_A", count = 1, name = "SMG" , datetime = null , gunState = GunState{loadedAmmo = 999}},
         ItemState{ id = 3, itemID = "knife_001", count = 1, name = "ナイフ2" , datetime = null, },
     ],
 };

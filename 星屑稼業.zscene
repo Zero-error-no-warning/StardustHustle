@@ -778,8 +778,8 @@
             "scale": 1.0,
             "scriptModule": "",
             "width": 640.0,
-            "x": -30.8807498167619094,
-            "y": 57.3916600792320537,
+            "x": -30.8807498167619059,
+            "y": 57.3916600792320466,
             "z": 0.0
         },
         {
@@ -2399,6 +2399,12 @@
             "z": 0.0
         },
         "enabled": false
+    },
+    "reuse": {
+        "acquireFunction": "",
+        "enabled": false,
+        "maxIdle": 32,
+        "releaseFunction": ""
     },
     "scriptModule": "",
     "version": 2,

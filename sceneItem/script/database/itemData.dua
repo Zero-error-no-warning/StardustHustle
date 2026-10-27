@@ -28,14 +28,20 @@ table ConsumptEffect { ConsumptEffectType type; double value; double duration; }
 table ConsumptData  {double satiety; ConsumptEffect[] effect;}
 
 export table WeaponData { 
-    double sharpDamage = 0.0;
-    double hardDamage = 0.0;
-    double fireRate = 0.0;
-    double bulletSpread = 0.0;
-    double bulletSpeed = 0.0;
-    double reloadSpeed = 0.0;
+    double sharpDamage = 0.0; // 切断ダメージ
+    double hardDamage = 0.0; // 打撃ダメージ
+    double fireRate = 0.0;  // 発射速度
+    double bulletSpread = 0.0; // 初弾の精度
+    double bulletSpeed = 0.0;  // 弾速
+    double reloadSpeed = 0.0;   // リロード速度
+    double recoil = 10.0; // 連続射撃時の精度
+    double recoilControl = 0.50; // 連続射撃時の精度
     int magazineSize = 0;
+    FireMode fireMode  = null; // 2:semi , 3:auto,  5:burst
+    ReloadMode reloadMode = null;
 }
+alias FireMode = null | "semi" | "auto" | "burst";
+alias ReloadMode = null | "magazine" | "bullet";
 
 table GunSlot { string id; GunPartsKind kind; string[] acceptTags; }
 
@@ -99,7 +105,7 @@ export ItemData[string] itemDatabase = [
             {id = "receiver", kind = "receiver", acceptTags = ["handgunA.core"]},
             {id = "barrel", kind = "barrel", acceptTags = ["handgunA.barrel"]},
             {id = "magazine", kind = "magazine", acceptTags = ["handgunA.mag.9mm"]}
-        ], specificData =  WeaponData{sharpDamage = 10.0, hardDamage = 0.1, fireRate = 1., bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 15},
+        ], specificData =  WeaponData{sharpDamage = 10.0, hardDamage = 0.1, fireRate = 1., bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 15,fireMode = "semi"},
         tag = "handgun",
     },
     "smg_A" : ItemData{
@@ -111,7 +117,7 @@ export ItemData[string] itemDatabase = [
             {id = "receiver", kind = "receiver", acceptTags = ["smgA.core"]},
             {id = "barrel", kind = "barrel", acceptTags = ["smgA.barrel"]},
             {id = "magazine", kind = "magazine", acceptTags = ["smgA.mag.9mm"]}
-        ], specificData =  WeaponData{sharpDamage = 8.0, hardDamage = 0.1, fireRate = 1.5, bulletSpread = 5.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 30},
+        ], specificData =  WeaponData{sharpDamage = 8.0, hardDamage = 0.1, fireRate = 15.0, bulletSpread = 0.0, bulletSpeed = 1000.0, reloadSpeed = 0.5, magazineSize = 30, fireMode = "auto" ,recoil = 0.1},
         tag = "smg",
     },
     "SMGAmmo": ItemData{
@@ -172,7 +178,10 @@ export WeaponData getActualWeaponData(ItemState item){
         actualData.bulletSpread += item.weaponEffect.bulletSpread;
         actualData.bulletSpeed += item.weaponEffect.bulletSpeed;
         actualData.reloadSpeed += item.weaponEffect.reloadSpeed;
+        actualData.recoil += item.weaponEffect.recoil;
         actualData.magazineSize += item.weaponEffect.magazineSize;
+        actualData.fireMode = item.weaponEffect.fireMode ? item.weaponEffect.fireMode :actualData.fireMode  ;
+        actualData.reloadMode = item.weaponEffect.reloadMode ? item.weaponEffect.reloadMode : actualData.reloadMode;
     }
     return actualData;
 }

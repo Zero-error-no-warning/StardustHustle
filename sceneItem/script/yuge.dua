@@ -9,11 +9,3 @@ export void update(){
     );
 }
 
-export void init(){
-    auto map = self.master;
-    auto eventIndex = map.eventMarkerIndex("Yuge");
-    if(eventIndex >= 0){
-        auto marker = map.events[eventIndex];
-        self.lp = map.toWorld(marker.p);
-    }
-}

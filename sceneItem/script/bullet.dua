@@ -1,0 +1,46 @@
+import scenes;
+instance auto bulletPhysics = null;
+instance auto lifetime = 1.0;
+instance bool stopped = false;
+// selfはこのシーンファイルの文書ルートです。取得ごとにこの関数だけが呼ばれます。
+export void acquired(table lease){
+    // lease.payloadから位置・方向・寿命を取り出して設定します。
+    // lease.sceneはExternalSceneノード。粒子はここでplay/emitします。
+    lifetime = 1.0;
+    stopped = false;
+    bulletPhysics = scenes.bulletPhysics;
+    bulletPhysics.setPhysicsVelocity(Vec3(lease.payload.velocity,0));
+    bulletPhysics.p = lease.payload.position;
+    bulletPhysics.a = lease.payload.angle;
+    bulletPhysics.glow = 0;
+}
+export void returned(table lease){
+    // この貸出で登録した外部イベント等を解除します。
+}
+export void finish(){
+    if(self.lease == null)return;
+    self.lease.release();
+    return;
+}
+
+
+export void update(){
+    lifetime -= self.dt;
+    if(!stopped){
+        foreach(hit; physicsCollisionEvents(bulletPhysics)){
+            if(hit.phase == CollisionPhase.end || hit.sensor)
+                continue;
+
+            bulletPhysics.setPhysicsVelocity(Vec3.Zero);
+            removePhysicsBody(bulletPhysics);
+            stopped = true;
+            bulletPhysics.glow = 0.5;
+            bulletPhysics.impactEffect.emit(24);
+            break;
+        }
+    }
+    if(lifetime < 0 ){
+        finish();
+    }
+}
+

@@ -1,0 +1,7 @@
+// この文書は単発ParticleEffectだけを所有します。
+// 子のautoExit完了後、文書と外側のExternalSceneも終了して再生scopeを解放します。
+export void update(){
+    if(findScene(self, "particleEffect") == null){
+        self.master.exit();
+    }
+}

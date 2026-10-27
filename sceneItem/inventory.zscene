@@ -8377,13 +8377,21 @@
                 {
                     "path": "color\/v_a",
                     "value": "255"
+                },
+                {
+                    "path": "screenSize\/x",
+                    "value": "90"
+                },
+                {
+                    "path": "screenSize\/y",
+                    "value": "90"
                 }
             ],
             "scale": 1.0,
             "scriptModule": "",
             "width": 180.0,
             "x": 27.7444101355746398,
-            "y": 150.168083585439575,
+            "y": 150.168083585439604,
             "z": 0.0
         },
         {
